@@ -1,0 +1,16 @@
+{
+  "home": {
+    "inspiration": {
+      "heading": "Wir wecken Räume mit Leidenschaft und Professionalität.",
+      "image": {
+        "url": "/images/sleeping-room.jpg",
+        "altText": "Some alt text",
+        "position": "right bottom"
+      },
+      "text": {
+        "title": "Unsere Kompetenzen",
+        "body": "Bei teo jakob stehen Ihnen ausgewiesene Experten in allen Bereichen rund ums Wohnen zur Verfügung. Ob Beratung zu Einrichtung, Textil, Licht, Farbe oder Innenarchitektur – Ihre Wünsche und Ideen sind unsere Inspiration."
+      }
+    }
+  }
+}

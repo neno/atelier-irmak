@@ -1,6 +1,6 @@
-/* @import url('https: //use.typekit.net/cnq3ltd.css');
-@import url('https: //fonts.googleapis.com/css?family=OpenSans');
-@import url('https: //fonts.googleapis.com/css?family=Lora');
+@import url('https://use.typekit.net/cnq3ltd.css');
+/* @import url('https://fonts.googleapis.com/css?family=OpenSans');
+@import url('https://fonts.googleapis.com/css?family=Lora');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Lora&family=Nunito&family=Playfair+Display&display=swap');
@@ -16,5 +16,5 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'ivymode', sans-serif;
 }

@@ -1,11 +1,12 @@
+import { Module } from '@components/layout/Module';
 import clsxm from 'lib/clsxm';
 import Image from 'next/image';
 import styles from './Hero.module.css';
 
 export const Hero = () => {
   return (
-    <div className='container px-2 3xl:mx-0'>
-      <div className={clsxm('relative mb-32 md:mb-44', styles.hero)}>
+    <Module>
+      <div className={clsxm('relative', styles.hero)}>
         <div
           className={clsxm(
             styles.heroImg,
@@ -40,6 +41,6 @@ export const Hero = () => {
           </p>
         </div>
       </div>
-    </div>
+    </Module>
   );
 };
