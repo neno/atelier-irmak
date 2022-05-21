@@ -5,7 +5,7 @@ export const Logo = () => {
   const w = 70;
   const h = w * ratio;
   return (
-    <div className={`relative w-[70px] h-[51px] md:w-[100px] md:h-[73px] `}>
+    <div className='relative w-[70px] h-[51px] lg:w-[100px] lg:h-[73px] flex-none'>
       <Image
         src='/svg/atelier-irmak.svg'
         alt='Atelier Irmak Logo'
