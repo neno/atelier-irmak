@@ -4,7 +4,7 @@ import styles from './Hero.module.css';
 
 export const Hero = () => {
   return (
-    <div className='container mx-2 md:mx-4 3xl:mx-0'>
+    <div className='container px-2 3xl:mx-0'>
       <div className={clsxm('relative mb-32 md:mb-44', styles.hero)}>
         <div
           className={clsxm(
@@ -29,13 +29,16 @@ export const Hero = () => {
             styles.heroCaption,
             'bg-gradient-to-br from-dark-blue via-irmak-blue to-light-blue',
             'opacity-90',
-            'p-8 md:p-16',
-            'text-white text-xl md:text-3xl font-title leading-relaxed'
+            'p-8 xl:px-16',
+            'text-white text-xl md:text-3xl font-title leading-relaxed',
+            'flex items-center justify-content-center self-center'
           )}
         >
-          Die Referenz in Bern für Teppiche &amp; Kelims.
-          <br />
-          Seit 1985.
+          <p>
+            Die Referenz in Bern für Teppiche &amp; Kelims.
+            <br />
+            Seit 1985.
+          </p>
         </div>
       </div>
       {/* <div className='container px-2 sm:px-4 lg:px-8 xl:px-8 2xl:px-0 mb-32 md:mb-44 relative'>

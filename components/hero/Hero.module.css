@@ -1,7 +1,6 @@
 /* container grid grid-cols-[1fr_9rem_16rem] md:grid grid-cols-[1fr_24rem_16rem] */
 .hero {
   display: grid;
-  /* background: yellow; */
   grid-template-columns: 1fr 15rem 1rem;
   grid-template-rows: 1fr 4rem 6rem;
   min-height: 300px;
@@ -10,13 +9,14 @@
 @media screen and (min-width: 768px) {
   .hero {
     grid-template-columns: 1fr 22rem 4rem;
-    grid-template-rows: 1fr 8rem 6rem;
+    grid-template-rows: 1fr 7rem 3rem;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .hero {
     grid-template-columns: 1fr 38rem 4rem;
+    grid-template-rows: 1fr 8rem 4rem;
     /* grid-template-rows */
     /* grid-template-columns: 1fr 24rem 16rem; */
   }
