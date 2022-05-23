@@ -23,6 +23,15 @@
         "title": "Unsere Referenzen",
         "body": "Zahlreiche Projekte für Private, Unternehmen und im Bereich Innenarchitektur wurden von teo jakob geprägt. Mit oder ohne bauliche Massnahmen, mit ausgewählten Möbeln und individuellen Accessoires. Neugierig? Lassen Sie sich inspirieren."
       }
+    },
+    "flyingRug": {
+      "image": {
+        "url": "/images/rug2.jpg",
+        "altText": "rug1",
+        "position": "center center"
+      },
+      "heading": "Der fliegende Teppich",
+      "text": "Wie können wir in einer immer schnelllebigeren Welt nachhaltiger mit Raum umgehen? Und was sind diesbezüglich die Zukunftspläne? Mit The Red Chair sind wir vor Ort, klären auf und vernetzen."
     }
   }
 }

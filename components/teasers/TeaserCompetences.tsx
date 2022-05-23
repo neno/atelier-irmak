@@ -34,7 +34,7 @@ export const TeaserCompetences: FC<ITeaserProps> = ({
         <Module>
           {heading && (
             <header className='lg:w-[75%] mx-4 mb-8 md:mb-0 lg:mb-8 2xl:w-[62.5%]'>
-              <h2 className='text-4xl lg:text-5xl leading-tight lg:leading-tight'>
+              <h2 className='text-4xl lg:text-5xl text-dark-blue leading-tight lg:leading-tight'>
                 {heading}
               </h2>
             </header>

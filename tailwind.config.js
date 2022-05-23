@@ -12,11 +12,14 @@ module.exports = {
       },
     },
     colors: {
-      'irmak-blue': '#333D98',
-      'dark-blue': '#12184D',
-      'light-blue': '#4E5DE6',
+      'irmak-blue': '#7b1a0f',
+      'dark-blue': '#551e13',
+      'light-blue': '#6c563a',
+      // 'irmak-blue': '#333D98',
+      // 'dark-blue': '#12184D',
+      // 'light-blue': '#4E5DE6',
       gray: '#f9f7f7',
-      black: '#000000',
+      black: '#2d2d2d',
       white: '#ffffff',
     },
     fontFamily: {

@@ -1,4 +1,3 @@
-import { Module } from '@components/layout/Module';
 import { FC } from 'react';
 import Image from 'next/image';
 interface ITeaserProps {
@@ -24,7 +23,7 @@ export const TeaserReferences: FC<ITeaserProps> = ({
       <div className='md:grid md:grid-cols-8 pb-24 overflow-hidden'>
         {heading && (
           <header className='md:col-span-7 lg:col-span-6 mx-4 mb-8'>
-            <h2 className='text-4xl lg:text-5xl leading-tight lg:leading-tight'>
+            <h2 className='text-4xl lg:text-5xl text-dark-blue leading-tight lg:leading-tight'>
               {heading}
             </h2>
           </header>

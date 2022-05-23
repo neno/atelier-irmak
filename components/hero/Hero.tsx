@@ -30,7 +30,7 @@ export const Hero = () => {
           'opacity-90',
           'p-8 lg:p-8 2xl:p-16',
           // 'p-6',
-          'text-white text-xl lg:text-3xl font-title leading-relaxed',
+          'text-white text-xl lg:text-3xl font-title leading-relaxed lg:leading-tight',
           'flex items-center justify-content-center self-center'
         )}
       >
