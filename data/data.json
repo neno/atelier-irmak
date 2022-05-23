@@ -1,6 +1,6 @@
 {
   "home": {
-    "inspiration": {
+    "competences": {
       "heading": "Wir wecken Räume mit Leidenschaft und Professionalität.",
       "image": {
         "url": "/images/sleeping-room.jpg",
@@ -10,6 +10,18 @@
       "text": {
         "title": "Unsere Kompetenzen",
         "body": "Bei teo jakob stehen Ihnen ausgewiesene Experten in allen Bereichen rund ums Wohnen zur Verfügung. Ob Beratung zu Einrichtung, Textil, Licht, Farbe oder Innenarchitektur – Ihre Wünsche und Ideen sind unsere Inspiration."
+      }
+    },
+    "references": {
+      "heading": "Wir schaffen Räume mit Atmosphäre und Charakter.",
+      "image": {
+        "url": "/images/teppich-sofa-tisch.jpg",
+        "altText": "Some alt text",
+        "position": "right bottom"
+      },
+      "text": {
+        "title": "Unsere Referenzen",
+        "body": "Zahlreiche Projekte für Private, Unternehmen und im Bereich Innenarchitektur wurden von teo jakob geprägt. Mit oder ohne bauliche Massnahmen, mit ausgewählten Möbeln und individuellen Accessoires. Neugierig? Lassen Sie sich inspirieren."
       }
     }
   }

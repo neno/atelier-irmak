@@ -1,11 +1,8 @@
 import { Module } from '@components/layout/Module';
-import clsxm from 'lib/clsxm';
-import Image from 'next/image';
 import { FC } from 'react';
-
+import Image from 'next/image';
 interface ITeaserProps {
   heading?: string;
-  backgroundColor?: string;
   text: {
     title?: string;
     body?: string;
@@ -23,40 +20,34 @@ export const TeaserReferences: FC<ITeaserProps> = ({
   image,
 }) => {
   return (
-    <div className='w-full relative mb-24 bg-gray content-["*"] before:block before:absolute before:top-[50%] before:left-0 before:bg-white before:h-[100%] before:w-[50%] z-1 overflow-hidden'>
-      <Module>
-        <div className='grid grid-cols-8 pt-16 relative z-2'>
-          {heading && (
-            <>
-              <div className='col-span-6'>
-                <header className='section-heading my-8'>
-                  <h2 className='text-5xl leading-tight'>{heading}</h2>
-                </header>
-              </div>
-            </>
-          )}
-          <div className='col-span-2'></div>
-          <div className='col-span-3 pr-8 flex flex-col justify-end'>
-            <div>
-              {text?.title && (
-                <h2 className='text-4xl mb-8 leading-tight'>{text?.title}</h2>
-              )}
-              {text?.body && <p>{text?.body}</p>}
-            </div>
-          </div>
-
-          <div className='col-span-5 relative aspect-[4/3] bg-dark-blue'>
-            <Image
-              src={image.url}
-              className=''
-              alt={image.altText}
-              layout='fill'
-              objectFit='cover'
-              objectPosition={image.position}
-            />
-          </div>
+    <div className='container mx-auto pb-12 md:pt-12'>
+      <div className='md:grid md:grid-cols-8 pb-24 overflow-hidden'>
+        {heading && (
+          <header className='md:col-span-7 lg:col-span-6 mx-4 mb-8'>
+            <h2 className='text-4xl lg:text-5xl leading-tight lg:leading-tight'>
+              {heading}
+            </h2>
+          </header>
+        )}
+        <div className='md:col-span-4 lg:col-span-5 relative aspect-[4/3] md:aspect-square lg:aspect-[4/3]'>
+          <Image
+            src={image.url}
+            className=''
+            alt={image.altText}
+            layout='fill'
+            objectFit='cover'
+            objectPosition={image.position}
+          />
         </div>
-      </Module>
+        <div className='relative md:col-span-4 lg:col-span-3 py-8 md:px-8 md:py-0 flex flex-col justify-end '>
+          {text?.title && (
+            <h2 className='text-3xl lg:text-4xl mb-8 leading-tight lg:leading-tight'>
+              {text?.title}
+            </h2>
+          )}
+          {text?.body && <p>{text?.body}</p>}
+        </div>
+      </div>
     </div>
   );
 };
