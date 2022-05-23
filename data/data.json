@@ -12,7 +12,7 @@
         "body": "Bei teo jakob stehen Ihnen ausgewiesene Experten in allen Bereichen rund ums Wohnen zur Verfügung. Ob Beratung zu Einrichtung, Textil, Licht, Farbe oder Innenarchitektur – Ihre Wünsche und Ideen sind unsere Inspiration."
       }
     },
-    "references": {
+    "referenceTeaser": {
       "heading": "Wir schaffen Räume mit Atmosphäre und Charakter.",
       "image": {
         "url": "/images/teppich-sofa-tisch.jpg",
@@ -26,12 +26,38 @@
     },
     "flyingRug": {
       "image": {
-        "url": "/images/rug2.jpg",
+        "url": "/images/rug1.jpg",
         "altText": "rug1",
         "position": "center center"
       },
       "heading": "Der fliegende Teppich",
       "text": "Wie können wir in einer immer schnelllebigeren Welt nachhaltiger mit Raum umgehen? Und was sind diesbezüglich die Zukunftspläne? Mit The Red Chair sind wir vor Ort, klären auf und vernetzen."
-    }
+    },
+    "references": [
+      {
+        "title": "Hotel Empfang",
+        "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt modi minus dicta laborum itaque impedit! Voluptate odit doloribus temporibus nobis explicabo rem, animi doloremque voluptatem sed reprehenderit id quisquam dolor.",
+        "image": {
+          "url": "/images/ref1.jpg",
+          "altText": "Ref 1"
+        }
+      },
+      {
+        "title": "Ein Studio",
+        "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt modi minus dicta laborum itaque impedit! Voluptate odit doloribus temporibus nobis explicabo rem.",
+        "image": {
+          "url": "/images/ref2.jpg",
+          "altText": "Ref 2"
+        }
+      },
+      {
+        "title": "Repräsentatives Wohnzimmer",
+        "text": "Incidunt modi minus dicta laborum itaque impedit! Voluptate odit doloribus temporibus nobis explicabo rem, animi doloremque voluptatem sed reprehenderit id quisquam dolor.",
+        "image": {
+          "url": "/images/ref3.jpg",
+          "altText": "Ref 3"
+        }
+      }
+    ]
   }
 }

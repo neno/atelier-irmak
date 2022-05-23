@@ -4,7 +4,8 @@ import { TeaserCompetences } from '@components/teasers/TeaserCompetences';
 import data from '../data/data.json';
 import { TeaserReferences } from '@components/teasers/TeaserReferences';
 import { Grid } from '@components/grid/Grid';
-import { TeaserRug } from '@components/teasers/TeaserRug';
+import { TeaserMonthly } from '@components/teasers/TeaserMonthly';
+import { References } from '@components/references/References';
 
 const Home: NextPage = () => {
   return (
@@ -17,11 +18,12 @@ const Home: NextPage = () => {
         text={data.home.competences.text}
       />
       <TeaserReferences
-        heading={data.home.references.heading}
-        image={data.home.references.image}
-        text={data.home.references.text}
+        heading={data.home.referenceTeaser.heading}
+        image={data.home.referenceTeaser.image}
+        text={data.home.referenceTeaser.text}
       />
-      <TeaserRug
+      <References references={data.home.references} />
+      <TeaserMonthly
         heading={data.home.flyingRug.heading}
         image={data.home.flyingRug.image}
         text={data.home.flyingRug.text}

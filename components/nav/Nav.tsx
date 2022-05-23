@@ -3,7 +3,7 @@ import Link from 'next/link';
 export const Nav = () => {
   return (
     <nav className='invisible md:visible'>
-      <ul className='list-none flex font-title'>
+      <ul className='list-none flex font-title text-2xl'>
         <li>
           <Link href='/inspiration'>
             <a className='p-4'>Inspiration</a>

@@ -8,12 +8,10 @@ interface ILayoutProps {
 
 export const Layout: FC<ILayoutProps> = ({ children }) => {
   return (
-    <>
+    <div className='text-black bg-white text-base md:text-base lg:text-lg xl:text-xl 2xl:text-2xl leading-loose font-light'>
       <Header />
-      <main className='text-black bg-white text-base md:text-base lg:text-lg xl:text-xl 2xl:text-2xl leading-loose font-light'>
-        {children}
-      </main>
+      <main>{children}</main>
       <Footer />
-    </>
+    </div>
   );
 };

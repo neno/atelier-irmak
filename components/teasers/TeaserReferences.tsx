@@ -31,7 +31,6 @@ export const TeaserReferences: FC<ITeaserProps> = ({
         <div className='md:col-span-4 lg:col-span-5 relative aspect-[4/3] md:aspect-square lg:aspect-[4/3]'>
           <Image
             src={image.url}
-            className=''
             alt={image.altText}
             layout='fill'
             objectFit='cover'
