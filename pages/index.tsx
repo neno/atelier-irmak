@@ -3,7 +3,6 @@ import { Hero } from '@components/hero/Hero';
 import { TeaserCompetences } from '@components/teasers/TeaserCompetences';
 import data from '../data/data.json';
 import { TeaserReferences } from '@components/teasers/TeaserReferences';
-import { Grid } from '@components/grid/Grid';
 import { TeaserMonthly } from '@components/teasers/TeaserMonthly';
 import { References } from '@components/references/References';
 

@@ -32,8 +32,10 @@ export const References: FC<IReferencesProps> = ({ references }) => {
               />
             </div>
             <div className='p-4'>
-              <h3 className='py-4 text-2xl'>{reference.title}</h3>
-              <div>{reference.text}</div>
+              <h3 className='py-4 text-2xl text-irmak-blue'>
+                {reference.title}
+              </h3>
+              <div className='text-light-blue'>{reference.text}</div>
             </div>
           </div>
         ))}

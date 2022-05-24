@@ -34,7 +34,7 @@ export const TeaserCompetences: FC<ITeaserProps> = ({
         <Module>
           {heading && (
             <header className='lg:w-[75%] mx-4 mb-8 md:mb-0 lg:mb-8 2xl:w-[62.5%]'>
-              <h2 className='text-4xl lg:text-5xl text-dark-blue leading-tight lg:leading-tight'>
+              <h2 className='text-4xl lg:text-5xl text-irmak-blue leading-tight lg:leading-tight'>
                 {heading}
               </h2>
             </header>
@@ -59,11 +59,13 @@ export const TeaserCompetences: FC<ITeaserProps> = ({
               className={clsxm(styles.teaserText, 'flex flex-col justify-end')}
             >
               {text?.title && (
-                <h2 className='text-3xl lg:text-4xl p-4 pt-8 md:pt-4 leading-tight lg:leading-tight'>
+                <h2 className='text-irmak-blue text-3xl lg:text-4xl p-4 pt-8 md:pt-4 leading-tight lg:leading-tight'>
                   {text?.title}
                 </h2>
               )}
-              {text?.body && <p className='p-4 md:pb-0 l'>{text?.body}</p>}
+              {text?.body && (
+                <p className='p-4 md:pb-0 text-light-blue'>{text?.body}</p>
+              )}
             </div>
           </div>
         </Module>

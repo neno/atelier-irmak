@@ -26,12 +26,15 @@
     },
     "flyingRug": {
       "image": {
-        "url": "/images/rug1.jpg",
+        "url": "/images/outdoor.jpg",
         "altText": "rug1",
         "position": "center center"
       },
       "heading": "Der fliegende Teppich",
-      "text": "Wie können wir in einer immer schnelllebigeren Welt nachhaltiger mit Raum umgehen? Und was sind diesbezüglich die Zukunftspläne? Mit The Red Chair sind wir vor Ort, klären auf und vernetzen."
+      "text": {
+        "title": "Unser Teppich des Monats",
+        "body": "Wie können wir in einer immer schnelllebigeren Welt nachhaltiger mit Raum umgehen? Und was sind diesbezüglich die Zukunftspläne? Mit The Red Chair sind wir vor Ort, klären auf und vernetzen. Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quisquam in, facilis perspiciatis distinctio voluptatibus consequatur qui quis ipsum tempore, quidem eius, nisi rerum vero placeat. Totam corrupti quasi consectetur?"
+      }
     },
     "references": [
       {

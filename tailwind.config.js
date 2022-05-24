@@ -19,6 +19,7 @@ module.exports = {
       // 'irmak-blue': '#333D98',
       // 'dark-blue': '#12184D',
       // 'light-blue': '#4E5DE6',
+      // light: '#939BE5',
       gray: '#f9f7f7',
       black: '#2d2d2d',
       white: '#ffffff',
