@@ -23,7 +23,7 @@ export const TeaserReferences: FC<ITeaserProps> = ({
       <div className='md:grid md:grid-cols-8 pb-24 overflow-hidden'>
         {heading && (
           <header className='md:col-span-7 lg:col-span-6 mx-4 mb-8'>
-            <h2 className='text-4xl lg:text-5xl text-irmak-blue leading-tight lg:leading-tight'>
+            <h2 className='text-4xl lg:text-5xl text-primary leading-tight lg:leading-tight'>
               {heading}
             </h2>
           </header>
@@ -39,11 +39,11 @@ export const TeaserReferences: FC<ITeaserProps> = ({
         </div>
         <div className='relative md:col-span-4 lg:col-span-3 py-8 md:px-8 md:py-0 flex flex-col justify-end '>
           {text?.title && (
-            <h2 className='text-irmak-blue text-3xl lg:text-4xl mb-8 leading-tight lg:leading-tight'>
+            <h2 className='text-primary text-3xl lg:text-4xl mb-8 leading-tight lg:leading-tight'>
               {text?.title}
             </h2>
           )}
-          {text?.body && <p className='text-light-blue'>{text?.body}</p>}
+          {text?.body && <p>{text?.body}</p>}
         </div>
       </div>
     </div>

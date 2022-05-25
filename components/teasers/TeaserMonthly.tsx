@@ -23,7 +23,7 @@ export const TeaserMonthly: FC<ITeaserMonthlyProps> = ({
     <div className='w-full bg-gray pt-12 mt-12'>
       <div className='container mx-auto grid'>
         <header className='md:col-span-7 lg:col-span-6 mx-4 mb-12'>
-          <h2 className='text-4xl lg:text-5xl text-irmak-blue leading-tight lg:leading-tight'>
+          <h2 className='text-4xl lg:text-5xl text-primary leading-tight lg:leading-tight'>
             {heading}
           </h2>
         </header>
@@ -46,7 +46,7 @@ export const TeaserMonthly: FC<ITeaserMonthlyProps> = ({
             </div>
             <div className='px-8 bg-gray flex flex-col justify-end'>
               {text?.title && (
-                <h2 className='text-irmak-blue text-3xl lg:text-4xl pb-4 leading-tight lg:leading-tight'>
+                <h2 className='text-primary text-3xl lg:text-4xl pb-4 leading-tight lg:leading-tight'>
                   {text?.title}
                 </h2>
               )}

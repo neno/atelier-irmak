@@ -2,10 +2,10 @@ import Image from 'next/image';
 
 export const Footer = () => {
   return (
-    <div className='w-full relative bg-dark-blue text-white min-h-[300px]'>
+    <div className='w-full relative bg-primary-dark text-white min-h-[300px]'>
       <div className='absolute top-0 right-0 w-[50%] h-[100%]'>
         <Image
-          src='/images/map-irmak-red.jpg'
+          src='/images/map-irmak-blue.jpg'
           alt='Karte'
           layout='fill'
           objectFit='cover'

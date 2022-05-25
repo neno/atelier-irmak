@@ -26,7 +26,7 @@ export const Hero = () => {
       <div
         className={clsxm(
           styles.heroCaption,
-          'bg-irmak-blue',
+          'bg-primary',
           'opacity-90',
           'p-8 lg:p-8 2xl:p-16',
           // 'p-6',
