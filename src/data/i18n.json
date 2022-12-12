@@ -1,0 +1,9 @@
+{
+  "name": "Name",
+  "origin": "Herkunft",
+  "size": "Grösse",
+  "age": "Alter",
+  "location": "Ausstellungsort",
+  "room": "Zimmer",
+  "placing": "Platzierung"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "atelier-irmak",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "analyze": "ANALYZE=true next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.12.1",
+    "@contentful/rich-text-types": "^15.14.1",
+    "@next/bundle-analyzer": "^13.0.5",
+    "@next/font": "^13.0.5",
+    "@tailwindcss/typography": "^0.5.8",
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.9",
+    "eslint": "8.28.0",
+    "eslint-config-next": "13.0.5",
+    "framer-motion": "^7.6.19",
+    "next": "13.0.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-slick": "^0.29.0",
+    "swiper": "^8.4.5",
+    "tailwindcss-fluid-type": "^2.0.3",
+    "typescript": "4.9.3"
+  },
+  "devDependencies": {
+    "@types/react-slick": "^0.23.10",
+    "autoprefixer": "^10.4.13",
+    "clsx": "^1.2.1",
+    "postcss": "^8.4.19",
+    "tailwind-merge": "^1.8.0",
+    "tailwindcss": "^3.2.4"
+  }
+}

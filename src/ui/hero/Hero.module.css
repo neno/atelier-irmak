@@ -1,0 +1,11 @@
+.imageWrapper {
+  @apply relative h-full col-start-1 col-end-13 md:col-start-1 md:col-end-12;
+}
+
+.textWrapper {
+  @apply absolute left-0 md:left-auto right-0 bottom-0 md:w-[24rem] lg:w-[44rem] bg-primary shadow-xl shadow-slate-500 opacity-90;
+}
+
+.title {
+  @apply p-8 lg:p-8 xl:p-12 2xl:p-16;
+}

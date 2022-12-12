@@ -1,0 +1,59 @@
+@import url('https://use.typekit.net/cnq3ltd.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply text-primary overflow-x-hidden text-base font-extralight;
+}
+
+a {
+  @apply text-primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-title font-extralight;
+}
+
+h1 {
+  @apply text-4xl;
+}
+
+h2 {
+  @apply text-4xl;
+}
+
+h3 {
+  @apply text-2xl;
+}
+
+/* figcaption {
+  @apply text-lg font-title font-extralight;
+} */
+
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-title font-extralight;
+}
+
+h2 {
+  @apply text-4xl lg:text-5xl mb-8 leading-tight;
+}
+
+h3 {
+  @apply text-3xl lg:text-4xl mb-4 leading-tight;
+}
+
+p {
+  @apply mb-4;
+} */

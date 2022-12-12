@@ -1,0 +1,8 @@
+/* .richText h2 + p {
+  @apply pl-16;
+} */
+
+.richText h2,
+.richText h3 {
+  @apply mb-4;
+}
