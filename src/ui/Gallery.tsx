@@ -12,7 +12,7 @@ export const Gallery: FC<GalleryProps> = ({ items }) => (
       {items.map(({ slug, featuredImage, title }) => (
         <li className='relative' key={slug}>
           <Card
-            path={`/reference/${slug}`}
+            path={`/referenzen/${slug}`}
             image={featuredImage}
             text={title}
           />
