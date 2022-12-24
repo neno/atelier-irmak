@@ -23,11 +23,14 @@ async function Page({ params }: { params: { slug: string } }) {
 export default Page;
 
 export async function generateStaticParams() {
-  const { pageCollection } = await fetchPageCollectionPaths();
+  const data = await fetchPageCollectionPaths();
+  const { pageCollection } = data;
 
-  const params = pageCollection.items.map(({ slug }) => ({
-    slug,
-  }));
+  if (pageCollection) {
+    const params = pageCollection.items.map(({ slug }) => ({
+      slug,
+    }));
 
-  return params;
+    return params;
+  }
 }
