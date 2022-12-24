@@ -2,9 +2,8 @@ import { fetchPageContentItemsBySlug, fetchPageCollectionPaths } from '@/api';
 import { PageContent } from '@/ui/PageContent';
 
 async function Page({ params }: { params: { slug: string } }) {
-  console.log(JSON.stringify(params));
   const pageContentItems = await fetchPageContentItemsBySlug(
-    params.slug ?? 'home'
+    params.slug ?? '/'
   );
 
   if (pageContentItems) {
@@ -23,14 +22,9 @@ async function Page({ params }: { params: { slug: string } }) {
 export default Page;
 
 export async function generateStaticParams() {
-  const data = await fetchPageCollectionPaths();
-  const { pageCollection } = data;
+  const { pageCollection } = await fetchPageCollectionPaths();
 
-  if (pageCollection) {
-    const params = pageCollection.items.map(({ slug }) => ({
-      slug,
-    }));
-
-    return params;
-  }
+  return pageCollection.items.map(({ slug }) => ({
+    slug,
+  }));
 }
