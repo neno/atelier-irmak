@@ -1,12 +1,10 @@
-import { fetchPageCollectionPaths, getReferenceBySlug } from '@/api';
+import { fetchReferenceCollectionPaths, getReferenceBySlug } from '@/api';
 import { DetailHeader } from '@/ui/DetailHeader';
 import { LeadText } from '@/ui/LeadText';
 import { RichText } from '@/ui/rich-text/RichText';
 import { Container } from '@/ui/Container';
 import { DefList } from '@/ui/DefList';
-import { Gallery } from '@/ui/Gallery';
 import { NextImage } from '@/ui/NextImage';
-import { Carousel } from '@/ui/carousel/Carousel';
 
 async function Page({ params }: { params: { slug: string } }) {
   const reference = await getReferenceBySlug(params.slug ?? '/');
@@ -74,9 +72,9 @@ async function Page({ params }: { params: { slug: string } }) {
 export default Page;
 
 export async function generateStaticParams() {
-  const { pageCollection } = await fetchPageCollectionPaths();
+  const { referenceCollection } = await fetchReferenceCollectionPaths();
 
-  return pageCollection.items.map(({ slug }) => ({
+  return referenceCollection.items.map(({ slug }) => ({
     slug,
   }));
 }

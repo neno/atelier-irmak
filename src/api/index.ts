@@ -5,6 +5,7 @@ import { pageQuery } from './graphql/page.query';
 import { getReferenceBySlugQuery } from './graphql/reference-by-slug.query';
 import { referencePathsQuery } from './graphql/reference-paths.query';
 import { INavigationItem, IPageCollectionPaths, IReference, IReferenceCollectionPaths, PageContentType } from '@/schema/types';
+import { referenceCollectionPathsQuery } from './graphql/reference-collection-paths.query';
 
 const headers = {
   Authorization: `Bearer ${process.env.CONTENTFUL_API_KEY}`,
@@ -53,6 +54,11 @@ export async function getReferenceBySlug(
 export async function fetchPageCollectionPaths(): Promise<IPageCollectionPaths> {
   const pageCollection = await fetchData(pageCollectionPathsQuery);
   return pageCollection;
+}
+
+export async function fetchReferenceCollectionPaths(): Promise<IReferenceCollectionPaths> {
+  const referenceCollection = await fetchData(referenceCollectionPathsQuery);
+  return referenceCollection;
 }
 
 export async function fetchPageContentItemsBySlug(slug: string): Promise<PageContentType[] | undefined> {

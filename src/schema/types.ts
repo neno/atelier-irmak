@@ -185,3 +185,7 @@ export interface IFeatures {
     items: IText[];
   }
 }
+
+export interface IReferenceCollectionPaths {
+  referenceCollection: ICollectionPaths;
+}
