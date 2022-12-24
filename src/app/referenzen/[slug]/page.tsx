@@ -6,8 +6,12 @@ import { Container } from '@/ui/Container';
 import { DefList } from '@/ui/DefList';
 import { NextImage } from '@/ui/NextImage';
 
-async function Page({ params }: { params: { slug: string } }) {
-  const reference = await getReferenceBySlug(params.slug ?? '/');
+async function ReferencePage({ params }: { params: { slug: string } }) {
+  if (!params.slug) {
+    return null;
+  }
+
+  const reference = await getReferenceBySlug(params.slug);
   if (!reference) {
     return null;
   }
@@ -69,12 +73,16 @@ async function Page({ params }: { params: { slug: string } }) {
   );
 }
 
-export default Page;
+export default ReferencePage;
 
-// export async function generateStaticParams() {
-//   const { referenceCollection } = await fetchReferenceCollectionPaths();
+export async function generateStaticParams() {
+  const { referenceCollection } = await fetchReferenceCollectionPaths();
 
-//   return referenceCollection.items.map(({ slug }) => ({
-//     slug,
-//   }));
-// }
+  const params = referenceCollection.items
+    .filter(({ slug }) => !!slug)
+    .map(({ slug }) => ({
+      slug,
+    }));
+  // console.log(JSON.stringify(params));
+  return params;
+}
