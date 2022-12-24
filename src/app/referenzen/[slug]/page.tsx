@@ -71,10 +71,10 @@ async function Page({ params }: { params: { slug: string } }) {
 
 export default Page;
 
-export async function generateStaticParams() {
-  const { referenceCollection } = await fetchReferenceCollectionPaths();
+// export async function generateStaticParams() {
+//   const { referenceCollection } = await fetchReferenceCollectionPaths();
 
-  return referenceCollection.items.map(({ slug }) => ({
-    slug,
-  }));
-}
+//   return referenceCollection.items.map(({ slug }) => ({
+//     slug,
+//   }));
+// }
