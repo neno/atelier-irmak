@@ -21,10 +21,10 @@ async function Page({ params }: { params: { slug: string } }) {
 
 export default Page;
 
-export async function generateStaticParams() {
-  const { pageCollection } = await fetchPageCollectionPaths();
+// export async function generateStaticParams() {
+//   const { pageCollection } = await fetchPageCollectionPaths();
 
-  return pageCollection.items.map(({ slug }) => ({
-    slug,
-  }));
-}
+//   return pageCollection.items.map(({ slug }) => ({
+//     slug,
+//   }));
+// }
