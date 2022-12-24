@@ -8,10 +8,10 @@ import { TeaserImage } from '../TeaserImage';
 
 export const TeaserMonthly: FC<ITeaser> = ({ title, image, text, link }) => {
   return (
-    <div className='w-full bg-gray mb-[-64px]'>
+    <div className='w-full bg-gray'>
       <Container className='py-16'>
         <div className='grid'>
-          <header className='md:col-span-7 lg:col-span-6 mx-4'>
+          <header className='md:col-span-7 lg:col-span-6 mx-4 mb-8'>
             <Heading title={title} level={2} />
           </header>
         </div>

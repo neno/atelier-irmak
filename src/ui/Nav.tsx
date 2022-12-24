@@ -9,7 +9,7 @@ interface NavProps {
 export const Nav: FC<NavProps> = ({ items }) => {
   return (
     <nav className='invisible md:visible'>
-      <ul className='list-none flex font-title text-lg lg:text-xl xl:text-2xl'>
+      <ul className='list-none flex font-medium'>
         {items.map(({ title, page, externalUrl }) => (
           <li key={title}>
             <Link href={`${page?.slug ?? externalUrl}`} className='py-4 pl-8'>

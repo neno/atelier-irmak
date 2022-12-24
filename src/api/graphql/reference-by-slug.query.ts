@@ -1,3 +1,4 @@
+import { imageFragment } from './fragments/_image';
 import { referenceItem } from './fragments/_referenceItem';
 
 export const getReferenceBySlugQuery = (slug: string) => `
@@ -9,6 +10,11 @@ export const getReferenceBySlugQuery = (slug: string) => `
           subtitle
           excerpt
           description {json}
+          featuredImage {
+            ... on Asset {
+              ${imageFragment(960)}
+            }
+          }
           location
           room
           placing

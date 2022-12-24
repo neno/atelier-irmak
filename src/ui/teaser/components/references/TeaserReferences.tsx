@@ -9,7 +9,7 @@ import { Button } from '@/ui/Button';
 export const TeaserReferences: FC<ITeaser> = ({ title, image, text, link }) => {
   return (
     <Container>
-      <div className='md:grid md:grid-cols-8 pb-24 overflow-hidden'>
+      <div className='md:grid md:grid-cols-8 overflow-hidden'>
         <header className='md:col-span-7 lg:col-span-6 mx-4 md:mx-0 mb-8'>
           <Heading title={title} level={2} />
         </header>

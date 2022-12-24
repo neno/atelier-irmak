@@ -41,7 +41,7 @@ export async function fetchReferencePaths(): Promise<IReferenceCollectionPaths> 
 
 export async function getReferenceBySlug(
   slug: string
-): Promise<IReference> {
+): Promise<IReference | undefined> {
   const query = getReferenceBySlugQuery(slug);
   const {
     referenceCollection: { items },
@@ -59,6 +59,7 @@ export async function fetchPageContentItemsBySlug(slug: string): Promise<PageCon
   try {
     const query = pageQuery(slug);
     const data = await fetchData(query);
+    
     const { items } = data.pageCollection?.items?.[0]?.contentContainerCollection ?? [];
     return items;
   } catch (error) {

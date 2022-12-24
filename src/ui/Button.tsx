@@ -16,7 +16,7 @@ export const Button: FC<IButtonProps> = ({
   type = 'primary',
 }) => {
   const styles = clsxm('inline-block relative px-4 py-2 font-medium', {
-    'bg-primary hover:bg-primary-light text-white': type === 'primary',
+    'bg-primary text-white': type === 'primary',
   });
 
   if (path) {

@@ -19,13 +19,20 @@ export const Card: FC<CardProps> = ({
 }) => (
   <motion.figure
     className='relative flex flex-col h-full'
-    whileHover={{
-      scale: 1.05,
-      boxShadow: '0 20px 25px -5px #cbd5e1, 0 8px 10px -6px #cbd5e1',
-    }}
+    // whileHover={{
+    //   // scale: 1.05,
+    //   boxShadow: '0 20px 25px -5px #cbd5e1, 0 8px 10px -6px #cbd5e1',
+    //   transition: { default: { ease: 'linear' } },
+    // }}
   >
-    <Link href={path}>
-      <div className='aspect-square flex-0'>
+    <Link href={path} className='relative aspect-[4/3] flex-0 overflow-hidden'>
+      <motion.div
+        className='w-full h-full'
+        whileHover={{
+          scale: 1.1,
+          transition: { default: { ease: 'easeOut' } },
+        }}
+      >
         <NextImage
           src={url}
           alt={description}
@@ -34,9 +41,9 @@ export const Card: FC<CardProps> = ({
           className='w-full h-full object-cover object-bottom'
           sizes='(min-width: 640px) 30vw, (min-width: 1280px) 500px, 100vw'
         />
-      </div>
+      </motion.div>
     </Link>
-    <figcaption className='p-4 flex-1 xl:text-lg font-title font-extralight leading-tight'>
+    <figcaption className='p-4 flex-1 font-title font-light leading-tight text-primary'>
       {text}
     </figcaption>
   </motion.figure>

@@ -1,7 +1,7 @@
 type SysIdType = { id: string; };
-export type PageContentType = IHero | ITeaser | IText | ICarousel | IGallery;
+export type PageContentType = IHero | ITeaser | IText | ICarousel | IGallery | IReferenceItem | IFeatures;
 export type PageContentGuardType = {
-  __typename: 'Hero' | 'Teaser' | 'Text' | 'Carousel' | 'Gallery';
+  __typename: 'Hero' | 'Teaser' | 'Text' | 'Carousel' | 'Gallery' | 'Reference' | 'Features';
 };
 
 export interface IPage {
@@ -166,10 +166,22 @@ export interface ICarousel {
   };
 }
 
+export type BackgroundTypes = 'none' | 'light' | 'dark';
+
 export interface IGallery {
   sys: SysIdType;
   __typename: 'Gallery';
+  background: BackgroundTypes;
   itemsCollection: {
     items: IReferenceItem[];
   };
+}
+
+export interface IFeatures {
+  sys: SysIdType;
+  __typename: 'Features';
+  background: BackgroundTypes;
+  sectionsCollection: {
+    items: IText[];
+  }
 }

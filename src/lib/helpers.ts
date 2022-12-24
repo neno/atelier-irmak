@@ -21,7 +21,10 @@ export function t(key: string): string {
   return translation ?? '';
 }
 
-export function mapDataToReference(data: IReferenceQueryData): IReference {
+export function mapDataToReference(data: IReferenceQueryData): IReference | undefined {
+  if (!data) {
+    return;
+  }
   const {
     title,
     subtitle,

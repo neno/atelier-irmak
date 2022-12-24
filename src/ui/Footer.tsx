@@ -1,15 +1,17 @@
 import Image from 'next/image';
+import { NextImage } from './NextImage';
 
 export const Footer = () => {
   return (
-    <div className='w-full mt-16 relative bg-primary-dark text-white min-h-[300px]'>
+    <div className='w-full relative bg-primary-dark text-white min-h-[300px]'>
       <div className='absolute top-0 right-0 w-[50%] h-[100%]'>
-        <Image
+        <NextImage
           src='/images/map-irmak-blue.jpg'
           alt='Karte'
-          layout='fill'
-          objectFit='cover'
-          objectPosition='center center'
+          width={2598}
+          height={1748}
+          className='w-full h-full object-cover object-center'
+          sizes='50vw'
         />
       </div>
       <div className='mx-auto container grid grid-cols-2'>

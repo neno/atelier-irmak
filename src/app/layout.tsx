@@ -28,6 +28,7 @@ export default async function RootLayout({
         <Header>{items && <Nav items={items} />}</Header>
         <main>{children}</main>
         <Footer />
+        <div id='slideshow'></div>
       </body>
     </html>
   );
