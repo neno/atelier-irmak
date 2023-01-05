@@ -3,6 +3,7 @@ import {
   isCarousel,
   isFeatures,
   isGallery,
+  isGrid,
   isHero,
   isTeaser,
   isText,
@@ -14,6 +15,7 @@ import { Text } from './Text';
 import { Carousel } from './carousel/Carousel';
 import { Gallery } from './Gallery';
 import { Features } from './Features';
+import { Grid } from './grid/Grid';
 
 interface PageContentProps {
   pageContent: PageContentType;
@@ -21,7 +23,7 @@ interface PageContentProps {
 
 export const PageContent: FC<PageContentProps> = ({ pageContent }) => {
   if (isHero(pageContent)) {
-    return <Hero image={pageContent.image} title={pageContent.title} />;
+    return <Hero {...pageContent} />;
   }
   if (isTeaser(pageContent)) {
     return <Teaser {...pageContent} />;
@@ -47,9 +49,13 @@ export const PageContent: FC<PageContentProps> = ({ pageContent }) => {
     );
   }
 
+  if (isGrid(pageContent)) {
+    return <Grid {...pageContent} />;
+  }
+
   // if (isCarousel(pageContent)) {
   //   return <Carousel {...pageContent} />;
   // }
 
-  return null;
+  throw new Error(`Teaser type ${pageContent.__typename} not found`);
 };

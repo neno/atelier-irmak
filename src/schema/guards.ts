@@ -1,4 +1,4 @@
-import { ICarousel, IFeatures, IGallery, IHero, IReferenceItem, ITeaser, IText, PageContentGuardType, PageContentType } from './types';
+import { ICarousel, IFeatures, IGallery, IGrid, IHero, IReferenceItem, ITeaser, IText, PageContentGuardType, PageContentType } from './types';
 
 export const isHero = (x: PageContentGuardType): x is IHero =>
   x.__typename === 'Hero';
@@ -20,3 +20,6 @@ x.__typename === 'Features';
 
 export const isReferenceItem = (x: PageContentGuardType): x is IReferenceItem =>
 x.__typename === 'Reference';
+
+export const isGrid = (x: PageContentGuardType): x is IGrid =>
+x.__typename === 'Grid';

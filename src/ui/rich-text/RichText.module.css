@@ -2,6 +2,10 @@
   @apply pl-16;
 } */
 
+.richText h1 {
+  @apply mb-8;
+}
+
 .richText h2,
 .richText h3 {
   @apply mb-4;

@@ -16,7 +16,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const items = await fetchNavigationItems();
-
   return (
     <html lang='de'>
       {/*
@@ -28,7 +27,7 @@ export default async function RootLayout({
         <Header>{items && <Nav items={items} />}</Header>
         <main>{children}</main>
         <Footer />
-        <div id='slideshow'></div>
+        <div id='overlay'></div>
       </body>
     </html>
   );

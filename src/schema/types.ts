@@ -1,7 +1,7 @@
-type SysIdType = { id: string; };
-export type PageContentType = IHero | ITeaser | IText | ICarousel | IGallery | IReferenceItem | IFeatures;
+export type SysIdType = { id: string; };
+export type PageContentType = IHero | ITeaser | IText | ICarousel | IGallery | IReferenceItem | IFeatures | IGrid;
 export type PageContentGuardType = {
-  __typename: 'Hero' | 'Teaser' | 'Text' | 'Carousel' | 'Gallery' | 'Reference' | 'Features';
+  __typename: 'Hero' | 'Teaser' | 'Text' | 'Carousel' | 'Gallery' | 'Reference' | 'Features' | 'Grid';
 };
 
 export interface IPage {
@@ -24,8 +24,10 @@ export interface IPageContent {
   sys: SysIdType;
 }
 
+type HeroType = 'Landing' | 'Topic';
 export interface IHero extends IPageContent {
   __typename: 'Hero';
+  type: HeroType;
   sys: SysIdType;
   image: IAsset;
   title: string;
@@ -188,4 +190,21 @@ export interface IFeatures {
 
 export interface IReferenceCollectionPaths {
   referenceCollection: ICollectionPaths;
+}
+
+export interface IGrid {
+  __typename: 'Grid'
+  sys: SysIdType;
+  background: BackgroundTypes;
+  layout: string;
+  columnsCollection: {
+    items: IGridCol[];
+  }
+}
+
+export interface IGridCol {
+  sys: SysIdType;
+  __typename: 'Refernce' | 'Text';
+  reference: IText;
+  media: IAsset;
 }

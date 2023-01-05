@@ -1,45 +1,47 @@
 import { FC } from 'react';
-import { NextImage } from '../NextImage';
-import { IAsset } from '@/schema/types';
-import { Container } from '../Container';
-import clsxm from '@/lib/clsxm';
-import styles from './Hero.module.css';
+import { IAsset, IHero } from '@/schema/types';
+import { LandingPageHero } from './components/landing-page-hero/LandingPageHero';
+import { TopicPageHero } from './components/topic-page-hero/TopicPageHero';
 
-interface HeroProps {
-  image: IAsset;
-  title: string;
-}
+export const Hero: FC<IHero> = ({ type, image, title }) => {
+  if (type === 'Landing') {
+    return <LandingPageHero title={title} image={image} />;
+  }
 
-export const Hero: FC<HeroProps> = ({ image, title }) => {
-  return (
-    <Container
-      className={
-        clsxm('relative grid grid-cols-12 pb-16', 'aspect-square aspect-[2/1]')
-        // 'relative grid grid-cols-12 pb-16'
-        // 'aspect-square aspect-[2/1]'
-      }
-    >
-      <div className={clsxm(styles.imageWrapper)}>
-        <NextImage
-          src={image.url}
-          width={image.width}
-          height={image.height}
-          alt={image.description}
-          priority={true}
-          className='aspect-square md:aspect-[2/1] object-cover object-center'
-          sizes='(min-width: 90em) 90rem, 100vw'
-        />
-      </div>
-      <div className={clsxm(styles.textWrapper)}>
-        <h1
-          className={clsxm(
-            styles.title,
-            'text-white text-xl lg:text-3xl font-title leading-relaxed lg:leading-tight'
-          )}
-        >
-          {title}
-        </h1>
-      </div>
-    </Container>
-  );
+  if (type === 'Topic') {
+    return <TopicPageHero title={title} image={image} />;
+  }
+
+  throw new Error(`Hero type ${type} not found`);
+  // return (
+  //   <Container
+  //     className={
+  //       clsxm('relative grid grid-cols-12 pb-16', 'aspect-square aspect-[2/1]')
+  //       // 'relative grid grid-cols-12 pb-16'
+  //       // 'aspect-square aspect-[2/1]'
+  //     }
+  //   >
+  //     <div className={clsxm(styles.imageWrapper)}>
+  //       <NextImage
+  //         src={image.url}
+  //         width={image.width}
+  //         height={image.height}
+  //         alt={image.description}
+  //         priority={true}
+  //         className='aspect-square md:aspect-[2/1] object-cover object-center'
+  //         sizes='(min-width: 90em) 90rem, 100vw'
+  //       />
+  //     </div>
+  //     <div className={clsxm(styles.textWrapper)}>
+  //       <h1
+  //         className={clsxm(
+  //           styles.title,
+  //           'text-white text-xl lg:text-3xl font-title leading-relaxed lg:leading-tight'
+  //         )}
+  //       >
+  //         {title}
+  //       </h1>
+  //     </div>
+  //   </Container>
+  // );
 };

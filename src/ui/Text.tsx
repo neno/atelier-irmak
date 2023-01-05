@@ -1,4 +1,3 @@
-import clsxm from '@/lib/clsxm';
 import { IText } from '@/schema/types';
 import { FC } from 'react';
 import { Container } from './Container';

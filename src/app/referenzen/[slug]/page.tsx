@@ -42,7 +42,7 @@ async function ReferencePage({ params }: { params: { slug: string } }) {
             <h2 className='col-start-3 col-end-13 pb-12'>{subtitle}</h2>
             <div className='col-start-3 col-end-9'>
               <RichText content={description} />
-              <ul className='py-16 grid grid-cols-4 gap-4 lg:gap-8'>
+              {/* <ul className='py-16 grid grid-cols-4 gap-4 lg:gap-8'>
                 {galleryItems.map(({ url, description, width, height }) => (
                   <li className='relative aspect-square' key={url}>
                     <NextImage
@@ -56,7 +56,7 @@ async function ReferencePage({ params }: { params: { slug: string } }) {
                     />
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
             <div className='col-start-10 col-end-13'>
               <div className='bg-primary text-white px-16 py-8'>
