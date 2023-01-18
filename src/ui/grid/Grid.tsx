@@ -19,7 +19,10 @@ export const Grid: FC<IGrid> = ({
   // const colWidths = ['col-start-1 col-end-5', 'col-span-8'];
 
   return (
-    <div className={clsxm('py-16', { [bgColor]: !!background })}>
+    <div className={clsxm('py-16', { 
+    'bg-gray': background === 'light',
+    'bg-primary': background === 'dark', 
+    })}>
       <Container>
         <div className={`grid grid-cols-12 gap-8`}>
           {items.map((col, index) => (
