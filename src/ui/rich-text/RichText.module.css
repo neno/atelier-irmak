@@ -2,6 +2,10 @@
   @apply pl-16;
 } */
 
+.richText > * + * {
+  @apply mt-8;
+}
+
 .richText h1 {
   @apply mb-8;
 }
@@ -9,4 +13,21 @@
 .richText h2,
 .richText h3 {
   @apply mb-4;
+}
+
+.richText ul {
+  @apply list-square;
+  @apply list-inside;
+}
+
+.richText ul li + li {
+  @apply mt-2;
+}
+
+.richText ul li::marker {
+  @apply text-primary;
+}
+
+.richText ul p {
+  display: inline;
 }
