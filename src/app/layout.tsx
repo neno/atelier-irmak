@@ -5,10 +5,10 @@ import { Footer } from '@/ui/Footer';
 import { fetchNavigationItems } from '@/api';
 import { Nav } from '@/ui/Nav';
 
-const inter = Inter();
-const openSans = Open_Sans();
-const museo = MuseoModerno();
-const raleway = Raleway();
+// const inter = Inter();
+// const openSans = Open_Sans();
+// const museo = MuseoModerno();
+const raleway = Raleway({ subsets: ['latin'] });
 
 export default async function RootLayout({
   children,
