@@ -9,7 +9,7 @@ interface HeaderProps {
 
 export const Header: FC<HeaderProps> = ({ children }) => {
   return (
-    <Container className='py-2 text-primary-dark bg-white flex items-center justify-between'>
+    <Container className='py-8 text-primary-dark bg-white flex items-center justify-between'>
       <Link href='/'>
         <Logo />
       </Link>

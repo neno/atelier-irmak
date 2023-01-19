@@ -12,7 +12,11 @@ export const getReferenceBySlugQuery = (slug: string) => `
           description {json}
           featuredImage {
             ... on Asset {
-              ${imageFragment(960)}
+              url
+              description
+              title
+              width
+              height
             }
           }
           location

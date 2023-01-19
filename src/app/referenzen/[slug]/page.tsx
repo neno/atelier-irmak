@@ -16,10 +16,12 @@ async function ReferencePage({ params }: { params: { slug: string } }) {
     return null;
   }
 
+  console.log(JSON.stringify(reference));
+
   const {
     description,
     definition,
-    detailImage,
+    featuredImage,
     excerpt,
     galleryItems,
     subtitle,
@@ -28,7 +30,11 @@ async function ReferencePage({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <DetailHeader title={title} image={galleryItems[0]} />
+      <DetailHeader
+        title={title}
+        image={featuredImage}
+        galleryItems={galleryItems}
+      />
       <Container className='py-16'>
         <div className='grid grid-cols-12'>
           <div className='col-start-3 col-end-11 pb-16'>
@@ -67,6 +73,7 @@ async function ReferencePage({ params }: { params: { slug: string } }) {
               </div>
             </div>
           </div>
+          <pre>{JSON.stringify(reference, null, 2)}</pre>
         </Container>
       </div>
     </>
