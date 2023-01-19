@@ -1,0 +1,13 @@
+/* .richText h2 + p {
+  @apply pl-16;
+} */
+
+.slider {
+  @apply px-24;
+  @apply -mx-24;
+}
+
+.slider .splide__arrow {
+  border: 0.0625rem solid rgb(252 211 77);
+  background: transparent;
+}

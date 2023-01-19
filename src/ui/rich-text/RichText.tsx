@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { Container } from '../Container';
 import clsxm from '@/lib/clsxm';
 import styles from './RichText.module.css';
 
