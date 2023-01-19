@@ -27,6 +27,10 @@ module.exports = {
       'slate-400': '#9ca3af',
       'slate-500': '#64748b',
     },
+    listStyleType: {
+      none: 'none',
+      square: 'square',
+    }
   },
   plugins: [
     // require('@tailwindcss/typography'),
@@ -53,10 +57,22 @@ module.exports = {
         sm: [-1, 1.6],
         base: [0, 1.6],
         lg: [1, 1.6],
-        xl: [2, 1.2],
-        '2xl': [3, 1.2],
-        '3xl': [4, 1.2],
-        '4xl': [5, 1.2],
+        xl: [2, {
+          lineHeight: '1.2',
+          letterSpacing: '0.02em',
+        }],
+        '2xl': [3, {
+          lineHeight: '1.2',
+          letterSpacing: '0.02em',
+        }],
+        '3xl': [4, {
+          lineHeight: '1.2',
+          letterSpacing: '0.02em',
+        }],
+        '4xl': [5, {
+          lineHeight: '1.2',
+          letterSpacing: '0.02em',
+        }],
         '5xl': [6, 1.1],
         '6xl': [7, 1.1],
         '7xl': [8, 1],
