@@ -13,29 +13,25 @@ export const DetailHeader: FC<DetailHeaderProps> = ({ title, image }) => {
   const sliderHeight = 565;
   const { url, description, height, width } = image;
   return (
-    <Container className={clsxm('py-16')}>
-      <header
-        className={clsxm(
-          'grid grid-cols-2 shadow-xl shadow-slate-300 relative',
-          'before:z-0 before:block content-["*"] before:absolute before:h-[50%] before:w-[25%] before:top-0 before:right-0 before:translate-x-[25%] before:translate-y-[-25%]',
-          'before:bg-gray'
-        )}
-      >
-        <div className='aspect-[4/3] bg-primary relative z-10'>
-          <NextImage
-            src={url}
-            alt={description}
-            width={width}
-            height={height}
-            className='w-full h-full object-cover object-bottom'
-            sizes='(min-width: 640px) 30vw, (min-width: 1280px) 500px, 100vw'
-          />
-        </div>
-        <div className='aspect-[4/3] bg-white flex items-center justify-center px-32 relative z-10'>
-          <h1 className='text-5xl'>{title}</h1>
-        </div>
-      </header>
-    </Container>
+    <header
+      className={clsxm(
+        'my-16 flex gap-2 max-h-[29.25rem]',
+      )}
+    >
+      <div className='aspect-[4/3] bg-primary relative z-10 flex-shrink-0 flex-grow-0 basis-[auto]'>
+        <NextImage
+          src={url}
+          alt={description}
+          width={width}
+          height={height}
+          className='w-auto h-full object-cover object-bottom'
+          sizes='(min-width: 640px) 30vw, (min-width: 1280px) 500px, 100vw'
+        />
+      </div>
+      <div className='aspect-[1/1] bg-gray flex items-center justify-center px-8 flex-shrink-0 flex-grow-0 basis-[auto]'>
+        <h1 className='text-5xl'>{title}</h1>
+      </div>
+    </header>
   );
   return (
     <Container>
