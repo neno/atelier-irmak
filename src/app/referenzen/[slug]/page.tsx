@@ -5,6 +5,8 @@ import { RichText } from '@/ui/rich-text/RichText';
 import { Container } from '@/ui/Container';
 import { DefList } from '@/ui/DefList';
 import { NextImage } from '@/ui/NextImage';
+import { Slider } from '@/ui/slider/Slider';
+
 
 async function ReferencePage({ params }: { params: { slug: string } }) {
   if (!params.slug) {
@@ -42,21 +44,9 @@ async function ReferencePage({ params }: { params: { slug: string } }) {
             <h2 className='col-start-3 col-end-13 pb-12'>{subtitle}</h2>
             <div className='col-start-3 col-end-9'>
               <RichText content={description} />
-              {/* <ul className='py-16 grid grid-cols-4 gap-4 lg:gap-8'>
-                {galleryItems.map(({ url, description, width, height }) => (
-                  <li className='relative aspect-square' key={url}>
-                    <NextImage
-                      src={url}
-                      alt={description}
-                      width={width}
-                      height={height}
-                      className='w-full h-full object-cover object-bottom'
-                      sizes='200px'
-                      // sizes='(min-width: 640px) 30vw, (min-width: 1280px) 500px, 100vw'
-                    />
-                  </li>
-                ))}
-              </ul> */}
+              <div className='mt-16'>
+                <Slider items={galleryItems} />
+              </div>
             </div>
             <div className='col-start-10 col-end-13'>
               <div className='bg-primary text-white px-16 py-8'>
