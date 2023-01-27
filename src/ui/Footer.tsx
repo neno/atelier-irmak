@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import { NextImage } from './NextImage';
+import clsxm from "@/lib/clsxm";
 
 export const Footer = () => {
   return (
-    <div className='w-full relative bg-primary-dark text-white min-h-[300px]'>
-      <div className='absolute top-0 right-0 w-[50%] h-[100%]'>
+    <div className={clsxm('w-full relative bg-primary-dark text-white min-h-[300px]')}>
+      <div className={clsxm('sm:absolute sm:top-0 sm:right-0 sm:w-[50%] sm:h-[100%]')}>
         <NextImage
           src='/images/map-irmak-blue.jpg'
           alt='Karte'
@@ -14,18 +15,18 @@ export const Footer = () => {
           sizes='50vw'
         />
       </div>
-      <div className='mx-auto container grid grid-cols-2'>
+      <div className={clsxm('mx-auto container sm:grid sm:grid-cols-2')}>
         <div
-          className='footer-address px-4 py-12'
+          className={clsxm('footer-address px-4 py-12')}
           itemScope
           itemType='https://schema.org/LocalBusiness'
           data-pos='46.9480637,7.4517377'
           data-street-view
         >
           <article>
-            <h3 className='my-8 text-3xl text-light'>Adresse</h3>
+            <h3 className={clsxm('my-8 text-3xl text-light')}>Adresse</h3>
             <p
-              className='my-8 leading-relaxed'
+              className={clsxm('my-8 leading-relaxed')}
               itemScope
               itemProp='address'
               itemType='http://schema.org/PostalAddress'
@@ -40,7 +41,7 @@ export const Footer = () => {
               <span itemProp='addressCountry'>Schweiz</span>
             </p>
 
-            <ul className='my-8 leading-relaxed'>
+            <ul className={clsxm('my-8 leading-relaxed')}>
               <li itemProp='email'>
                 <a
                   href='mailto:info@atelier-irmak.ch'
@@ -61,7 +62,7 @@ export const Footer = () => {
           </article>
 
           <article>
-            <h3 className='my-8 text-3xl text-light'>Öffnungszeiten</h3>
+            <h3 className={clsxm('my-8 text-3xl text-light')}>Öffnungszeiten</h3>
             <ul>
               <li>
                 <time itemProp='openingHours' dateTime='Mo 14:00-18:30'>
@@ -84,8 +85,6 @@ export const Footer = () => {
             </ul>
           </article>
         </div>
-
-        <div className='relative'></div>
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ export const TeaserMonthly: FC<ITeaser> = ({ title, image, text, link }) => {
           <div className={clsxm('relative border-[1rem] border-white aspect-[4/3] shadow-xl shadow-slate-300')}>
             <TeaserImage image={image} />
           </div>
-          <div className={clsxm('py-8 md:py-0 px-8 bg-gray flex flex-col justify-end')}>
+          <div className={clsxm('mt-8 md:mt-0 px-8 bg-gray flex flex-col justify-end')}>
             {text?.richText && (
               <RichText content={text?.richText} className={clsxm('md:mr-4 mb-4')} />
             )}

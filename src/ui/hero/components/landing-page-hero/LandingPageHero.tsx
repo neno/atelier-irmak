@@ -12,8 +12,8 @@ export const LandingPageHero: FC<Pick<IHero, 'title' | 'image'>> = ({
   return (
     <Container
       className={clsxm(
-        'relative sm:grid sm:grid-cols-12 sm:pb-16',
-        'sm:aspect-[2/1]'
+        'relative md:max-w-full lg:container lg:grid lg:grid-cols-12 px-0 lg:pb-16 lg:mb-16',
+        'md:aspect-[2/1]'
       )}
     >
       <div className={clsxm(styles.imageWrapper)}>
@@ -31,7 +31,7 @@ export const LandingPageHero: FC<Pick<IHero, 'title' | 'image'>> = ({
         <h1
           className={clsxm(
             styles.title,
-            'text-white text-xl lg:text-3xl font-title leading-relaxed lg:leading-tight'
+            'text-white text-center text-xl lg:text-left lg:text-3xl font-title leading-relaxed lg:leading-tight'
           )}
         >
           {title}

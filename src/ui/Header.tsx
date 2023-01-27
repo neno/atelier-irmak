@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FC } from 'react';
+import {FC} from 'react';
 import { Container } from './Container';
 import { Logo } from './Logo';
 
@@ -9,7 +9,7 @@ interface HeaderProps {
 
 export const Header: FC<HeaderProps> = ({ children }) => {
   return (
-    <Container className='py-8 text-primary-dark bg-white flex items-center justify-between'>
+    <Container className='py-4 sm:py-8 text-primary-dark bg-white flex items-center justify-between'>
       <Link href='/'>
         <Logo />
       </Link>

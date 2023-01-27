@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@contentful/rich-text-react-renderer': ^15.12.1
   '@contentful/rich-text-types': ^15.14.1
+  '@heroicons/react': ^2.0.14
   '@next/bundle-analyzer': ^13.0.5
   '@next/font': ^13.0.5
   '@splidejs/react-splide': ^0.7.12
@@ -30,6 +31,7 @@ specifiers:
 dependencies:
   '@contentful/rich-text-react-renderer': 15.12.1_biqbaboplfbrettd7655fr4n2y
   '@contentful/rich-text-types': 15.14.1
+  '@heroicons/react': 2.0.14_react@18.2.0
   '@next/bundle-analyzer': 13.0.5
   '@next/font': 13.0.5
   '@splidejs/react-splide': 0.7.12
@@ -110,6 +112,14 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@heroicons/react/2.0.14_react@18.2.0:
+    resolution: {integrity: sha512-eFL4if6L7woL1fUvk/jjXx4z9NxVESHHrQnEd2qKVelTFTIr/3VLGWdPb0biia9ZVe26P0JSs/xmOlRNur3SrQ==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@humanwhocodes/config-array/0.11.7:
