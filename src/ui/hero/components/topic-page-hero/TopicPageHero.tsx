@@ -78,7 +78,7 @@ export const TopicPageHero: FC<Pick<IHero, 'title' | 'image'>> = ({
               'relative z-0 grid content-center justify-center bg-white'
             )}
           >
-            <h1 className='py-16 px-32 text-5xl lg:text-6xl leading-tight lg:leading-tight'>
+            <h1 className={clsxm('py-8 sm:py-16 px-16 sm:px-32 text-5xl lg:text-6xl leading-tight lg:leading-tight')}>
               {title}
             </h1>
           </div>

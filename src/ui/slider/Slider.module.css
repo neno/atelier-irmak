@@ -1,0 +1,32 @@
+.slider {
+  @apply px-24;
+  @apply py-16;
+  @apply -mx-24;
+  @apply -mt-16;
+}
+
+.slider :global(.splide__arrow) {
+  @apply border-solid border-primary;
+  border-width: 1px;
+  background: transparent;
+}
+
+.slider :global(.splide__arrow) svg {
+  fill: rgb(51 61 152);
+}
+
+.slider :global(.splide__pagination__page) {
+  @apply bg-primary;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+}
+
+.slider :global(.splide__pagination__page.is-active) {
+  @apply border-solid border-gray;
+  transform: scale(1);
+  border-width: 9px;
+  width: 28px;
+  height: 28px;
+  box-shadow: 0 0 0 1px #939BE5;
+}

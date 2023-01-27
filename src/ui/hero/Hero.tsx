@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { IAsset, IHero } from '@/schema/types';
+import { IHero } from '@/schema/types';
 import { LandingPageHero } from './components/landing-page-hero/LandingPageHero';
 import { TopicPageHero } from './components/topic-page-hero/TopicPageHero';
 

@@ -13,7 +13,7 @@ export const DetailHeader: FC<DetailHeaderProps> = ({ title, image }) => {
   const sliderHeight = 565;
   const { url, description, height, width } = image;
   return (
-    <Container className={clsxm('py-16')}>
+    <Container className={clsxm('py-8 sm:py-16')}>
       <header
         className={clsxm(
           'grid grid-cols-2 shadow-xl shadow-slate-300 relative',
@@ -67,7 +67,7 @@ export const DetailHeader: FC<DetailHeaderProps> = ({ title, image }) => {
               'relative z-0 grid content-center justify-center bg-white'
             )}
           >
-            <h1 className='py-16 px-32 text-5xl lg:text-6xl leading-tight lg:leading-tight'>
+            <h1 className='py-8 sm:py-16 px-16 sm:px-32 text-5xl lg:text-6xl leading-tight lg:leading-tight'>
               {title}
             </h1>
           </div>

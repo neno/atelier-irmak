@@ -1,4 +1,4 @@
-import { fetchPageContentItemsBySlug, fetchPageCollectionPaths } from '@/api';
+import { fetchPageContentItemsBySlug } from '@/api';
 import { PageContent } from '@/ui/PageContent';
 
 async function Page({ params }: { params: { slug: string } }) {
@@ -22,11 +22,3 @@ async function Page({ params }: { params: { slug: string } }) {
 }
 
 export default Page;
-
-export async function generateStaticParams() {
-  const { pageCollection } = await fetchPageCollectionPaths();
-
-  return pageCollection.items.map(({ slug }) => ({
-    slug,
-  }));
-}
