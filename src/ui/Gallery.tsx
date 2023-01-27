@@ -16,8 +16,8 @@ export const Gallery: FC<GalleryProps> = ({ items, background = 'none' }) => (
       'bg-primary': background === 'dark',
     })}
   >
-    <Container className='py-16'>
-      <ul className='grid grid-cols-3 gap-4 lg:gap-8'>
+    <Container className='pb-8 md:pb-16'>
+      <ul className='grid lg:grid-cols-3 gap-4 lg:gap-8'>
         {items.map((item) => (
           <li className='relative' key={item.sys.id}>
             <Card

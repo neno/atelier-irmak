@@ -15,14 +15,13 @@ export const TeaserCompetences: FC<ITeaser> = ({
   link,
 }) => {
   return (
-    <section className='w-full py-16'>
+    <section className={clsxm('w-full')}>
       <div
         className={clsxm(
-          'relative z-1 overflow-hidden bg-gray',
-          'before:block content-["*"] before:absolute before:top-[50%] before:left-0 before:bg-white before:h-[100%] before:w-[66.67%] lg:before:w-[50%] z-1 overflow-hidden'
+          'relative z-1 overflow-hidden bg-gray', styles.teaserBg
         )}
       >
-        <Container className='py-8'>
+        <Container className={clsxm('py-8 sm:py-16')}>
           <header
             className={clsxm('lg:w-[75%] 2xl:w-[62.5%]', 'mx-4 md:mx-0 mb-8')}
           >

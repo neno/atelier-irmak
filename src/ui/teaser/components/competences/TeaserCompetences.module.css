@@ -10,6 +10,20 @@
   }
 }
 
+.teaserBg {
+  @apply sm:before:block;
+  @apply sm:content-["*"];
+  @apply sm:before:absolute;
+  @apply sm:before:top-[50%];
+  @apply sm:before:left-0;
+  @apply before:bg-white;
+  @apply before:h-[100%];
+  @apply before:w-[66.67%];
+  @apply lg:before:w-[50%];
+  @apply z-[1];
+  @apply overflow-hidden;
+}
+
 .teaserImg {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
@@ -18,4 +32,6 @@
 .teaserText {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
+
+  @apply mt-8 sm:mt-0;
 }

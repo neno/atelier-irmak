@@ -1,9 +1,9 @@
 .imageWrapper {
-  @apply relative h-full col-start-1 col-end-13 md:col-start-1 md:col-end-12;
+  @apply lg:relative h-full lg:col-start-1 lg:col-end-13 lg:col-start-1 lg:col-end-12;
 }
 
 .textWrapper {
-  @apply absolute left-0 md:left-auto right-0 bottom-0 md:w-[24rem] lg:w-[44rem] bg-primary shadow-xl shadow-slate-500 opacity-90;
+  @apply lg:absolute lg:left-0 lg:left-auto lg:right-0 lg:bottom-0 lg:w-[24rem] lg:w-[44rem] bg-primary shadow-xl lg:shadow-slate-500 lg:opacity-90;
 }
 
 .title {

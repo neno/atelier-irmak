@@ -3,6 +3,7 @@ import { BackgroundTypes, IText } from '@/schema/types';
 import { FC } from 'react';
 import { Container } from './Container';
 import { Text } from './Text';
+import {RichText} from "@/ui/rich-text/RichText";
 
 interface FeaturesProps {
   items: IText[];
@@ -16,11 +17,11 @@ export const Features: FC<FeaturesProps> = ({ items, background = 'none' }) => (
       'bg-primary': background === 'dark',
     })}
   >
-    <Container className='py-16'>
-      <div className='grid grid-cols-3 gap-4 lg:gap-8'>
+    <Container className={clsxm('py-8 sm:py-16')}>
+      <div className='grid mx-auto md:max-w-4xl lg:max-w-full xl:grid-cols-3 gap-4 lg:gap-8 xl:gap-12 2xl:gap-16'>
         {items.map((item) => (
           <section className='relative' key={item.sys.id}>
-            <Text {...item} />
+            <RichText content={item.richText} />
           </section>
         ))}
       </div>
