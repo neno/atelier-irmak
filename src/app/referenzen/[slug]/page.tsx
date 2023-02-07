@@ -6,6 +6,7 @@ import { Container } from '@/ui/Container';
 import { DefList } from '@/ui/DefList';
 import { NextImage } from '@/ui/NextImage';
 import { Slider } from '@/ui/slider/Slider';
+import { Modal } from "@/ui/modal";
 
 
 async function ReferencePage({ params }: { params: { slug: string } }) {
@@ -46,6 +47,7 @@ async function ReferencePage({ params }: { params: { slug: string } }) {
               <RichText content={description} />
               <div className='mt-16'>
                 <Slider items={galleryItems} />
+                <Modal items={galleryItems} />
               </div>
             </div>
             <div className='col-start-10 col-end-13'>
