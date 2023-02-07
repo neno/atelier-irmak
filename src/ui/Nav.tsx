@@ -17,9 +17,13 @@ export const Nav: FC<NavProps> = ({ items }) => {
     setOpen(!open);
   };
 
+  const closeMenu = () => {
+    setOpen(false);
+  };
+
   return (
     <nav>
-      <button onClick={toggleMenu} type="button" className={clsxm("inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white sm:hidden")}>
+      <button onClick={toggleMenu} type="button" className={clsxm("inline-flex items-center justify-center rounded-md -mr-[0.5rem] p-2 text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white sm:hidden")}>
         <span className="sr-only">Open main menu</span>
         {open ? (
           <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -29,8 +33,8 @@ export const Nav: FC<NavProps> = ({ items }) => {
       </button>
       <ul className={clsxm('fixed inset-0 top-[60px] z-10 overflow-y-auto bg-white list-none font-medium sm:flex sm:static', {'hidden' : !open})}>
         {items.map(({ title, page, externalUrl }) => (
-          <li key={title} className={clsxm('mt-4 sm:mt-0')}>
-            <Link href={`${page?.slug ?? externalUrl}`} className='text-xl sm:text-base sm:py-4 pl-8'>
+          <li key={title} className={clsxm('mt-4 px-4 sm:mt-0')}>
+            <Link onClick={closeMenu} href={`${page?.slug ?? externalUrl}`} className='text-xl block sm:text-base py-2 border-b-2 border-transparent sm:hover:text-primary-dark sm:hover:border-primary-dark'>
               {title}
             </Link>
           </li>

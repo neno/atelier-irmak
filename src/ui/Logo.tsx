@@ -2,7 +2,7 @@ import { NextImage } from './NextImage';
 
 export const Logo = () => {
   return (
-    <div className='relative w-[50px] h-[37px] lg:w-[100px] lg:h-[73px] flex-none'>
+    <div className='relative w-[3.125rem] h-[2.3125rem] sm:w-[4.6875rem] sm:h-[3.4375rem] md:w-[6.25rem] md:h-[4.5625rem] flex-none'>
       <NextImage
         src='/svg/atelier-irmak.svg'
         alt='Logo Atelier Irmak'
