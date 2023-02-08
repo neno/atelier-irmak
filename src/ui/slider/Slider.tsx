@@ -13,9 +13,9 @@ interface SliderProps {
   className?: string;
 }
 
-export const Slider: FC<SliderProps> = ({ items, className }) => { 
+export const Slider: FC<SliderProps> = ({ items, className }) => {
   return (
-  <Splide aria-label="My Favorite Images"
+  <Splide
     options={ {
       height   : '30rem',
       gap      : '0.625rem',

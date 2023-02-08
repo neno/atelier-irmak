@@ -4,7 +4,6 @@ import { LeadText } from '@/ui/LeadText';
 import { RichText } from '@/ui/rich-text/RichText';
 import { Container } from '@/ui/Container';
 import { DefList } from '@/ui/DefList';
-import { NextImage } from '@/ui/NextImage';
 import { Slider } from '@/ui/slider/Slider';
 import { Modal } from "@/ui/modal";
 
