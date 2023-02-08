@@ -6,6 +6,7 @@ import { Container } from '@/ui/Container';
 import { DefList } from '@/ui/DefList';
 import { Slider } from '@/ui/slider/Slider';
 import { Modal } from "@/ui/modal";
+import {ReferenceGallery} from "@/ui/ReferenceGallery";
 
 
 async function ReferencePage({ params }: { params: { slug: string } }) {
@@ -44,10 +45,7 @@ async function ReferencePage({ params }: { params: { slug: string } }) {
             <h2 className='col-start-3 col-end-13 pb-12'>{subtitle}</h2>
             <div className='col-start-3 col-end-9'>
               <RichText content={description} />
-              <div className='mt-16'>
-                <Slider items={galleryItems} />
-                <Modal items={galleryItems} />
-              </div>
+              <ReferenceGallery galleryItems={galleryItems} />
             </div>
             <div className='col-start-10 col-end-13'>
               <div className='bg-primary text-white px-16 py-8'>
