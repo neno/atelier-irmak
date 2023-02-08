@@ -33,7 +33,7 @@ export const ModalSlider: FC<SliderProps> = ({ items, className }) => {
           rewind    : true,
           pagination: false,
           arrows    : false,
-          height    : '70vh'
+          height    : 'calc(100vh - 140px)'
         } }
         className={clsxm(className, styles.slider)}
       >
