@@ -2,10 +2,14 @@
 
 import {Slider} from "@/ui/slider/Slider";
 import {Modal} from "@/ui/modal";
-import {useState} from "react";
+import {FC, useState} from "react";
 import {ModalSlider} from "@/ui/modal-slider/ModalSlider";
+import {IAsset} from "@/schema/types";
 
-export const ReferenceGallery = ({galleryItems}) => {
+interface IReferenceGallery {
+  galleryItems: IAsset[]
+}
+export const ReferenceGallery: FC<IReferenceGallery> = ({galleryItems}) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className='mt-16'>

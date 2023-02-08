@@ -4,8 +4,6 @@ import { LeadText } from '@/ui/LeadText';
 import { RichText } from '@/ui/rich-text/RichText';
 import { Container } from '@/ui/Container';
 import { DefList } from '@/ui/DefList';
-import { Slider } from '@/ui/slider/Slider';
-import { Modal } from "@/ui/modal";
 import {ReferenceGallery} from "@/ui/ReferenceGallery";
 
 
@@ -22,7 +20,6 @@ async function ReferencePage({ params }: { params: { slug: string } }) {
   const {
     description,
     definition,
-    detailImage,
     excerpt,
     galleryItems,
     subtitle,

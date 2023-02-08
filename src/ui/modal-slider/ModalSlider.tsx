@@ -14,8 +14,8 @@ interface SliderProps {
 }
 
 export const ModalSlider: FC<SliderProps> = ({ items, className }) => {
-  const mainRef = useRef(null);
-  const thumbsRef = useRef(null);
+  const mainRef = useRef<Splide>(null);
+  const thumbsRef = useRef<Splide>(null);
 
   useEffect(() => {
     if ( mainRef.current && thumbsRef.current && thumbsRef.current.splide ) {
@@ -59,8 +59,8 @@ export const ModalSlider: FC<SliderProps> = ({ items, className }) => {
           gap         : 10,
           rewind      : true,
           pagination  : false,
-          focus           : 'center',
-          cover           : true,
+          focus       : 'center',
+          cover       : true,
           breakpoints : {
             600: {
               fixedWidth : 60,

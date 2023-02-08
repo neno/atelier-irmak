@@ -1,18 +1,13 @@
 "use client"
 
-import {ModalSlider} from "@/ui/modal-slider/ModalSlider";
-import {FC, KeyboardEvent, ReactElement, useEffect} from "react";
-import ReactPortal from "@/ui/ReactPortal";
-
-interface IModal {
-  handleClose: () => void;
-  children: ReactElement;
-  isOpen: boolean;
-}
+import {FC, useEffect} from "react";
+import { IModal } from '@/schema/types';
+import { ReactPortal } from "@/ui/ReactPortal";
 
 export const Modal: FC<IModal> = ({children, isOpen, handleClose}) => {
   useEffect(() => {
-    const closeOnEscapeKey = (e: KeyboardEvent) => e.key === "Escape" ? handleClose() : null;
+    const closeOnEscapeKey = (e: { key: string }) => e.key === "Escape" ? handleClose() : null;
+
     document.body.addEventListener("keydown", closeOnEscapeKey);
     return () => {
       document.body.removeEventListener("keydown", closeOnEscapeKey);

@@ -1,17 +1,23 @@
 import { createPortal } from 'react-dom';
-import {useLayoutEffect, useState} from "react";
+import {FC, ReactElement, useLayoutEffect, useState} from "react";
 
-function createWrapperAndAppendToBody(wrapperId) {
+function createWrapperAndAppendToBody(wrapperId: string) : HTMLDivElement {
   const wrapperElement = document.createElement('div');
   wrapperElement.setAttribute("id", wrapperId);
   document.body.appendChild(wrapperElement);
   return wrapperElement;
 }
-function ReactPortal({ children, wrapperId = "react-portal-wrapper" }) {
-  const [wrapperElement, setWrapperElement] = useState(null);
+
+interface IReactPortal {
+  children: ReactElement
+  wrapperId: string
+}
+
+export const ReactPortal: FC<IReactPortal> = ({ children, wrapperId = "react-portal-wrapper" }) => {
+  const [wrapperElement, setWrapperElement] = useState<HTMLDivElement|null>(null);
 
   useLayoutEffect(() => {
-    let element = document.getElementById(wrapperId);
+    let element = document.getElementById(wrapperId) as HTMLDivElement;
     let systemCreated = false;
     // if element is not found with wrapperId or wrapperId is not provided,
     // create and append to body
@@ -34,4 +40,3 @@ function ReactPortal({ children, wrapperId = "react-portal-wrapper" }) {
 
   return createPortal(children, wrapperElement);
 }
-export default ReactPortal;
