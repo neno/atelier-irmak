@@ -15,7 +15,7 @@ interface SliderProps {
 
 export const Slider: FC<SliderProps> = ({ items, className }) => { 
   return (
-  <Splide aria-label="My Favorite Images"
+  <Splide aria-label="Referenzgalerie"
     options={ {
       height   : '30rem',
       gap      : '0.625rem',
