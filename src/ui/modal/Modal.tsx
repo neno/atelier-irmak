@@ -22,13 +22,13 @@ export const Modal: FC<IModal> = ({children, isOpen, handleClose}) => {
       <div className="fixed inset-0 z-10">
         <button
           type="button"
-          className="absolute z-10 right-6 top-6 rounded-full bg-transparent text-primary border opacity-70 hover:opacity-90 p-4"
+          className="absolute z-10 right-6 top-6 rounded-full bg-transparent text-primary border opacity-70 hover:opacity-90 p-2 sm:p-4"
           onClick={handleClose}
         >
           <span className="sr-only">Close panel</span>
           <XMarkIcon className="h-6 w-6" aria-hidden="true" />
         </button>
-        <div className="flex min-h-full bg-white items-end justify-center text-center sm:items-center p-4 sm:py-6">
+        <div className="flex h-full bg-white items-end justify-center text-center sm:items-center p-4 sm:py-6">
           <div className="relative transform overflow-hidden text-left w-full">
             {children}
           </div>

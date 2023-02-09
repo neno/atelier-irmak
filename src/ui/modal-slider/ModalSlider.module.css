@@ -1,5 +1,9 @@
 .slider {
-  @apply mb-8 mx-24;
+  @apply sm:mb-8 sm:mx-24;
+}
+
+.thumbnailSlider {
+  @apply px-12;
 }
 
 .thumbnailSlider img {
@@ -17,12 +21,8 @@
 }
 
 .thumbnailSlider :global(.splide__arrow) {
-  @apply border-solid border-primary;
-  border-width: 1px;
+  @apply border border-solid border-primary sm:h-[3.75rem] sm:w-[3.75rem] sm:p-[0.625rem];
   background: transparent;
-  padding: 10px;
-  height: 60px;
-  width: 60px;
 }
 
 .thumbnailSlider :global(.splide__arrow) svg {
