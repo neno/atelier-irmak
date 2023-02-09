@@ -1,12 +1,9 @@
 .slider {
-  @apply px-24;
-  @apply py-16;
-  @apply -mx-24;
-  @apply -mt-16;
+  @apply md:px-24 py-16 md:-mx-24 -mt-16;
 }
 
 .slider :global(.splide__arrow) {
-  @apply border-solid border-primary;
+  @apply border-solid border-primary hidden md:block;
   border-width: 1px;
   background: transparent;
 }
