@@ -35,7 +35,7 @@ export const Footer = () => {
               <br />
               <span itemProp='streetAddress'>Kramgasse 10</span>
               <br />
-              <span itemProp='postalCode'>3011</span>
+              <span itemProp='postalCode'>3011</span>{' '}
               <span itemProp='addressLocality'>Bern</span>
               <br />
               <span itemProp='addressCountry'>Schweiz</span>

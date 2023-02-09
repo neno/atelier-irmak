@@ -17,7 +17,7 @@ export const TeaserReferences: FC<ITeaser> = ({ title, image, text, link }) => {
         <div className={clsxm('relative md:col-span-4 lg:col-span-5 relative aspect-[4/3] md:aspect-square lg:aspect-[4/3] shadow-xl shadow-slate-300')}>
           <TeaserImage image={image} />
         </div>
-        <div className={clsxm('relative md:col-span-4 lg:col-span-3 md:pl-8 flex flex-col justify-end')}>
+        <div className={clsxm('relative md:col-span-4 lg:col-span-3 md:pl-8 mt-8 md:mt-0 flex flex-col justify-end')}>
           {text?.richText && (
             <RichText content={text?.richText} className={clsxm('md:mr-4 md:mb-4')} />
           )}
