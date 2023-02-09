@@ -1,3 +1,5 @@
+import {ReactElement} from "react";
+
 export type SysIdType = { id: string; };
 export type PageContentType = IHero | ITeaser | IText | ICarousel | IGallery | IReferenceItem | IFeatures | IGrid;
 export type PageContentGuardType = {
@@ -207,4 +209,10 @@ export interface IGridCol {
   __typename: 'Refernce' | 'Text';
   reference: IText;
   media: IAsset;
+}
+
+export interface IModal {
+  handleClose: () => void;
+  children: ReactElement;
+  isOpen: boolean;
 }
