@@ -10,15 +10,18 @@ interface IReferenceGallery {
   galleryItems: IAsset[]
 }
 export const ReferenceGallery: FC<IReferenceGallery> = ({galleryItems}) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [slideIndex, setSlideIndex] = useState<number>(0)
+  const onSlideClick = (index: number) => {
+    setIsOpen(true)
+    setSlideIndex(index)
+  }
+
   return (
     <div className='mt-16'>
-      <Slider items={galleryItems} />
-      <button onClick={() => setIsOpen(true)}>
-        Click to Open Modal
-      </button>
+      <Slider items={galleryItems} onSlideClick={onSlideClick} />
       {isOpen && <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
-        <ModalSlider items={galleryItems} />
+        <ModalSlider items={galleryItems} index={slideIndex} />
       </Modal>}
     </div>
   )

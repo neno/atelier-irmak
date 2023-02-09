@@ -11,9 +11,10 @@ import { IAsset } from '@/schema/types';
 interface SliderProps {
   items: IAsset[];
   className?: string;
+  index: number
 }
 
-export const ModalSlider: FC<SliderProps> = ({ items, className }) => {
+export const ModalSlider: FC<SliderProps> = ({ items, className, index }) => {
   const mainRef = useRef<Splide>(null);
   const thumbsRef = useRef<Splide>(null);
 
@@ -33,6 +34,7 @@ export const ModalSlider: FC<SliderProps> = ({ items, className }) => {
           rewind    : true,
           pagination: false,
           arrows    : false,
+          start       : index,
           height    : 'calc(100vh - 140px)'
         } }
         className={clsxm(className, styles.slider)}
@@ -61,8 +63,10 @@ export const ModalSlider: FC<SliderProps> = ({ items, className }) => {
           pagination  : false,
           focus       : 'center',
           cover       : true,
+          start       : index,
+          isNavigation: true,
           breakpoints : {
-            600: {
+            768: {
               fixedWidth : 60,
               fixedHeight: 44,
             },

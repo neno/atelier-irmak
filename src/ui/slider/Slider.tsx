@@ -11,9 +11,10 @@ import { IAsset } from '@/schema/types';
 interface SliderProps {
   items: IAsset[];
   className?: string;
+  onSlideClick: (index:number) => void;
 }
 
-export const Slider: FC<SliderProps> = ({ items, className }) => {
+export const Slider: FC<SliderProps> = ({ items, className, onSlideClick }) => {
   return (
   <Splide aria-label="Referenzgalerie"
     options={ {
@@ -24,8 +25,8 @@ export const Slider: FC<SliderProps> = ({ items, className }) => {
     } }
     className={clsxm(className, styles.slider)}
   >
-    {items.map(({ url, description, width, height }) => (
-      <SplideSlide key={url}>
+    {items.map(({ url, description, width, height }, index) => (
+      <SplideSlide key={url} onClick={() => onSlideClick(index)}>
         <NextImage
           src={url}
           alt={description}

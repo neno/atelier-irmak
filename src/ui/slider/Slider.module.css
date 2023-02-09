@@ -3,7 +3,7 @@
 }
 
 .slider :global(.splide__arrow) {
-  @apply border-solid border-primary hidden md:block;
+  @apply border-solid border-primary hidden md:flex;
   border-width: 1px;
   background: transparent;
 }
