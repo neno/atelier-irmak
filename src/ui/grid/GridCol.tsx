@@ -18,9 +18,9 @@ export const GridCol: FC<IGridCol> = ({
         alt={media.description}
         width={media.width}
         height={media.height}
-        className='w-full h-full object-contain object-center'
+        className='w-full mt-12'
         // sizes='200px'
-        sizes='(min-width: 640px) 30vw, (min-width: 1280px) 500px, 100vw'
+        sizes='(min-width: 1280px) 500px, (min-width: 768px) 30vw, 100vw'
       />
     );
   }
