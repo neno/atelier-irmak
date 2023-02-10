@@ -35,8 +35,8 @@ export const Nav: FC<NavProps> = ({ items }) => {
       </button>
       <ul className={clsxm('fixed inset-0 top-[5.4375rem] md:top-[6.5625rem] lg:top-[8.5625rem] z-10 overflow-y-auto bg-white list-none font-medium lg:flex lg:static', {'hidden' : !open})}>
         {items.map(({ title, page, externalUrl }) => (
-          <li key={title} className={clsxm('mt-4 px-4 lg:mt-0')}>
-            <Link onClick={closeMenu} href={`${page?.slug ?? externalUrl}`} className={clsxm('text-xl block lg:text-base py-2 border-b-2 border-transparent lg:hover:text-primary-dark lg:hover:border-primary-dark', pathname?.includes(page?.slug as string) && 'bg-primary text-white sm:bg-transparent sm:text-primary-light')}>
+          <li key={title} className={clsxm('mt-4 lg:px-4 lg:mt-0')}>
+            <Link onClick={closeMenu} href={`${page?.slug ?? externalUrl}`} className={clsxm('text-xl block lg:text-base p-4 lg-px-0 lg:py-2 border-b-2 border-transparent lg:hover:text-primary-dark lg:hover:border-primary-dark', pathname?.includes(page?.slug as string) && 'bg-primary text-white lg:bg-transparent lg:text-primary-light')}>
               {title}
             </Link>
           </li>
