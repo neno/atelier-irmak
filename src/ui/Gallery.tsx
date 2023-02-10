@@ -17,7 +17,7 @@ export const Gallery: FC<GalleryProps> = ({ items, background = 'none' }) => (
     })}
   >
     <Container className='pb-8 md:pb-16'>
-      <ul className='grid md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-8'>
+      <ul className='grid md:grid-cols-2 gap-4 md:gap-8'>
         {items.map((item) => (
           <li className='relative' key={item.sys.id}>
             <Card
