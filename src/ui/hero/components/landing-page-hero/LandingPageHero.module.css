@@ -3,7 +3,7 @@
 }
 
 .textWrapper {
-  @apply bg-primary shadow-xl shadow-slate-500 opacity-90 -mt-12 mx-12 mb-16;
+  @apply bg-primary shadow-xl shadow-slate-500 opacity-90 -mt-12 mx-8 mb-16;
   @apply lg:absolute lg:left-0 lg:left-auto lg:right-[-2rem] lg:bottom-0 lg:pr-2 lg:m-0 lg:w-[24rem] lg:w-[50rem];
 }
 
