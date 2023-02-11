@@ -1,3 +1,4 @@
+import clsxm from '@/lib/clsxm';
 import { IGridCol } from '@/schema/types';
 import { FC } from 'react';
 import { NextImage } from '../NextImage';
@@ -9,16 +10,17 @@ export const GridCol: FC<IGridCol> = ({
   reference,
   media,
 }) => {
-  // return <pre>{JSON.stringify({ sys, reference, media }, null, 2)}</pre>;
   if (media) {
-    // return <pre>{JSON.stringify(media, null, 2)}</pre>;
     return (
       <NextImage
         src={media.url}
         alt={media.description}
         width={media.width}
         height={media.height}
-        className='w-full mt-12'
+        className={clsxm('w-full mt-12', {
+          'sm:max-w-[50%] sm:mx-auto lg:max-w-full':
+            media?.height > media?.width,
+        })}
         // sizes='200px'
         sizes='(min-width: 1280px) 500px, (min-width: 768px) 30vw, 100vw'
       />
