@@ -1,11 +1,19 @@
 import Image from 'next/image';
 import { NextImage } from './NextImage';
-import clsxm from "@/lib/clsxm";
+import clsxm from '@/lib/clsxm';
 
 export const Footer = () => {
   return (
-    <div className={clsxm('w-full relative bg-primary-dark text-white min-h-[300px]')}>
-      <div className={clsxm('sm:absolute sm:top-0 sm:right-0 sm:w-[50%] sm:h-[100%]')}>
+    <div
+      className={clsxm(
+        'w-full relative bg-primary-dark text-white min-h-[300px]'
+      )}
+    >
+      <div
+        className={clsxm(
+          'lg:absolute lg:top-0 lg:right-0 lg:w-[50%] lg:h-[100%]'
+        )}
+      >
         <NextImage
           src='/images/map-irmak-blue.jpg'
           alt='Karte'
@@ -15,7 +23,7 @@ export const Footer = () => {
           sizes='50vw'
         />
       </div>
-      <div className={clsxm('mx-auto container sm:grid sm:grid-cols-2')}>
+      <div className={clsxm('mx-auto container lg:grid lg:grid-cols-2')}>
         <div
           className={clsxm('footer-address px-4 py-12')}
           itemScope
@@ -62,7 +70,9 @@ export const Footer = () => {
           </article>
 
           <article>
-            <h3 className={clsxm('my-8 text-3xl text-light')}>Öffnungszeiten</h3>
+            <h3 className={clsxm('my-8 text-3xl text-light')}>
+              Öffnungszeiten
+            </h3>
             <ul>
               <li>
                 <time itemProp='openingHours' dateTime='Mo 14:00-18:30'>
