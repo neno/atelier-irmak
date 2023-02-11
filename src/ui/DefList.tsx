@@ -1,27 +1,12 @@
 import { IReferenceDefintion } from '@/schema/types';
+import { rugTranslations, RugTranslationsType } from 'public/locales/de/rug';
 import React from 'react';
 import { FC } from 'react';
-
-interface IKeyValue {
-  [key: string]: string | null;
-}
 
 interface DefListProps {
   items: IReferenceDefintion;
   sorting: string[];
 }
-
-// export interface IReferenceDefintion {
-//   name: string;
-//   origin: string;
-//   size: string;
-//   age: string;
-//   location: string;
-//   room: string;
-//   placing: string | null;
-// }
-
-// const machesterUnited:PlayersNumbers = <PlayersNumbers>{};
 
 export const DefList: FC<DefListProps> = ({ items, sorting }) => {
   const filteredKeys = Object.keys(items).filter(
@@ -33,7 +18,9 @@ export const DefList: FC<DefListProps> = ({ items, sorting }) => {
         .filter((key) => filteredKeys.includes(key))
         .map((key) => (
           <React.Fragment key={key}>
-            <dt className='font-bold font-title text-light'>{key}</dt>
+            <dt className='font-bold font-title text-light'>
+              {rugTranslations[key as keyof RugTranslationsType]}
+            </dt>
             <dd className='mb-4'>{items[key as keyof IReferenceDefintion]}</dd>
           </React.Fragment>
         ))}
