@@ -1,5 +1,5 @@
 .imageWrapper {
-  @apply lg:relative h-full lg:col-start-1 lg:col-end-13 lg:col-start-1 lg:col-end-13;
+  @apply lg:relative h-full lg:col-start-1 lg:col-end-13 lg:col-start-1 lg:col-end-13 shadow-xl lg:shadow-slate-500;
 }
 
 .textWrapper {
