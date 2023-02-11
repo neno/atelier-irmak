@@ -43,7 +43,7 @@ export const Footer = () => {
               <li itemProp='email'>
                 <a
                   href='mailto:info@atelier-irmak.ch'
-                  className='text-white hover:text-light underline'
+                  className='text-white hover:text-light underline underline-offset-4'
                 >
                   info@atelier-irmak.ch
                 </a>
@@ -51,7 +51,7 @@ export const Footer = () => {
               <li itemProp='phone'>
                 <a
                   href='tel:+41313120604'
-                  className='text-white hover:text-light underline'
+                  className='text-white hover:text-light underline underline-offset-4'
                 >
                   Tel: +41 31 312 06 04
                 </a>
