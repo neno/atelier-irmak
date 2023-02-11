@@ -1,9 +1,9 @@
 .imageWrapper {
-  @apply lg:relative h-full lg:col-start-1 lg:col-end-13 lg:col-start-1 lg:col-end-12;
+  @apply lg:relative h-full lg:col-start-1 lg:col-end-13 lg:col-start-1 lg:col-end-13;
 }
 
 .textWrapper {
-  @apply lg:absolute lg:left-0 lg:left-auto lg:right-0 lg:bottom-0 lg:w-[24rem] lg:w-[44rem] bg-primary shadow-xl lg:shadow-slate-500 lg:opacity-90;
+  @apply lg:absolute lg:left-0 lg:left-auto lg:right-[-2rem] lg:pr-2 lg:bottom-0 lg:w-[24rem] lg:w-[50rem] bg-primary shadow-xl lg:shadow-slate-500 lg:opacity-90;
 }
 
 .title {
