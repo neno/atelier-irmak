@@ -21,6 +21,7 @@ export const Grid: FC<IGrid> = ({
   return (
     <div
       className={clsxm('py-8 md:py-16', {
+        'xl:mt-24': background !== 'none',
         'bg-gray': background === 'light',
         'bg-primary': background === 'dark',
       })}
