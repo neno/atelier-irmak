@@ -2,7 +2,6 @@ import clsxm from '@/lib/clsxm';
 import { BackgroundTypes, IText } from '@/schema/types';
 import { FC } from 'react';
 import { Container } from './Container';
-import { Text } from './Text';
 import { RichText } from '@/ui/rich-text/RichText';
 
 interface FeaturesProps {
