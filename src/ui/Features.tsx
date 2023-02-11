@@ -3,7 +3,7 @@ import { BackgroundTypes, IText } from '@/schema/types';
 import { FC } from 'react';
 import { Container } from './Container';
 import { Text } from './Text';
-import {RichText} from "@/ui/rich-text/RichText";
+import { RichText } from '@/ui/rich-text/RichText';
 
 interface FeaturesProps {
   items: IText[];
@@ -12,7 +12,7 @@ interface FeaturesProps {
 export const Features: FC<FeaturesProps> = ({ items, background = 'none' }) => (
   <div
     className={clsxm('features', {
-      'w-full': background !== 'none',
+      'w-full xl:mt-24': background !== 'none',
       'bg-gray': background === 'light',
       'bg-primary': background === 'dark',
     })}

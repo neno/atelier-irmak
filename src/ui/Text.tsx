@@ -7,8 +7,8 @@ import { RichText } from './rich-text/RichText';
 export const Text: FC<IText> = ({ excerpt, leadText, richText }) => {
   if (richText) {
     return (
-      <Container className='my-12'>
-        <div className='max-w-4xl mx-auto'>
+      <Container className='my-16'>
+        <div className='xl:max-w-4xl xl:mx-auto'>
           <RichText content={richText} />
         </div>
       </Container>
@@ -17,8 +17,8 @@ export const Text: FC<IText> = ({ excerpt, leadText, richText }) => {
 
   if (leadText) {
     return (
-      <Container className='my-12'>
-        <div className='max-w-4xl mx-auto'>
+      <Container className='my-16'>
+        <div className='xl:max-w-4xl xl:mx-auto'>
           <LeadText leadText={leadText} />
         </div>
       </Container>
