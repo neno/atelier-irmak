@@ -1,19 +1,9 @@
-import Image from 'next/image';
 import { NextImage } from './NextImage';
-import clsxm from '@/lib/clsxm';
 
 export const Footer = () => {
   return (
-    <div
-      className={clsxm(
-        'w-full relative bg-primary-dark text-white min-h-[300px]'
-      )}
-    >
-      <div
-        className={clsxm(
-          'lg:absolute lg:top-0 lg:right-0 lg:w-[50%] lg:h-[100%]'
-        )}
-      >
+    <div className='w-full relative bg-primary-dark text-white min-h-[300px]'>
+      <div className='lg:absolute lg:top-0 lg:right-0 lg:w-[50%] lg:h-[100%]'>
         <NextImage
           src='/images/map-irmak-blue.jpg'
           alt='Karte'
@@ -23,18 +13,18 @@ export const Footer = () => {
           sizes='50vw'
         />
       </div>
-      <div className={clsxm('mx-auto container lg:grid lg:grid-cols-2')}>
+      <div className='mx-auto container lg:grid lg:grid-cols-2'>
         <div
-          className={clsxm('footer-address px-4 py-12')}
+          className='footer-address px-4 py-12'
           itemScope
           itemType='https://schema.org/LocalBusiness'
           data-pos='46.9480637,7.4517377'
           data-street-view
         >
           <article>
-            <h3 className={clsxm('my-8 text-3xl text-light')}>Adresse</h3>
+            <h3 className='my-8 text-3xl text-light'>Adresse</h3>
             <p
-              className={clsxm('my-8 leading-relaxed')}
+              className='my-8 leading-relaxed'
               itemScope
               itemProp='address'
               itemType='http://schema.org/PostalAddress'
@@ -49,7 +39,7 @@ export const Footer = () => {
               <span itemProp='addressCountry'>Schweiz</span>
             </p>
 
-            <ul className={clsxm('my-8 leading-relaxed')}>
+            <ul className='my-8 leading-relaxed'>
               <li itemProp='email'>
                 <a
                   href='mailto:info@atelier-irmak.ch'
@@ -70,9 +60,7 @@ export const Footer = () => {
           </article>
 
           <article>
-            <h3 className={clsxm('my-8 text-3xl text-light')}>
-              Öffnungszeiten
-            </h3>
+            <h3 className='my-8 text-3xl text-light'>Öffnungszeiten</h3>
             <ul>
               <li>
                 <time itemProp='openingHours' dateTime='Mo 14:00-18:30'>
