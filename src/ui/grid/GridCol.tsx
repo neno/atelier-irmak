@@ -21,7 +21,6 @@ export const GridCol: FC<IGridCol> = ({
           'sm:max-w-[50%] sm:mx-auto lg:max-w-full':
             media?.height > media?.width,
         })}
-        // sizes='200px'
         sizes='(min-width: 1280px) 500px, (min-width: 768px) 30vw, 100vw'
       />
     );
