@@ -10,7 +10,7 @@ interface GalleryProps {
 }
 export const Gallery: FC<GalleryProps> = ({ items, background = 'none' }) => (
   <div
-    className={clsxm('gallery', {
+    className={clsxm('gallery py-8 md:py-16', {
       'w-full': background !== 'none',
       'bg-gray': background === 'light',
       'bg-primary': background === 'dark',
