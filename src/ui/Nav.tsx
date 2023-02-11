@@ -5,7 +5,7 @@ import Link from 'next/link';
 import {FC, useState} from 'react';
 import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline";
 import clsxm from "@/lib/clsxm";
-import {usePathname} from 'next/navigation';
+import {usePathname, useRouter} from 'next/navigation';
 
 interface NavProps {
   items: ILink[];
@@ -14,18 +14,24 @@ interface NavProps {
 export const Nav: FC<NavProps> = ({ items }) => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   const toggleMenu = () => {
     setOpen(!open);
   };
 
-  const closeMenu = () => {
+  const onLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string | undefined) => {
+    e.preventDefault();
     setOpen(false);
+    if (url) {
+      router.push(url)
+      window.scroll(0, 0)
+    }
   };
 
   return (
     <nav>
-      <button onClick={toggleMenu} type="button" className={clsxm("inline-flex items-center justify-center rounded-md -mr-[0.5rem] p-2 text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white sm:hidden")}>
+      <button onClick={toggleMenu} type="button" className={clsxm("inline-flex items-center justify-center rounded-md -mr-[0.5rem] p-2 text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white lg:hidden")}>
         <span className="sr-only">Open main menu</span>
         {open ? (
           <XMarkIcon className="block h-8 w-8" aria-hidden="true" />
@@ -33,12 +39,12 @@ export const Nav: FC<NavProps> = ({ items }) => {
           <Bars3Icon className="block h-8 w-8" aria-hidden="true" />
         )}
       </button>
-      <ul className={clsxm('fixed inset-0 top-[60px] z-10 overflow-y-auto bg-white list-none font-medium sm:flex sm:static', {'hidden' : !open})}>
+      <ul className={clsxm('fixed inset-0 top-[5.4375rem] md:top-[6.5625rem] lg:top-[8.5625rem] overflow-y-auto bg-white list-none font-medium lg:flex lg:static', {'hidden' : !open})}>
         {items.map(({ title, page, externalUrl }) => (
-          <li key={title} className={clsxm('sm:px-4 sm:mt-0')}>
-            <Link onClick={closeMenu} href={`${page?.slug ?? externalUrl}`} className={clsxm('text-xl block sm:text-base py-4 px-4 border-b-2 border-transparent sm:py-2 sm:px-0 sm:hover:text-primary-dark sm:hover:border-primary-dark', pathname?.includes(page?.slug as string) && 'bg-primary text-white sm:bg-transparent sm:text-primary-light')}>
+          <li key={title} className={clsxm('mt-4 lg:px-4 lg:mt-0')}>
+            <a onClick={(e) => onLinkClick(e, page?.slug ?? externalUrl)} href={`${page?.slug ?? externalUrl}`} className={clsxm('text-xl block lg:text-base p-4 lg:px-0 lg:py-2 border-b-2 border-transparent lg:hover:text-primary-light ', pathname?.includes(page?.slug as string) && 'bg-primary text-white lg:bg-transparent lg:!text-primary-dark lg:border-primary-dark')}>
               {title}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>
