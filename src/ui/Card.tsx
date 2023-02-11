@@ -17,14 +17,7 @@ export const Card: FC<CardProps> = ({
   image: { url, description, width, height },
   text,
 }) => (
-  <motion.figure
-    className='relative flex flex-col h-full'
-    // whileHover={{
-    //   // scale: 1.05,
-    //   boxShadow: '0 20px 25px -5px #cbd5e1, 0 8px 10px -6px #cbd5e1',
-    //   transition: { default: { ease: 'linear' } },
-    // }}
-  >
+  <motion.figure className='relative flex flex-col h-full'>
     <Link href={path} className='relative aspect-[4/3] flex-0 overflow-hidden'>
       <motion.div
         className='w-full h-full'
