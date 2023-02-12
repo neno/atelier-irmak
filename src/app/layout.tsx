@@ -1,13 +1,9 @@
 import './globals.css';
-import { Inter, Open_Sans, MuseoModerno, Raleway } from '@next/font/google';
-import { Header } from '@/ui/Header';
+import { Raleway } from '@next/font/google';
 import { Footer } from '@/ui/Footer';
 import { fetchNavigationItems } from '@/api';
 import { Nav } from '@/ui/Nav';
 
-// const inter = Inter();
-// const openSans = Open_Sans();
-// const museo = MuseoModerno();
 const raleway = Raleway({ subsets: ['latin'] });
 
 export default async function RootLayout({
@@ -16,6 +12,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const items = await fetchNavigationItems();
+
   return (
     <html lang='de'>
       {/*
@@ -24,7 +21,7 @@ export default async function RootLayout({
       */}
       <head />
       <body className={raleway.className}>
-        <Header>{items && <Nav items={items} />}</Header>
+        {items && <Nav items={items} />}
         <main>{children}</main>
         <Footer />
         <div id='overlay'></div>
