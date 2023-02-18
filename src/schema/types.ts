@@ -1,9 +1,9 @@
 import {ReactElement} from "react";
 
 export type SysIdType = { id: string; };
-export type PageContentType = IHero | ITeaser | IText | ICarousel | IGallery | IReferenceItem | IFeatures | IGrid;
+export type PageContentType = ICarousel | IFeatures | IFlyingCarpet | IGallery  | IGrid | IHero | IReferenceItem | ITeaser | IText;
 export type PageContentGuardType = {
-  __typename: 'Hero' | 'Teaser' | 'Text' | 'Carousel' | 'Gallery' | 'Reference' | 'Features' | 'Grid';
+  __typename: 'Carousel' | 'Features' | 'FlyingCarpet' | 'Gallery' | 'Grid' | 'Hero' | 'Reference'  | 'Teaser' | 'Text';
 };
 
 export interface IPage {
@@ -216,3 +216,21 @@ export interface IModal {
   children: ReactElement;
   isOpen: boolean;
 }
+
+export type TFlyingCarpetTemplates = '4-1';
+
+export interface IFlyingCarpet {
+  __typename: 'FlyingCarpet'
+  link: {
+    __TypeName: 'Reference' | 'Rug';
+    slug: string;
+  },
+  template: TFlyingCarpetTemplates;
+  text: {
+    json: JSON;
+  };
+  mediaCollection: {
+    items: IAsset[];
+  };
+}
+

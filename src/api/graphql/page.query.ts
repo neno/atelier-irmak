@@ -1,5 +1,6 @@
 import { carouselFragment } from './fragments/_carouselFragment';
 import { featuresFragment } from './fragments/_featuresFragment';
+import { flyingCarpetFragment } from './fragments/_flyingCarpetFragment';
 import { galleryFragment } from './fragments/_galleryFragment';
 import { gridFragment } from './fragments/_gridFragment';
 import { heroFragment } from './fragments/_hero';
@@ -18,6 +19,7 @@ export const pageQuery = (slug: string) => `
               sys { id }
               __typename
               ${heroFragment}
+              ${flyingCarpetFragment}
               ${teaserItem}
               ${textFragment}
               ${galleryFragment}

@@ -22,7 +22,7 @@ export default async function RootLayout({
       <head />
       <body className={raleway.className}>
         {items && <Nav items={items} />}
-        <main>{children}</main>
+        <main className='relative z-10'>{children}</main>
         <Footer />
         <div id='overlay'></div>
       </body>

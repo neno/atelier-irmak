@@ -1,0 +1,24 @@
+.container {
+  @apply grid grid-cols-12 grid-rows-6 gap-4 xl:gap-8 w-full h-full;
+}
+
+.img1 {
+  @apply hidden;
+  @apply lg:block lg:col-start-1 lg:col-end-3 lg:bg-gray lg:row-start-1 lg:row-end-3;
+}
+
+.img2 {
+  @apply hidden;
+  @apply lg:block lg:col-start-1 lg:col-end-3 lg:bg-gray lg:row-start-3 lg:row-end-7;
+}
+
+.img3 {
+  @apply hidden;
+  @apply xl:block xl:col-start-3 xl:col-end-7 xl:row-start-5 xl:row-end-7;
+}
+
+.img4 {
+  @apply col-start-1 col-end-13 row-start-1 row-end-7 z-10;
+  @apply md:col-start-7;
+  @apply lg:col-start-7 lg:col-end-13 lg:bg-gray lg:row-start-1 lg:row-end-7;
+}

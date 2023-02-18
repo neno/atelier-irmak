@@ -1,0 +1,21 @@
+.txt--4-1 {
+  @apply col-start-1 col-end-13 row-start-1 row-end-7 z-20;
+  @apply md:col-end-7;
+  @apply lg:col-start-3 lg:col-end-7;
+  @apply xl:row-end-5;
+}
+
+.link {
+  @apply block w-full h-full p-8 2xl:p-16;
+  @apply bg-black bg-opacity-30;
+  @apply md:bg-primary md:bg-opacity-100;
+}
+
+.link h2,
+.link p {
+  @apply text-white drop-shadow-xl;
+}
+
+.link h2 {
+  @apply md:text-white lg:text-2xl 2xl:text-4xl;
+}
