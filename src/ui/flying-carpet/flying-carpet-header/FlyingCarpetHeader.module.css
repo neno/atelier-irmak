@@ -6,7 +6,7 @@
 }
 
 .link {
-  @apply flex flex-col justify-between gap-8 w-full h-full p-8 2xl:p-16;
+  @apply flex flex-col justify-between gap-8 w-full h-full p-8;
   @apply bg-black bg-opacity-30;
   @apply md:bg-primary md:bg-opacity-100;
 }
