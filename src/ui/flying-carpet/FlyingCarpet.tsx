@@ -10,24 +10,14 @@ const FlyingCarpetMap = new Map<
 >();
 FlyingCarpetMap.set('4-1', FlyingCarpet41);
 
-export const FlyingCarpet: FC<IFlyingCarpet> = ({
-  template,
-  text,
-  mediaCollection,
-  link,
-}) => {
+export const FlyingCarpet: FC<IFlyingCarpet> = ({ template, ...rest }) => {
   const FlyingCarpetComponent = FlyingCarpetMap.get(template);
 
   if (FlyingCarpetComponent) {
     return (
       <Container className='my-16'>
         <div className='aspect-[1/1] md:aspect-[2/1]'>
-          <FlyingCarpetComponent
-            text={text}
-            mediaCollection={mediaCollection}
-            link={link}
-            template={template}
-          />
+          <FlyingCarpetComponent template={template} {...rest} />
         </div>
       </Container>
     );

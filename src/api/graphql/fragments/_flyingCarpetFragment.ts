@@ -2,6 +2,7 @@ import { imageFragment } from './_image';
 
 export const flyingCarpetFragment = `
 ... on FlyingCarpet {
+  sys { id }
   link {
     __typename
     ... on Reference {

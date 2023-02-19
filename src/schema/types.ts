@@ -220,6 +220,7 @@ export interface IModal {
 export type TFlyingCarpetTemplates = '4-1';
 
 export interface IFlyingCarpet {
+  sys: SysIdType;
   __typename: 'FlyingCarpet'
   link: {
     __TypeName: 'Reference' | 'Rug';
