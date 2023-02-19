@@ -31,3 +31,7 @@
 .richText ul p {
   display: inline;
 }
+
+.richText p:empty {
+  display: none;
+}

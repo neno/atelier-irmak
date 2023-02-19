@@ -6,14 +6,14 @@
 }
 
 .link {
-  @apply block w-full h-full p-8 2xl:p-16;
+  @apply flex flex-col justify-between gap-8 w-full h-full p-8 2xl:p-16;
   @apply bg-black bg-opacity-30;
   @apply md:bg-primary md:bg-opacity-100;
 }
 
 .link h2,
 .link p {
-  @apply text-white drop-shadow-xl;
+  @apply text-white drop-shadow-xl m-0;
 }
 
 .link h2 {
