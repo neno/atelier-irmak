@@ -12,7 +12,7 @@ export const LandingPageHero: FC<Pick<IHero, 'title' | 'image'>> = ({
   return (
     <Container
       className={clsxm(
-        'relative md:max-w-full lg:container lg:grid lg:grid-cols-12 px-0 lg:pb-16 lg:mb-16',
+        'relative lg:grid lg:grid-cols-12 px-0 lg:pb-16 lg:mb-16',
         'md:aspect-[2/1]'
       )}
     >
@@ -23,7 +23,9 @@ export const LandingPageHero: FC<Pick<IHero, 'title' | 'image'>> = ({
           height={image.height}
           alt={image.description}
           priority={true}
-          className={clsxm('aspect-square md:aspect-[2/1] object-cover object-center')}
+          className={clsxm(
+            'aspect-square md:aspect-[2/1] object-cover object-center'
+          )}
           sizes='(min-width: 90em) 90rem, 100vw'
         />
       </div>
