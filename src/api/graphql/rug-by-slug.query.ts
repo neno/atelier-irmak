@@ -19,13 +19,13 @@ export const getRugBySlugQuery = (slug: string) => `
         placing
         featuredImage {
           ... on Asset {
-            ${imageFragment(960)}
+            ${imageFragment(2000)}
           }
         }
         galleryCollection {
           items {
             ... on Asset {
-              ${imageFragment(960)}
+              ${imageFragment(2000)}
             }
           }
         }

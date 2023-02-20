@@ -8,7 +8,7 @@ export const rugItem = `
     subtitle
     excerpt
     featuredImage {
-      ${imageFragment(960)}
+      ${imageFragment(2000)}
     }
   }
 `;

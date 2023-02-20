@@ -16,7 +16,7 @@ export const gridFragment = `
           }
           media {
             ... on Asset {
-              ${imageFragment(960)}
+              ${imageFragment(2000)}
             }
           }
         }
