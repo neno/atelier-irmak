@@ -5,6 +5,7 @@ import { RichText } from '@/ui/rich-text/RichText';
 import { Container } from '@/ui/Container';
 import { DefList } from '@/ui/DefList';
 import { SliderWithModal } from '@/ui/SliderWithModal';
+import { StaticMap } from '@/ui/StaticMap';
 
 async function RugPage({ params }: { params: { slug: string } }) {
   if (!params.slug) {
@@ -23,11 +24,14 @@ async function RugPage({ params }: { params: { slug: string } }) {
     description,
     name,
     origin,
-    size,
+    originGeolocation,
+    length,
+    width,
     age,
     featuredImage,
     galleryCollection: { items: galleryItems },
   } = rug;
+  const size = `${length} x ${width} cm`;
 
   return (
     <>
@@ -47,13 +51,14 @@ async function RugPage({ params }: { params: { slug: string } }) {
               <RichText content={description} />
               <SliderWithModal galleryItems={galleryItems} />
             </div>
-            <div className='sm:col-start-10 sm:col-end-13 mt-16 sm:mt-0'>
+            <div className='sm:col-start-10 sm:col-end-13 mt-16 sm:mt-0 flex flex-col gap-8'>
               <div className='bg-primary text-white px-16 py-8'>
                 <DefList
                   items={{ name, origin, size, age }}
                   sorting={['name', 'origin', 'size', 'age']}
                 />
               </div>
+              <div className='border border-primary'></div>
             </div>
           </div>
         </Container>

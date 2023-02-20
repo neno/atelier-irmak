@@ -11,7 +11,12 @@ export const getRugBySlugQuery = (slug: string) => `
         description {json}
         name
         origin
-        size
+        originGeolocation {
+          lat
+          lon
+        }
+        length
+        width
         age
         palette
         location

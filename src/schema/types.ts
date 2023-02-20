@@ -99,6 +99,11 @@ export interface IRugCollectionPaths {
   rugCollection: ICollectionPaths;
 }
 
+export type TGeolocation = {
+  lat: number;
+  lon: number;
+};
+
 export interface IRug {
   title: string;
   subtitle: string;
@@ -107,7 +112,10 @@ export interface IRug {
   description: any;
   name: string;
   origin: string;
+  originGeolocation: TGeolocation;
   size: string;
+  length: number;
+  width: number;
   age: string;
   location: string;
   room: string;
