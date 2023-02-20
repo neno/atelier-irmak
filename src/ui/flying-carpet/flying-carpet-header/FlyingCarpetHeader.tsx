@@ -21,13 +21,12 @@ import { ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 </svg>;
 
 import styles from './FlyingCarpetHeader.module.css';
+import { useRouter } from 'next/router';
 
 export const FlyingCarpetHeader: FC<
   Pick<IFlyingCarpet, 'template' | 'text' | 'link' | 'backgroundColor'>
 > = ({ template, link, text, backgroundColor }) => {
-  console.log('backgroundColor', backgroundColor);
-
-  const path = `/referenzen/${link.slug}`;
+  const path = `/kollektion/${link.slug}`; // TODO: Make this dynamic
   return (
     <header className={clsxm(styles[`txt--${template}`])}>
       <Link
