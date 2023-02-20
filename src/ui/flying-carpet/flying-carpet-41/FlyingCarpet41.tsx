@@ -14,10 +14,16 @@ export const FlyingCarpet41: FC<Omit<IFlyingCarpet, '__typename'>> = ({
   mediaCollection,
   link,
   template,
+  backgroundColor,
 }) => {
   return (
     <section className={styles.container}>
-      <FlyingCarpetHeader template={template} text={text} link={link} />
+      <FlyingCarpetHeader
+        template={template}
+        text={text}
+        link={link}
+        backgroundColor={backgroundColor}
+      />
       {mediaCollection?.items.map((item, index) => (
         <div key={item.url} className={styles[`img${index + 1}`]}>
           <NextImage

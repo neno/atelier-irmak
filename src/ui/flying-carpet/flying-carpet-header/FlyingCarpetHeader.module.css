@@ -8,7 +8,7 @@
 .link {
   @apply flex flex-col justify-between gap-8 w-full h-full p-8;
   @apply bg-black bg-opacity-30;
-  @apply md:bg-primary md:bg-opacity-100;
+  /* @apply md:bg-primary md:bg-opacity-100; */
 }
 
 .link h2,
@@ -18,4 +18,12 @@
 
 .link h2 {
   @apply md:text-white lg:text-2xl 2xl:text-4xl;
+}
+
+.bg--blue {
+  @apply md:bg-blue;
+}
+
+.bg--red {
+  @apply md:bg-red;
 }

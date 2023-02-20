@@ -5,15 +5,13 @@ export const flyingCarpetFragment = `
   sys { id }
   link {
     __typename
-    ... on Reference {
-      slug
-    }
     ... on Rug {
       slug
     }
 
   }
   template
+  backgroundColor
   text {json}
   mediaCollection {
     items {

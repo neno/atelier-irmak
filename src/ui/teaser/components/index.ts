@@ -1,3 +1,3 @@
 export * from './competences/TeaserCompetences';
-export * from './references/TeaserReferences';
+export * from './collection/TeaserCollection';
 export * from './monthly/TeaserMonthly';

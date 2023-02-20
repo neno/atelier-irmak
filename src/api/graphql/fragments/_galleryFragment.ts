@@ -1,4 +1,4 @@
-import { referenceItem } from './_referenceItem';
+import { rugItem } from './_rugItem';
 
 export const galleryFragment = `
   ... on Gallery {
@@ -6,7 +6,7 @@ export const galleryFragment = `
     itemsCollection(limit: 9) {
       items {
         __typename
-        ${referenceItem}
+        ${rugItem}
       }
     }
   }

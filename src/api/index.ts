@@ -1,11 +1,9 @@
-import { mapDataToReference } from '@/lib/helpers';
 import { navigationQuery } from './graphql/navigation.query';
 import { pageCollectionPathsQuery } from './graphql/page-collection-paths.query';
 import { pageQuery } from './graphql/page.query';
-import { getReferenceBySlugQuery } from './graphql/reference-by-slug.query';
-import { referencePathsQuery } from './graphql/reference-paths.query';
-import { INavigationItem, IPageCollectionPaths, IReference, IReferenceCollectionPaths, PageContentType } from '@/schema/types';
-import { referenceCollectionPathsQuery } from './graphql/reference-collection-paths.query';
+import { getRugBySlugQuery } from './graphql/rug-by-slug.query';
+import { INavigationItem, IPageCollectionPaths, IRugCollectionPaths, IRug, PageContentType } from '@/schema/types';
+import { rugCollectionPathsQuery } from './graphql/rug-collection-paths.query';
 
 const headers = {
   Authorization: `Bearer ${process.env.CONTENTFUL_API_KEY}`,
@@ -34,21 +32,15 @@ async function fetchData<T>(query: string) {
 }
 
 
-
-export async function fetchReferencePaths(): Promise<IReferenceCollectionPaths> {
-  const data = await fetchData(referencePathsQuery);
-  return data;
-}
-
-export async function getReferenceBySlug(
+export async function getRugBySlug(
   slug: string
-): Promise<IReference | undefined> {
-  const query = getReferenceBySlugQuery(slug);
+): Promise<IRug | undefined> {
+  const query = getRugBySlugQuery(slug);
   const {
-    referenceCollection: { items },
+    rugCollection: { items },
   } = await fetchData(query);
 
-  return mapDataToReference(items?.[0]);
+  return items[0];
 }
 
 export async function fetchPageCollectionPaths(): Promise<IPageCollectionPaths> {
@@ -56,9 +48,9 @@ export async function fetchPageCollectionPaths(): Promise<IPageCollectionPaths> 
   return pageCollection;
 }
 
-export async function fetchReferenceCollectionPaths(): Promise<IReferenceCollectionPaths> {
-  const referenceCollection = await fetchData(referenceCollectionPathsQuery);
-  return referenceCollection;
+export async function fetchRugCollectionPaths(): Promise<IRugCollectionPaths> {
+  const rugCollection = await fetchData(rugCollectionPathsQuery);
+  return rugCollection;
 }
 
 export async function fetchPageContentItemsBySlug(slug: string): Promise<PageContentType[] | undefined> {

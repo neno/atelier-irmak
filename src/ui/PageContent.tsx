@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import {
-  // isCarousel,
   isFeatures,
   isFlyingCarpet,
   isGallery,
@@ -13,7 +12,6 @@ import { PageContentType } from '@/schema/types';
 import { Hero } from './hero/Hero';
 import { Teaser } from './teaser/Teaser';
 import { Text } from './Text';
-import { Carousel } from './carousel/Carousel';
 import { Gallery } from './Gallery';
 import { Features } from './Features';
 import { Grid } from './grid/Grid';

@@ -16,6 +16,9 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       primary: '#333D98',
+      blue: '#333D98',
+      alternative: '#551E13',
+      red: '#551E13',
       'primary-dark': '#12184D',
       'primary-light': '#4E5DE6',
       light: '#939BE5',
@@ -31,7 +34,7 @@ module.exports = {
     listStyleType: {
       none: 'none',
       square: 'square',
-    }
+    },
   },
   plugins: [
     // require('@tailwindcss/typography'),
@@ -58,22 +61,34 @@ module.exports = {
         sm: [-1, 1.6],
         base: [0, 1.6],
         lg: [1, 1.6],
-        xl: [2, {
-          lineHeight: '1.2',
-          letterSpacing: '0.02em',
-        }],
-        '2xl': [3, {
-          lineHeight: '1.2',
-          letterSpacing: '0.02em',
-        }],
-        '3xl': [4, {
-          lineHeight: '1.2',
-          letterSpacing: '0.02em',
-        }],
-        '4xl': [5, {
-          lineHeight: '1.2',
-          letterSpacing: '0.02em',
-        }],
+        xl: [
+          2,
+          {
+            lineHeight: '1.2',
+            letterSpacing: '0.02em',
+          },
+        ],
+        '2xl': [
+          3,
+          {
+            lineHeight: '1.2',
+            letterSpacing: '0.02em',
+          },
+        ],
+        '3xl': [
+          4,
+          {
+            lineHeight: '1.2',
+            letterSpacing: '0.02em',
+          },
+        ],
+        '4xl': [
+          5,
+          {
+            lineHeight: '1.2',
+            letterSpacing: '0.02em',
+          },
+        ],
         '5xl': [6, 1.1],
         '6xl': [7, 1.1],
         '7xl': [8, 1],

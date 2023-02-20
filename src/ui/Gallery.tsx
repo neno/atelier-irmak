@@ -1,11 +1,11 @@
 import clsxm from '@/lib/clsxm';
-import { BackgroundTypes, IReferenceItem, IText } from '@/schema/types';
+import { BackgroundTypes, IRugItem, IText } from '@/schema/types';
 import { FC } from 'react';
 import { Card } from './Card';
 import { Container } from './Container';
 
 interface GalleryProps {
-  items: IReferenceItem[];
+  items: IRugItem[];
   background?: BackgroundTypes;
 }
 export const Gallery: FC<GalleryProps> = ({ items, background = 'none' }) => (
@@ -21,7 +21,7 @@ export const Gallery: FC<GalleryProps> = ({ items, background = 'none' }) => (
         {items.map((item) => (
           <li className='relative' key={item.sys.id}>
             <Card
-              path={`/referenzen/${item.slug}`}
+              path={`/kollektion/${item.slug}`}
               image={item.featuredImage}
               text={item.title}
             />

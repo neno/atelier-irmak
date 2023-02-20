@@ -1,9 +1,9 @@
 import {ReactElement} from "react";
 
 export type SysIdType = { id: string; };
-export type PageContentType = ICarousel | IFeatures | IFlyingCarpet | IGallery  | IGrid | IHero | IReferenceItem | ITeaser | IText;
+export type PageContentType = IFeatures | IFlyingCarpet | IGallery  | IGrid | IHero | IRugItem | ITeaser | IText;
 export type PageContentGuardType = {
-  __typename: 'Carousel' | 'Features' | 'FlyingCarpet' | 'Gallery' | 'Grid' | 'Hero' | 'Reference'  | 'Teaser' | 'Text';
+  __typename: 'Features' | 'FlyingCarpet' | 'Gallery' | 'Grid' | 'Hero' | 'Rug'  | 'Teaser' | 'Text';
 };
 
 export interface IPage {
@@ -47,7 +47,7 @@ export interface ITeasersCollection {
   items: ITeaser[];
 }
 
-export type TeaserType = 'Kompetenz' | 'Referenz' | 'Der fliegende Teppich';
+export type TeaserType = 'Kompetenz' | 'Kollektion' | 'Der fliegende Teppich';
 
 export interface ITeaser {
   sys: SysIdType;
@@ -81,9 +81,9 @@ export interface ILink {
   externalUrl?: string;
 }
 
-export interface IReferenceItem {
+export interface IRugItem {
   sys: SysIdType;
-  __typename: 'Reference';
+  __typename: 'Rug';
   slug: string;
   title: string;
   subtitle: string;
@@ -91,26 +91,20 @@ export interface IReferenceItem {
   featuredImage: IAsset;
 }
 
-export interface IReferenceCollection {
-  items: IReferenceItem[];
+export interface IRugCollection {
+  items: IRugItem[];
 }
 
-export interface IReference {
+export interface IRugCollectionPaths {
+  rugCollection: ICollectionPaths;
+}
+
+export interface IRug {
   title: string;
   subtitle: string;
+  slug: string;
   excerpt: string;
-  body: string;
   description: any;
-  definition: IReferenceDefintion;
-  detailImage: IAsset;
-  galleryItems: IAsset[];
-}
-
-export interface IReferenceCollectionPaths {
-  referenceCollection: ICollectionPaths;
-}
-
-export interface IReferenceDefintion {
   name: string;
   origin: string;
   size: string;
@@ -118,37 +112,17 @@ export interface IReferenceDefintion {
   location: string;
   room: string;
   placing: string | null;
-}
-
-export interface IRug {
-  name: string;
-  text: string;
-  origin: string;
-  palette: string[] | null;
-  detailImage: IAsset;
-}
-
-export interface IReferenceQueryData {
-  title: string;
-  subtitle: string;
-  excerpt: string;
-  body: string;
-  description: any;
-  location: string;
-  room: string;
-  placing: string | null;
-  rug: {
-    name: string;
-    text: string;
-    origin: string;
-    size: string;
-    age: string;
-    palette: string;
-    detailImage: IAsset;
-  };
+  featuredImage: IAsset;
   galleryCollection: {
     items: IAsset[];
-  };
+  }
+}
+
+export interface IRugDefinition {
+  name: string;
+  origin: string;
+  size: string;
+  age: string;
 }
 
 export interface INavigationItem {
@@ -159,17 +133,6 @@ export interface INavigationItem {
   externalUrl: string;
 }
 
-export interface ICarousel {
-  sys: SysIdType;
-  __typename: 'Carousel';
-  displayItems: number;
-  autoplay: boolean;
-  autoplaySpeed: number;
-  itemsCollection: {
-    items: IReferenceItem[];
-  };
-}
-
 export type BackgroundTypes = 'none' | 'light' | 'dark';
 
 export interface IGallery {
@@ -177,7 +140,7 @@ export interface IGallery {
   __typename: 'Gallery';
   background: BackgroundTypes;
   itemsCollection: {
-    items: IReferenceItem[];
+    items: IRugItem[];
   };
 }
 
@@ -188,10 +151,6 @@ export interface IFeatures {
   sectionsCollection: {
     items: IText[];
   }
-}
-
-export interface IReferenceCollectionPaths {
-  referenceCollection: ICollectionPaths;
 }
 
 export interface IGrid {
@@ -218,15 +177,17 @@ export interface IModal {
 }
 
 export type TFlyingCarpetTemplates = '4-1';
+export type TFlyingCarpetBgColors = 'blue' | 'red';
 
 export interface IFlyingCarpet {
   sys: SysIdType;
   __typename: 'FlyingCarpet'
   link: {
-    __TypeName: 'Reference' | 'Rug';
+    __TypeName: 'Rug';
     slug: string;
   },
   template: TFlyingCarpetTemplates;
+  backgroundColor: TFlyingCarpetBgColors;
   text: {
     json: JSON;
   };

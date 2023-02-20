@@ -1,7 +1,7 @@
 import { imageFragment } from './_image';
 
-export const referenceItem = `
-  ...on Reference {
+export const rugItem = `
+  ...on Rug {
     sys { id }
     slug
     title

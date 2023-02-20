@@ -23,12 +23,17 @@ import { ArrowRightCircleIcon } from '@heroicons/react/24/outline';
 import styles from './FlyingCarpetHeader.module.css';
 
 export const FlyingCarpetHeader: FC<
-  Pick<IFlyingCarpet, 'template' | 'text' | 'link'>
-> = ({ template, link, text }) => {
+  Pick<IFlyingCarpet, 'template' | 'text' | 'link' | 'backgroundColor'>
+> = ({ template, link, text, backgroundColor }) => {
+  console.log('backgroundColor', backgroundColor);
+
   const path = `/referenzen/${link.slug}`;
   return (
     <header className={clsxm(styles[`txt--${template}`])}>
-      <Link href={path} className={styles.link}>
+      <Link
+        href={path}
+        className={clsxm(styles.link, styles[`bg--${backgroundColor}`])}
+      >
         <RichText
           content={text}
           className='flex flex-col flex-1 justify-between w-full h-full '

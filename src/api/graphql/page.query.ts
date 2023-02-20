@@ -1,4 +1,3 @@
-import { carouselFragment } from './fragments/_carouselFragment';
 import { featuresFragment } from './fragments/_featuresFragment';
 import { flyingCarpetFragment } from './fragments/_flyingCarpetFragment';
 import { galleryFragment } from './fragments/_galleryFragment';
@@ -24,7 +23,6 @@ export const pageQuery = (slug: string) => `
               ${textFragment}
               ${galleryFragment}
               ${featuresFragment}
-              ${carouselFragment}
               ${gridFragment}
             }
           }
