@@ -58,7 +58,6 @@ async function RugPage({ params }: { params: { slug: string } }) {
                   sorting={['name', 'origin', 'size', 'age']}
                 />
               </div>
-              <div className='border border-primary'></div>
             </div>
           </div>
         </Container>

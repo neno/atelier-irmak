@@ -3,11 +3,8 @@ import { imageFragment } from './_image';
 export const teaserItem = `
   ... on Teaser {
     sys { id }
-    slug
     type
     title
-    subtitle
-    excerpt
     text {
       richText {
         json
@@ -18,6 +15,7 @@ export const teaserItem = `
       page {
         slug
       }
+      externalUrl
     }
     image {
       ${imageFragment(1200)}

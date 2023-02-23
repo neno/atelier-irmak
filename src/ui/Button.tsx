@@ -1,6 +1,7 @@
 import clsxm from '@/lib/clsxm';
 import Link from 'next/link';
 import { FC, ReactNode } from 'react';
+import { json } from 'stream/consumers';
 
 interface IButtonProps {
   children: ReactNode;
@@ -35,5 +36,6 @@ export const Button: FC<IButtonProps> = ({
     );
   }
 
-  throw new Error('Button must have either a path or an onClick handler');
+  return <pre>{JSON.stringify({ path, onClick })}</pre>;
+  // throw new Error('Button must have either a path or an onClick handler');
 };

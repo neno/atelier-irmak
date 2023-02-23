@@ -5,7 +5,7 @@ import { Container } from '@/ui/Container';
 import { Heading } from '@/ui/heading';
 import { RichText } from '@/ui/rich-text/RichText';
 import { TeaserImage } from '../TeaserImage';
-import clsxm from "@/lib/clsxm";
+import clsxm from '@/lib/clsxm';
 
 export const TeaserMonthly: FC<ITeaser> = ({ title, image, text, link }) => {
   return (
@@ -17,16 +17,30 @@ export const TeaserMonthly: FC<ITeaser> = ({ title, image, text, link }) => {
           </header>
         </div>
         <div className={clsxm('md:grid grid-cols-2')}>
-          <div className={clsxm('relative border-[1rem] border-white aspect-[4/3] shadow-xl shadow-slate-300')}>
+          <div
+            className={clsxm(
+              'relative border-[1rem] border-white aspect-[4/3] shadow-xl shadow-slate-300'
+            )}
+          >
             <TeaserImage image={image} />
           </div>
-          <div className={clsxm('mt-8 md:mt-0 px-8 bg-gray flex flex-col justify-end')}>
+          <div
+            className={clsxm(
+              'mt-8 md:mt-0 px-8 bg-gray flex flex-col justify-end'
+            )}
+          >
             {text?.richText && (
-              <RichText content={text?.richText} className={clsxm('md:mr-4 mb-4')} />
+              <RichText
+                content={text?.richText}
+                className={clsxm('md:mr-4 mb-4')}
+              />
             )}
             {link && (
               <p className={clsxm('py-4 md:pb-0 mb-0')}>
-                <Button path={link.page?.slug} type='primary'>
+                <Button
+                  path={link.page?.slug ?? link.externalUrl}
+                  type='primary'
+                >
                   {link.title}
                 </Button>
               </p>
