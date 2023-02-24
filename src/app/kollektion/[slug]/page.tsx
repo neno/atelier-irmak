@@ -5,7 +5,6 @@ import { RichText } from '@/ui/rich-text/RichText';
 import { Container } from '@/ui/Container';
 import { DefList } from '@/ui/DefList';
 import { SliderWithModal } from '@/ui/SliderWithModal';
-import { StaticMap } from '@/ui/StaticMap';
 
 async function RugPage({ params }: { params: { slug: string } }) {
   if (!params.slug) {
