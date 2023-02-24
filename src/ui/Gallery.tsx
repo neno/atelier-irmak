@@ -10,14 +10,14 @@ interface GalleryProps {
 }
 export const Gallery: FC<GalleryProps> = ({ items, background = 'none' }) => (
   <div
-    className={clsxm('gallery py-8 md:py-16', {
+    className={clsxm('gallery mt-16 py-16 lg:mt-24 lg:py-24', {
       'w-full': background !== 'none',
       'bg-gray': background === 'light',
       'bg-primary': background === 'dark',
     })}
   >
-    <Container className='pb-8 md:pb-16'>
-      <ul className='grid md:grid-cols-2 gap-4 md:gap-x-8 md:gap-y-16'>
+    <Container>
+      <ul className='grid md:grid-cols-2 gap-8 md:gap-y-16'>
         {items.map((item) => (
           <li className='relative' key={item.sys.id}>
             <Card

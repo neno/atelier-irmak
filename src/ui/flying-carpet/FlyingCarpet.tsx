@@ -17,7 +17,7 @@ export const FlyingCarpet: FC<IFlyingCarpet> = ({ template, ...rest }) => {
 
   if (FlyingCarpetComponent) {
     return (
-      <Container className='my-16'>
+      <Container className='my-16 lg:mb-24'>
         <div className='aspect-[1/1] md:aspect-[2/1]'>
           <FlyingCarpetComponent template={template} {...rest} />
         </div>
