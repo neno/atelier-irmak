@@ -23,7 +23,7 @@ export const TeaserCompetences: FC<ITeaser> = ({
       >
         <Container className={clsxm('py-8 sm:py-16')}>
           <header
-            className={clsxm('lg:w-[75%] 2xl:w-[62.5%]', 'mx-4 md:mx-0 mb-8')}
+            className={clsxm('lg:w-[75%] 2xl:w-[62.5%] relative z-[1]', 'mx-4 md:mx-0 mb-8')}
           >
             <Heading title={title} level={2} />
           </header>
@@ -40,7 +40,7 @@ export const TeaserCompetences: FC<ITeaser> = ({
               className={clsxm(styles.teaserText, 'flex flex-col justify-end')}
             >
               {text?.richText && (
-                <RichText content={text?.richText} className='md:mr-4' />
+                <RichText content={text?.richText} className={clsxm('md:mr-4', styles.teaserBgContrast)} />
               )}
               {link && (
                 <p className='py-4 md:pb-0 mb-0'>
