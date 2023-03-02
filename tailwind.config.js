@@ -14,6 +14,7 @@ module.exports = {
       },
     },
     colors: {
+      current: 'currentColor',
       transparent: 'transparent',
       primary: '#333D98',
       blue: '#333D98',
@@ -34,6 +35,9 @@ module.exports = {
     listStyleType: {
       none: 'none',
       square: 'square',
+    },
+    fill: {
+      current: 'currentColor',
     },
   },
   plugins: [
