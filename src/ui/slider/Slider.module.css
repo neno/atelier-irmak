@@ -2,18 +2,31 @@
   @apply md:px-24 py-16 md:-mx-24 -mt-16;
 }
 
-.slider {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='none' stroke='%2312184D' stroke-width='0.5'/%3E%3Cline x1='7' y1='12' x2='17' y2='12' stroke='%2312184D' stroke-width='0.5'/%3E%3Cline x1='12' y1='7' x2='12' y2='17' stroke='%2312184D' stroke-width='0.5'/%3E%3C/svg%3E"), auto;
+.slider :global(.splide__slide) {
+  position: relative;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='none' stroke='%23F1F5F9' stroke-width='0.5'/%3E%3Cline x1='7' y1='12' x2='17' y2='12' stroke='%23F1F5F9' stroke-width='0.5'/%3E%3Cline x1='12' y1='7' x2='12' y2='17' stroke='%23F1F5F9' stroke-width='0.5'/%3E%3C/svg%3E") 24 24, auto;
+}
+
+.slider :global(.splide__slide)::before {
+  @apply absolute inset-0 bg-primary-dark opacity-0 z-10 transition-opacity duration-300;
+  content: "";
+}
+
+.slider :global(.splide__slide):hover::before {
+  opacity: 0.5;
 }
 
 .slider :global(.splide__arrow) {
-  @apply border-solid border-primary hidden md:flex;
+  @apply bg-transparent border-current text-primary border-solid hidden md:flex;
   border-width: 1px;
-  background: transparent;
+}
+
+.slider :global(.splide__arrow:not([disabled])) {
+  @apply transition-colors hover:bg-primary hover:text-gray;
 }
 
 .slider :global(.splide__arrow) svg {
-  fill: rgb(51 61 152);
+  @apply fill-current;
 }
 
 .slider :global(.splide__pagination__page) {
