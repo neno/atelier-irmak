@@ -10,15 +10,24 @@ export const getRugBySlugQuery = (slug: string) => `
         excerpt
         description {json}
         name
+        type
         origin
-        originGeolocation {
-          lat
-          lon
+        country {
+          ... on Country {
+            name
+          }
         }
         length
         width
-        age
+        dating
+        age {
+          ... on Age {
+            name
+            description
+          }
+        }
         palette
+        colors
         location
         room
         placing

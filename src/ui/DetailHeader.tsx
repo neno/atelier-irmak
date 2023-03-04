@@ -6,10 +6,15 @@ import { NextImage } from './NextImage';
 
 interface DetailHeaderProps {
   title: string;
+  subtitle: string;
   image: IAsset;
 }
 
-export const DetailHeader: FC<DetailHeaderProps> = ({ title, image }) => {
+export const DetailHeader: FC<DetailHeaderProps> = ({
+  title,
+  subtitle,
+  image,
+}) => {
   const sliderHeight = 565;
   const { url, description, height, width } = image;
   return (
@@ -32,7 +37,10 @@ export const DetailHeader: FC<DetailHeaderProps> = ({ title, image }) => {
           />
         </div>
         <div className='p-8 sm:aspect-[4/3] bg-white flex items-center justify-center md:px-32 relative z-10'>
-          <h1 className='text-5xl'>{title}</h1>
+          <h1 className='text-5xl flex flex-col gap-4'>
+            <span>{title}</span>
+            <small className='text-lg'>{subtitle}</small>
+          </h1>
         </div>
       </header>
     </Container>

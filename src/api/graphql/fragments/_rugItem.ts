@@ -4,9 +4,7 @@ export const rugItem = `
   ...on Rug {
     sys { id }
     slug
-    title
-    subtitle
-    excerpt
+    name
     featuredImage {
       ${imageFragment(2000)}
     }

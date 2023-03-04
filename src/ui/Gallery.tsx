@@ -23,7 +23,7 @@ export const Gallery: FC<GalleryProps> = ({ items, background = 'none' }) => (
             <Card
               path={`/kollektion/${item.slug}`}
               image={item.featuredImage}
-              text={item.title}
+              text={item.name}
             />
           </li>
         ))}

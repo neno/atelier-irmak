@@ -1,4 +1,4 @@
-import {ReactElement} from "react";
+import {ReactElement} from 'react';
 
 export type SysIdType = { id: string; };
 export type PageContentType = IFeatures | IFlyingCarpet | IGallery  | IGrid | IHero | IRugItem | ITeaser | IText;
@@ -85,9 +85,7 @@ export interface IRugItem {
   sys: SysIdType;
   __typename: 'Rug';
   slug: string;
-  title: string;
-  subtitle: string;
-  excerpt: string;
+  name: string;
   featuredImage: IAsset;
 }
 
@@ -104,6 +102,8 @@ export type TGeolocation = {
   lon: number;
 };
 
+export type TColorTypes = 'Red' | 'Orange' | 'Yellow' | 'Brown' | 'Green' |'Blue' |'Purple' | 'Pink' | 'Black' | 'Gray' | 'White';
+
 export interface IRug {
   title: string;
   subtitle: string;
@@ -111,12 +111,19 @@ export interface IRug {
   excerpt: string;
   description: any;
   name: string;
+  type: string;
   origin: string;
-  originGeolocation: TGeolocation;
-  size: string;
+  country: {
+    name: string;
+    geolocation: TGeolocation;
+  }
   length: number;
   width: number;
-  age: string;
+  dating: string; 
+  age: {
+    name: string;
+    description: string;
+  }
   location: string;
   room: string;
   placing: string | null;
@@ -124,13 +131,15 @@ export interface IRug {
   galleryCollection: {
     items: IAsset[];
   }
+  colors: TColorTypes[];
+  palette: Record<string, string>;
 }
 
 export interface IRugDefinition {
   name: string;
   origin: string;
   size: string;
-  age: string;
+  dating: string;
 }
 
 export interface INavigationItem {
