@@ -42,13 +42,13 @@ async function RugPage({ params }: { params: { slug: string } }) {
   const size = `${length} x ${width} cm`;
 
   return (
-    <ContainerVertical>
+    <ContainerVertical className=''>
       <DetailHeader title={title} subtitle={subtitle} image={featuredImage} />
       <Container className='lg:my-16'>
         <LeadText leadText={excerpt} />
       </Container>
-      <div className='w-full bg-gray'>
-        <Container className='py-16'>
+      <div className='w-full bg-white'>
+        <Container className=''>
           <div
             className={clsxm(
               'flex flex-col gap-12 md:gap-16 lg:grid lg:grid-cols-12',
@@ -57,15 +57,10 @@ async function RugPage({ params }: { params: { slug: string } }) {
           >
             <div className='lg:col-start-1 lg:col-end-8'>
               <ContainerVertical>
-                <ContainerVertical className='max-w-xl mx-auto lg:max-w-full lg:mx-0 gap-12'>
+                <ContainerVertical>
                   <h2>Über diesen Teppichs</h2>
-                  <div className='xl:max-w-2xl'>
-                    <RichText content={description} />
-                  </div>
+                  <RichText content={description} />
                 </ContainerVertical>
-                <Container>
-                  <SliderWithModal galleryItems={galleryItems} />
-                </Container>
               </ContainerVertical>
             </div>
             <div className='lg:col-start-9 lg:col-end-13'>
@@ -77,26 +72,30 @@ async function RugPage({ params }: { params: { slug: string } }) {
                     sorting={['name', 'origin', 'size', 'dating']}
                   />
                 </aside>
-                <ContainerVertical
-                  tag='aside'
-                  className='flex flex-col gap-4 lg:gap-4'
-                >
-                  <h3>Kategorien</h3>
-                  <ContainerVertical className='sm:grid sm:grid-cols-2 gap-8 lg:flex lg:gap-8'>
-                    <Palette palette={palette} />
-                    <Colors colors={colors} />
-                    <RugCategorizations
-                      categorizations={{
-                        type,
-                        age: age.name,
-                        country: country.name,
-                      }}
-                    />
-                  </ContainerVertical>
-                </ContainerVertical>
               </ContainerVertical>
             </div>
           </div>
+        </Container>
+      </div>
+      <Container>
+        <SliderWithModal galleryItems={galleryItems} />
+      </Container>
+      <div className='w-full bg-gray'>
+        <Container className='py-8 sm:py-16'>
+          <ContainerVertical tag='aside' className='gap-4 md:gap-8'>
+            <h3>Kategorien</h3>
+            <div className='flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-16'>
+              <Colors colors={colors} />
+              <Palette palette={palette} />
+              <RugCategorizations
+                categorizations={{
+                  type,
+                  age: age.name,
+                  country: country.name,
+                }}
+              />
+            </div>
+          </ContainerVertical>
         </Container>
       </div>
     </ContainerVertical>
