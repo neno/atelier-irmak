@@ -25,7 +25,7 @@ export const Slider: FC<SliderProps> = ({ items, className, onSlideClick }) => {
           'm12.77,35.53l-1.06-1.06,14.47-14.47L11.7,5.53l1.06-1.06,15.53,15.53-15.53,15.53Z',
         autoWidth: true,
       }}
-      // className={clsxm(className, styles.slider)}
+      className={clsxm(className, styles.slider)}
     >
       {items.map(({ url, description, width, height }, index) => (
         <SplideSlide key={url} onClick={() => onSlideClick(index)}>
