@@ -20,13 +20,13 @@ export const SliderWithModal: FC<ISliderWithModalProps> = ({
   };
 
   return (
-    <div className='mt-16'>
+    <>
       <Slider items={galleryItems} onSlideClick={onSlideClick} />
       {isOpen && (
         <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
           <ModalSlider items={galleryItems} index={slideIndex} />
         </Modal>
       )}
-    </div>
+    </>
   );
 };

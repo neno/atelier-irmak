@@ -1,8 +1,10 @@
 import clsxm from '@/lib/clsxm';
 import { IAsset } from '@/schema/types';
 import { FC } from 'react';
-import { Container } from './Container';
-import { NextImage } from './NextImage';
+import { Container } from '../Container';
+import { NextImage } from '../NextImage';
+
+import styles from './DetailHeader.module.css';
 
 interface DetailHeaderProps {
   title: string;
@@ -17,6 +19,34 @@ export const DetailHeader: FC<DetailHeaderProps> = ({
 }) => {
   const sliderHeight = 565;
   const { url, description, height, width } = image;
+  return (
+    <Container className='px-0'>
+      <header className={styles.container}>
+        <div className={styles.image}>
+          <NextImage
+            // src={url}
+            // alt={description}
+            // width={width}
+            // height={height}
+            // className='w-full h-full object-cover object-bottom'
+            // sizes='(min-width: 640px) 30vw, (min-width: 1280px) 500px, 100vw'
+
+            src={url}
+            alt={description}
+            width={width}
+            height={height}
+            className='w-full h-full object-cover object-center'
+          />
+        </div>
+        <div className={styles.heading}>
+          <h1 className={styles.title}>
+            <span>{title}</span>
+            <small className={styles.subtitle}>{subtitle}</small>
+          </h1>
+        </div>
+      </header>
+    </Container>
+  );
   return (
     <Container className={clsxm('p-0 sm:py-16')}>
       <header

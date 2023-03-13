@@ -16,7 +16,7 @@ export const Palette: FC<PaletteProps> = ({ palette }) => {
         {colors.map(({ label, color }) => (
           <div
             key={label}
-            className='aspect-[1/1]'
+            className='aspect-[2/1] sm:aspect-[1/1] lg:aspect-[2/1]'
             style={{ backgroundColor: color }}
             title={label}
           ></div>

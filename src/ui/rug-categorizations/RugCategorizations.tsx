@@ -14,18 +14,21 @@ export const RugCategorizations: FC<RugCategorizationsProps> = ({
   }));
 
   return (
-    <dl className='flex gap-2 flex-wrap items-center'>
-      {translatedCategorizations.map(({ label, value }) => (
-        <Fragment key={value}>
-          <dt className='sr-only'>{label}</dt>
-          <dd
-            title={`${label}: ${value}`}
-            className='py-1 px-2 text-primary rounded border border-primary'
-          >
-            {value}
-          </dd>
-        </Fragment>
-      ))}
-    </dl>
+    <aside>
+      <h4 className=''>Tags</h4>
+      <dl className='flex gap-2 flex-wrap items-center'>
+        {translatedCategorizations.map(({ label, value }) => (
+          <Fragment key={value}>
+            <dt className='sr-only'>{label}</dt>
+            <dd
+              title={`${label}: ${value}`}
+              className='py-1 px-2 text-primary rounded border border-primary'
+            >
+              {value}
+            </dd>
+          </Fragment>
+        ))}
+      </dl>
+    </aside>
   );
 };

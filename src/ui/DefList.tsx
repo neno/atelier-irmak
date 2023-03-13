@@ -13,15 +13,17 @@ export const DefList: FC<DefListProps> = ({ items, sorting }) => {
     (key) => !!items[key as keyof IRugDefinition]
   );
   return (
-    <dl>
+    <dl className='block sm:grid sm:grid-cols-4 lg:block'>
       {sorting
         .filter((key) => filteredKeys.includes(key))
         .map((key) => (
           <React.Fragment key={key}>
-            <dt className='font-bold font-title text-light'>
+            <dt className='font-bold font-title text-light sm:col-span-1'>
               {rugTranslations[key as keyof RugTranslationsType]}
             </dt>
-            <dd className='mb-4'>{items[key as keyof IRugDefinition]}</dd>
+            <dd className='mb-4 sm:col-span-3'>
+              {items[key as keyof IRugDefinition]}
+            </dd>
           </React.Fragment>
         ))}
     </dl>
