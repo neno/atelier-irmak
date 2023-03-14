@@ -1,6 +1,6 @@
 export const imageFragment = (width: number) =>`
   url(transform: {
-    format: AVIF
+    format: WEBP
     width: ${width}
   })
   description
