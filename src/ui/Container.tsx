@@ -9,7 +9,8 @@ interface ContainerProps {
 export const Container: FC<ContainerProps> = ({ children, className }) => (
   <div
     className={clsxm(
-      'w-full lg:container mx-auto relative px-4 lg:px-8 xl:px-16',
+      // 'w-full lg:container mx-auto relative px-4 sm:px-8 xl:px-16',
+      'container relative mx-auto px-4',
       className
     )}
   >
