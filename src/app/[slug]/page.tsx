@@ -6,8 +6,6 @@ async function Page({ params }: { params: { slug: string } }) {
     params.slug ?? '/'
   );
 
-  // return <pre>{JSON.stringify(pageContentItems, null, 2)}</pre>;
-
   if (pageContentItems) {
     return (
       <>

@@ -1,5 +1,5 @@
 import './globals.css';
-import { Raleway } from '@next/font/google';
+import { Raleway } from "next/font/google";
 import { Footer } from '@/ui/Footer';
 import { fetchNavigationItems } from '@/api';
 import { Nav } from '@/ui/Nav';

@@ -10,34 +10,33 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^15.16.2",
-    "@contentful/rich-text-types": "^15.15.1",
-    "@headlessui/react": "^1.7.11",
-    "@heroicons/react": "^2.0.16",
-    "@next/bundle-analyzer": "^13.1.6",
-    "@next/font": "^13.1.6",
+    "@contentful/rich-text-react-renderer": "^15.17.0",
+    "@contentful/rich-text-types": "^16.2.0",
+    "@headlessui/react": "^1.7.15",
+    "@heroicons/react": "^2.0.18",
+    "@next/bundle-analyzer": "^13.4.7",
     "@splidejs/react-splide": "^0.7.12",
     "@tailwindcss/typography": "^0.5.9",
-    "@types/node": "18.11.9",
-    "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.9",
-    "eslint": "8.28.0",
-    "eslint-config-next": "13.1.6",
-    "framer-motion": "^7.10.3",
-    "next": "13.1.6",
+    "@types/node": "20.3.3",
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
+    "eslint": "8.44.0",
+    "eslint-config-next": "13.4.7",
+    "framer-motion": "^10.12.18",
+    "next": "13.4.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-slick": "^0.29.0",
-    "swiper": "^8.4.7",
+    "swiper": "^9.4.1",
     "tailwindcss-fluid-type": "^2.0.3",
-    "typescript": "4.9.3"
+    "typescript": "5.1.6"
   },
   "devDependencies": {
     "@types/react-slick": "^0.23.10",
-    "autoprefixer": "^10.4.13",
+    "autoprefixer": "^10.4.14",
     "clsx": "^1.2.1",
-    "postcss": "^8.4.21",
-    "tailwind-merge": "^1.10.0",
-    "tailwindcss": "^3.2.7"
+    "postcss": "^8.4.24",
+    "tailwind-merge": "^1.13.2",
+    "tailwindcss": "^3.3.2"
   }
 }
