@@ -20,9 +20,6 @@ dependencies:
   '@next/bundle-analyzer':
     specifier: ^13.4.7
     version: 13.4.7
-  '@next/font':
-    specifier: ^13.4.7
-    version: 13.4.7
   '@splidejs/react-splide':
     specifier: ^0.7.12
     version: 0.7.12
@@ -259,10 +256,6 @@ packages:
     resolution: {integrity: sha512-ANEPltxzXbyyG7CvqxdY4PmeM5+RyWdAJGufTHnU+LA/i3J6IDV2r8Z4onKwskwKEhwqzz5lMaSYGGXLyHX+mg==}
     dependencies:
       glob: 7.1.7
-    dev: false
-
-  /@next/font@13.4.7:
-    resolution: {integrity: sha512-l28ifb3pjKznQeXmiCD5VXkmqdpMrcUQMr4ZChAgTKrjckl/aGyRLOIlL/ABhTHmzMujdt/TTWUsdABArNK5gA==}
     dev: false
 
   /@next/swc-darwin-arm64@13.4.7:

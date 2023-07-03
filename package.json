@@ -15,7 +15,6 @@
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
     "@next/bundle-analyzer": "^13.4.7",
-    "@next/font": "^13.4.7",
     "@splidejs/react-splide": "^0.7.12",
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "20.3.3",
