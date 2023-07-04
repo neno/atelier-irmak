@@ -1,4 +1,3 @@
-import { getOptimalImageFormat } from '@/lib/helpers';
 import Image, { ImageProps } from 'next/image';
 import { FC } from 'react';
 

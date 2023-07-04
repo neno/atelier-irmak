@@ -5,7 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const nextConfig = {
   experimental: {
-    appDir: true,
+    serverActions: true,
   },
   images: {
     domains: ['images.ctfassets.net'],
