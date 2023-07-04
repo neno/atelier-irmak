@@ -18,6 +18,12 @@ interface ICollectionPaths {
   items: { slug: string; }[];
 }
 
+export interface IPageMetadata {
+  title: string,
+  description: string,
+  ogImage?: IAsset
+}
+
 export interface IPageCollectionPaths {
   pageCollection: ICollectionPaths;
 }
@@ -128,6 +134,7 @@ export interface IRug {
   room: string;
   placing: string | null;
   featuredImage: IAsset;
+  ogImage: IAsset;
   galleryCollection: {
     items: IAsset[];
   }

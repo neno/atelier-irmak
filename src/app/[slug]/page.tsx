@@ -1,5 +1,6 @@
-import { fetchPageContentItemsBySlug } from '@/api';
+import { fetchPageContentItemsBySlug, fetchPageMetadataBySlug } from '@/api';
 import { PageContent } from '@/ui/PageContent';
+import { Metadata } from 'next'
 
 async function Page({ params }: { params: { slug: string } }) {
   const pageContentItems = await fetchPageContentItemsBySlug(
@@ -20,3 +21,26 @@ async function Page({ params }: { params: { slug: string } }) {
 }
 
 export default Page;
+
+export async function generateMetadata({ params }: {params: {slug: string}}): Promise<Metadata> {
+  const page = await fetchPageMetadataBySlug(
+    params.slug ?? '/'
+  );
+
+  return {
+    title: `${process.env.SITE_NAME} | ${page?.title}`,
+    description: page?.description,
+    openGraph: {
+      title: page?.title,
+      description: page?.description,
+      url: params.slug,
+      images: page?.ogImage && [
+        {
+          url: page?.ogImage.url,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  };
+}

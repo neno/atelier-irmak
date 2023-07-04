@@ -13,6 +13,7 @@ export const pageQuery = (slug: string) => `
         ... on Page {
           title
           slug
+          description
           contentContainerCollection {
             items {
               sys { id }
