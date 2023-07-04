@@ -1,12 +1,8 @@
 import { FC } from 'react';
-import clsxm from '@/lib/clsxm';
-import { Container } from '@/ui/Container';
 import { NextImage } from '@/ui/NextImage';
-import { RichText } from '@/ui/rich-text/RichText';
 import { IFlyingCarpet } from '@/schema/types';
 
 import styles from './FlyingCarpet41.module.css';
-import Link from 'next/link';
 import { FlyingCarpetHeader } from '../flying-carpet-header/FlyingCarpetHeader';
 
 export const FlyingCarpet41: FC<Omit<IFlyingCarpet, '__typename'>> = ({

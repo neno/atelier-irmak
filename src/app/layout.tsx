@@ -1,8 +1,8 @@
 import './globals.css';
-import { Raleway } from "next/font/google";
+import { Raleway } from 'next/font/google';
 import { Footer } from '@/ui/Footer';
 import { fetchNavigationItems } from '@/api';
-import { Nav } from '@/ui/Nav';
+import { Nav } from '@/ui/nav/Nav';
 
 const raleway = Raleway({ subsets: ['latin'] });
 
@@ -21,7 +21,7 @@ export default async function RootLayout({
       */}
       <head />
       <body className={raleway.className}>
-        {items && <Nav items={items} />}
+        <Nav />
         <main className='relative z-10'>{children}</main>
         <Footer />
         <div id='overlay'></div>
