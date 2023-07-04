@@ -6,6 +6,23 @@ import { Nav } from '@/ui/Nav';
 
 const raleway = Raleway({ subsets: ['latin'] });
 
+export const metadata = {
+  metadataBase: new URL(process.env.ABSOLUTE_URL as string),
+  title: 'Atelier Irmak | Die Referenz in Bern für Teppiche & Kelims. Seit 1985.',
+  description: 'Entdecken Sie Atelier Irmak, Ihr Fachgeschäft für Teppichrestauration und Webkunst in Bern seit 1985. Besuchen Sie uns für hochwertige Teppiche, Kelims und mehr. Beratung inklusive!',
+  openGraph: {
+    title: 'Atelier Irmak | Die Referenz in Bern für Teppiche & Kelims. Seit 1985.',
+    url: process.env.ABSOLUTE_URL,
+    /* images: [
+      {
+        url: `${process.env.ABSOLUTE_URL}/images/og.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],*/
+  },
+}
+
 export default async function RootLayout({
   children,
 }: {
@@ -15,10 +32,6 @@ export default async function RootLayout({
 
   return (
     <html lang='de'>
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head />
       <body className={raleway.className}>
         {items && <Nav items={items} />}
