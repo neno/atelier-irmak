@@ -13,13 +13,13 @@ export const metadata = {
   openGraph: {
     title: 'Atelier Irmak | Die Referenz in Bern für Teppiche & Kelims. Seit 1985.',
     url: process.env.SITE_URL,
-    /* images: [title
+    images: [
       {
-        url: `${process.env.ABSOLUTE_URL}/images/og.png`,
+        url: `${process.env.SITE_URL}/images/og.png`,
         width: 1200,
         height: 630,
       },
-    ],*/
+    ]
   },
 }
 

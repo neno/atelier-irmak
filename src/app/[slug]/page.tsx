@@ -34,9 +34,9 @@ export async function generateMetadata({ params }: {params: {slug: string}}): Pr
       title: page?.title,
       description: page?.description,
       url: params.slug,
-      images: page?.ogImage && [
+      images: [
         {
-          url: page?.ogImage.url,
+          url: page?.ogImage?.url ?? `${process.env.SITE_URL}/images/og-image.png`,
           width: 1200,
           height: 630,
         },
