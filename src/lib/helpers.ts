@@ -1,10 +1,6 @@
 import i18n from '@/data/i18n.json';
 import {Metadata} from "next";
 
-export function getOptimalImageFormat(imageUrl: string, format = 'avif'): string {
-  return `${imageUrl}?fm=${format}`;
-}
-
 export const imageWidth = (
   sliderHeight: number,
   imageWidth: number,
