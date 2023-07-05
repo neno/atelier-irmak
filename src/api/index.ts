@@ -67,9 +67,9 @@ export async function fetchPageMetadataBySlug(slug: string): Promise<IPageMetada
   try {
     const query = pageQuery(slug);
     const data = await fetchData(query);
-    const { metadata } = data.pageCollection?.items?.[0];
+    const { metadata, title } = data.pageCollection?.items?.[0];
 
-    return metadata;
+    return {title, ...metadata};
   } catch (error) {
     console.error(error);
   }

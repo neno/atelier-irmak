@@ -104,17 +104,17 @@ async function RugPage({ params }: { params: { slug: string } }) {
   );
 }
 
-export default RugPage;
-
 export async function generateMetadata({ params }: {params: {slug: string}}): Promise<Metadata> {
   const rug = await getRugBySlug(params.slug);
 
   return createMetadata({
     ...rug,
-    description: `${rug?.name}`,
+    description: `${rug?.name}, ${rug?.dating}`,
     slug: params.slug,
   });
 }
+
+export default RugPage;
 
 export async function generateStaticParams() {
   const { rugCollection } = await fetchRugCollectionPaths();
