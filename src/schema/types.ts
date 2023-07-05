@@ -1,4 +1,5 @@
 import {ReactElement} from 'react';
+import {Metadata} from "next";
 
 export type SysIdType = { id: string; };
 export type PageContentType = IFeatures | IFlyingCarpet | IGallery  | IGrid | IHero | IRugItem | ITeaser | IText;
@@ -18,10 +19,13 @@ interface ICollectionPaths {
   items: { slug: string; }[];
 }
 
+export interface IMetadata extends Metadata {
+  slug?: string;
+  ogImage?: IAsset;
+}
+
 export interface IPageMetadata {
-  title: string,
-  description: string,
-  ogImage?: IAsset
+  metadata: IMetadata;
 }
 
 export interface IPageCollectionPaths {

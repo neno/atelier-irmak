@@ -109,12 +109,11 @@ export default RugPage;
 export async function generateMetadata({ params }: {params: {slug: string}}): Promise<Metadata> {
   const rug = await getRugBySlug(params.slug);
 
-  return createMetadata(
-    `${rug?.title} | ${process.env.SITE_NAME}`,
-    rug?.description,
-    params.slug,
-    rug?.ogImage?.url
-  );
+  return createMetadata({
+    ...rug,
+    description: `${rug?.name}`,
+    slug: params.slug,
+  });
 }
 
 export async function generateStaticParams() {

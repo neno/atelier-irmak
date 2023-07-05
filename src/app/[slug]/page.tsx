@@ -1,7 +1,7 @@
 import { fetchPageContentItemsBySlug, fetchPageMetadataBySlug } from '@/api';
 import { PageContent } from '@/ui/PageContent';
-import { Metadata } from 'next'
 import {createMetadata} from "@/lib/helpers";
+import {IMetadata} from "@/schema/types";
 
 async function Page({ params }: { params: { slug: string } }) {
   const pageContentItems = await fetchPageContentItemsBySlug(
@@ -23,15 +23,12 @@ async function Page({ params }: { params: { slug: string } }) {
 
 export default Page;
 
-export async function generateMetadata({ params }: {params: {slug: string}}): Promise<Metadata> {
-  const page = await fetchPageMetadataBySlug(
+export async function generateMetadata({ params }: {params: {slug: string}}): Promise<IMetadata> {
+  const metadata = await fetchPageMetadataBySlug(
     params.slug ?? '/'
   );
 
   return createMetadata(
-    `${process.env.SITE_NAME} | ${page?.title}`,
-    page?.description,
-    params.slug,
-    page?.ogImage?.url
+    {...metadata, slug : params.slug}
   );
 }

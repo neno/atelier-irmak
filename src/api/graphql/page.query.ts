@@ -5,6 +5,7 @@ import { gridFragment } from './fragments/_gridFragment';
 import { heroFragment } from './fragments/_hero';
 import { teaserItem } from './fragments/_teaserItem';
 import { textFragment } from './fragments/_textFragment';
+import {imageFragment} from "@/api/graphql/fragments/_image";
 
 export const pageQuery = (slug: string) => `
   query {
@@ -13,7 +14,15 @@ export const pageQuery = (slug: string) => `
         ... on Page {
           title
           slug
-          description
+          metadata {
+            title
+            description
+            ogImage {
+              ... on Asset {
+                ${imageFragment(1200, 630)}
+              }
+            }
+          }
           contentContainerCollection {
             items {
               sys { id }

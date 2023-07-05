@@ -51,21 +51,6 @@ export async function fetchRugCollectionPaths(): Promise<IRugCollectionPaths> {
   return await fetchData(rugCollectionPathsQuery);
 }
 
-export async function fetchPageMetadataBySlug(slug: string): Promise<IPageMetadata | undefined> {
-  try {
-    const query = pageQuery(slug);
-    const data = await fetchData(query);
-    const { title, description } = data.pageCollection?.items?.[0];
-
-    return {
-      title,
-      description
-    }
-  } catch (error) {
-    console.error(error);
-  }
-}
-
 export async function fetchPageContentItemsBySlug(slug: string): Promise<PageContentType[] | undefined> {
   try {
     const query = pageQuery(slug);
@@ -73,6 +58,18 @@ export async function fetchPageContentItemsBySlug(slug: string): Promise<PageCon
     
     const { items } = data.pageCollection?.items?.[0]?.contentContainerCollection ?? [];
     return items;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function fetchPageMetadataBySlug(slug: string): Promise<IPageMetadata | undefined> {
+  try {
+    const query = pageQuery(slug);
+    const data = await fetchData(query);
+    const { metadata } = data.pageCollection?.items?.[0];
+
+    return metadata;
   } catch (error) {
     console.error(error);
   }
