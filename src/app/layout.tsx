@@ -4,6 +4,11 @@ import { Footer } from '@/ui/Footer';
 import { Nav } from '@/ui/nav/Nav';
 
 const raleway = Raleway({ subsets: ['latin'] });
+
+export const metadata = {
+  metadataBase: new URL(process.env.SITE_URL as string)
+}
+
 export default async function RootLayout({
   children,
 }: {
