@@ -1,4 +1,5 @@
 import i18n from '@/data/i18n.json';
+import {Metadata} from "next";
 
 export function getOptimalImageFormat(imageUrl: string, format = 'avif'): string {
   return `${imageUrl}?fm=${format}`;
@@ -20,4 +21,24 @@ export function t(key: string): string {
 export function truncate(str: string, length = 110) {
   const truncated = str.substring(0, length);
   return `${truncated}...`;
+}
+
+export function createMetadata (title?: string, description?: string, slug?: string, image?: string, metadataBase?: URL) : Metadata {
+  return {
+    title: `${title} | ${process.env.SITE_NAME}`,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      url: slug,
+      images: [
+        {
+          url: image ?? `${process.env.SITE_URL}/images/og-image.png`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    metadataBase: metadataBase,
+  }
 }

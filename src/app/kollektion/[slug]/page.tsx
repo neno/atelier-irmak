@@ -11,6 +11,7 @@ import { Colors } from '@/ui/colors/Colors';
 import { RugCategorizations } from '@/ui/rug-categorizations/RugCategorizations';
 import clsxm from '@/lib/clsxm';
 import { Metadata } from 'next';
+import {createMetadata} from "@/lib/helpers";
 
 async function RugPage({ params }: { params: { slug: string } }) {
   if (!params.slug) {
@@ -108,22 +109,12 @@ export default RugPage;
 export async function generateMetadata({ params }: {params: {slug: string}}): Promise<Metadata> {
   const rug = await getRugBySlug(params.slug);
 
-  return {
-    title: `${process.env.SITE_NAME} | ${rug?.title}`,
-    description: rug?.excerpt,
-    openGraph: {
-      title: rug?.title,
-      description: rug?.excerpt,
-      url: params.slug,
-      images: rug?.ogImage && [
-        {
-          url: rug?.ogImage.url,
-          width: 1200,
-          height: 630,
-        },
-      ],
-    },
-  };
+  return createMetadata(
+    rug?.title,
+    rug?.description,
+    params.slug,
+    rug?.ogImage?.url
+  );
 }
 
 export async function generateStaticParams() {

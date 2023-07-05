@@ -1,6 +1,7 @@
 import { fetchPageContentItemsBySlug, fetchPageMetadataBySlug } from '@/api';
 import { PageContent } from '@/ui/PageContent';
 import { Metadata } from 'next'
+import {createMetadata} from "@/lib/helpers";
 
 async function Page({ params }: { params: { slug: string } }) {
   const pageContentItems = await fetchPageContentItemsBySlug(
@@ -43,4 +44,11 @@ export async function generateMetadata({ params }: {params: {slug: string}}): Pr
       ],
     },
   };
+
+  return createMetadata(
+    page?.title,
+    page?.description,
+    params.slug,
+    page?.ogImage?.url
+  );
 }
