@@ -44,20 +44,18 @@ export async function getRugBySlug(
 }
 
 export async function fetchPageCollectionPaths(): Promise<IPageCollectionPaths> {
-  const pageCollection = await fetchData(pageCollectionPathsQuery);
-  return pageCollection;
+  return await fetchData(pageCollectionPathsQuery);
 }
 
 export async function fetchRugCollectionPaths(): Promise<IRugCollectionPaths> {
-  const rugCollection = await fetchData(rugCollectionPathsQuery);
-  return rugCollection;
+  return await fetchData(rugCollectionPathsQuery);
 }
 
 export async function fetchPageMetadataBySlug(slug: string): Promise<IPageMetadata | undefined> {
   try {
     const query = pageQuery(slug);
     const data = await fetchData(query);
-    const { title, description } = data.pageCollection?.items?.[0] ?? [];
+    const { title, description } = data.pageCollection?.items?.[0];
 
     return {
       title,
