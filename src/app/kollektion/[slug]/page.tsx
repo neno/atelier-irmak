@@ -110,7 +110,7 @@ export async function generateMetadata({ params }: {params: {slug: string}}): Pr
   const rug = await getRugBySlug(params.slug);
 
   return createMetadata(
-    rug?.title,
+    `${rug?.title} | ${process.env.SITE_NAME}`,
     rug?.description,
     params.slug,
     rug?.ogImage?.url

@@ -25,7 +25,7 @@ export function truncate(str: string, length = 110) {
 
 export function createMetadata (title?: string, description?: string, slug?: string, image?: string, metadataBase?: URL) : Metadata {
   return {
-    title: `${title} | ${process.env.SITE_NAME}`,
+    title: title,
     description: description,
     openGraph: {
       title: title,
