@@ -2,7 +2,7 @@ import { navigationQuery } from './graphql/navigation.query';
 import { pageCollectionPathsQuery } from './graphql/page-collection-paths.query';
 import { pageQuery } from './graphql/page.query';
 import { getRugBySlugQuery } from './graphql/rug-by-slug.query';
-import { INavigationItem, IPageCollectionPaths, IRugCollectionPaths, IRug, PageContentType } from '@/schema/types';
+import { INavigationItem, IPageCollectionPaths, IRugCollectionPaths, IRug, PageContentType, IPageMetadata } from '@/schema/types';
 import { rugCollectionPathsQuery } from './graphql/rug-collection-paths.query';
 
 const headers = {
@@ -44,13 +44,11 @@ export async function getRugBySlug(
 }
 
 export async function fetchPageCollectionPaths(): Promise<IPageCollectionPaths> {
-  const pageCollection = await fetchData(pageCollectionPathsQuery);
-  return pageCollection;
+  return await fetchData(pageCollectionPathsQuery);
 }
 
 export async function fetchRugCollectionPaths(): Promise<IRugCollectionPaths> {
-  const rugCollection = await fetchData(rugCollectionPathsQuery);
-  return rugCollection;
+  return await fetchData(rugCollectionPathsQuery);
 }
 
 export async function fetchPageContentItemsBySlug(slug: string): Promise<PageContentType[] | undefined> {
@@ -60,6 +58,18 @@ export async function fetchPageContentItemsBySlug(slug: string): Promise<PageCon
     
     const { items } = data.pageCollection?.items?.[0]?.contentContainerCollection ?? [];
     return items;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function fetchPageMetadataBySlug(slug: string): Promise<IPageMetadata | undefined> {
+  try {
+    const query = pageQuery(slug);
+    const data = await fetchData(query);
+    const { metadata, title } = data.pageCollection?.items?.[0];
+
+    return {title, ...metadata};
   } catch (error) {
     console.error(error);
   }

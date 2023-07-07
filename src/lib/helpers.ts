@@ -1,4 +1,6 @@
 import i18n from '@/data/i18n.json';
+import {Metadata} from "next";
+import {IMetadata} from "@/schema/types";
 
 export const imageWidth = (
   sliderHeight: number,
@@ -16,4 +18,24 @@ export function t(key: string): string {
 export function truncate(str: string, length = 110) {
   const truncated = str.substring(0, length);
   return `${truncated}...`;
+}
+
+export function createMetadata ({ title, description, slug, metadataBase, ogImage} : IMetadata) : Metadata {
+  return {
+    title: `${title} | ${process.env.SITE_NAME}`,
+    description: description,
+    openGraph: {
+      title: title ?? undefined,
+      description: description ?? undefined,
+      url: slug,
+      images: [
+        {
+          url: ogImage?.url ?? `/images/og-image.png`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    metadataBase: metadataBase,
+  }
 }

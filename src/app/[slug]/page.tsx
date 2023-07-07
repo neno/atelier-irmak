@@ -1,5 +1,17 @@
-import { fetchPageContentItemsBySlug } from '@/api';
+import { fetchPageContentItemsBySlug, fetchPageMetadataBySlug } from '@/api';
 import { PageContent } from '@/ui/PageContent';
+import {createMetadata} from "@/lib/helpers";
+import {IMetadata} from "@/schema/types";
+
+export async function generateMetadata({ params }: {params: {slug: string}}): Promise<IMetadata> {
+  const metadata = await fetchPageMetadataBySlug(
+    params.slug ?? '/'
+  );
+
+  return createMetadata(
+    {...metadata, slug : params.slug}
+  );
+}
 
 async function Page({ params }: { params: { slug: string } }) {
   const pageContentItems = await fetchPageContentItemsBySlug(

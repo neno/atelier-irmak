@@ -1,4 +1,5 @@
 import {ReactElement} from 'react';
+import {Metadata} from "next";
 
 export type SysIdType = { id: string; };
 export type PageContentType = IFeatures | IFlyingCarpet | IGallery  | IGrid | IHero | IRugItem | ITeaser | IText;
@@ -16,6 +17,15 @@ export interface IPage {
 
 interface ICollectionPaths {
   items: { slug: string; }[];
+}
+
+export interface IMetadata extends Metadata {
+  slug?: string;
+  ogImage?: IAsset;
+}
+
+export interface IPageMetadata {
+  metadata: IMetadata;
 }
 
 export interface IPageCollectionPaths {
@@ -128,6 +138,7 @@ export interface IRug {
   room: string;
   placing: string | null;
   featuredImage: IAsset;
+  ogImage: IAsset;
   galleryCollection: {
     items: IAsset[];
   }

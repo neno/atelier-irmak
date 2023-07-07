@@ -36,6 +36,11 @@ export const getRugBySlugQuery = (slug: string) => `
             ${imageFragment(2000)}
           }
         }
+        ogImage: featuredImage {
+          ... on Asset {
+            ${imageFragment(1200, 630)}
+          }
+        }
         galleryCollection {
           items {
             ... on Asset {

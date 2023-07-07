@@ -10,6 +10,8 @@ import { Palette } from '@/ui/palette/Palette';
 import { Colors } from '@/ui/colors/Colors';
 import { RugCategorizations } from '@/ui/rug-categorizations/RugCategorizations';
 import clsxm from '@/lib/clsxm';
+import { Metadata } from 'next';
+import {createMetadata} from "@/lib/helpers";
 
 async function RugPage({ params }: { params: { slug: string } }) {
   if (!params.slug) {
@@ -100,6 +102,16 @@ async function RugPage({ params }: { params: { slug: string } }) {
       </div>
     </ContainerVertical>
   );
+}
+
+export async function generateMetadata({ params }: {params: {slug: string}}): Promise<Metadata> {
+  const rug = await getRugBySlug(params.slug);
+
+  return createMetadata({
+    ...rug,
+    description: `${rug?.name}, ${rug?.dating}`,
+    slug: params.slug,
+  });
 }
 
 export default RugPage;
