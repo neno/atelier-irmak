@@ -16,7 +16,7 @@ import { Gallery } from './Gallery';
 import { Features } from './Features';
 import { Grid } from './grid/Grid';
 import { FlyingCarpet } from './flying-carpet/FlyingCarpet';
-
+import { SearchForm } from './search-form/SearchForm';
 interface PageContentProps {
   pageContent: PageContentType;
 }
@@ -35,14 +35,17 @@ export const PageContent: FC<PageContentProps> = ({ pageContent }) => {
   }
   if (isGallery(pageContent)) {
     return (
-      <Gallery
-        items={pageContent.itemsCollection.items}
-        background={pageContent.background}
-      />
+      <>
+        <SearchForm />
+        <Gallery
+          items={pageContent.itemsCollection.items}
+          background={pageContent.background}
+        />
+      </>
     );
   }
   if (isGrid(pageContent)) {
-    return <Grid {...pageContent} />;
+    return<Grid {...pageContent} />;
   }
   if (isHero(pageContent)) {
     return <Hero {...pageContent} />;
