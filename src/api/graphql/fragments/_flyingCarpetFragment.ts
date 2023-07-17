@@ -16,7 +16,7 @@ export const flyingCarpetFragment = `
   mediaCollection {
     items {
       ... on Asset {
-        ${imageFragment(1400)}
+        ${imageFragment(1600)}
       }
     }
   }
