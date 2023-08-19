@@ -2,8 +2,18 @@ import { navigationQuery } from './graphql/navigation.query';
 import { pageCollectionPathsQuery } from './graphql/page-collection-paths.query';
 import { pageQuery } from './graphql/page.query';
 import { getRugBySlugQuery } from './graphql/rug-by-slug.query';
-import { INavigationItem, IPageCollectionPaths, IRugCollectionPaths, IRug, PageContentType, IPageMetadata } from '@/schema/types';
+import {
+  INavigationItem,
+  IPageCollectionPaths,
+  IRugCollectionPaths,
+  IRug,
+  PageContentType,
+  IPageMetadata,
+  IPageCollectionSitemapData, IRugCollectionSitemapData
+} from '@/schema/types';
 import { rugCollectionPathsQuery } from './graphql/rug-collection-paths.query';
+import {pageCollectionSitemapDataQuery} from "@/api/graphql/page-collection-sitemap-data.query";
+import {rugCollectionSitemapDataQuery} from "@/api/graphql/rug-collection-sitemap-data.query";
 
 const headers = {
   Authorization: `Bearer ${process.env.CONTENTFUL_API_KEY}`,
@@ -47,8 +57,16 @@ export async function fetchPageCollectionPaths(): Promise<IPageCollectionPaths> 
   return await fetchData(pageCollectionPathsQuery);
 }
 
+export async function fetchPageCollectionSitemapData(): Promise<IPageCollectionSitemapData> {
+  return await fetchData(pageCollectionSitemapDataQuery);
+}
+
 export async function fetchRugCollectionPaths(): Promise<IRugCollectionPaths> {
   return await fetchData(rugCollectionPathsQuery);
+}
+
+export async function fetchRugCollectionSitemapData(): Promise<IRugCollectionSitemapData> {
+  return await fetchData(rugCollectionSitemapDataQuery);
 }
 
 export async function fetchPageContentItemsBySlug(slug: string): Promise<PageContentType[] | undefined> {
