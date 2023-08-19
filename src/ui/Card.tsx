@@ -32,7 +32,7 @@ export const Card: FC<CardProps> = ({
           width={width}
           height={height}
           className='w-full h-full object-cover object-bottom'
-          sizes='(min-width: 1280px) 280px, (min-width: 768px) 50vw, 100vw'
+          sizes='(min-width: 1536px) 810px, (min-width: 1280px) 670px, (min-width: 1280px) 670px,(min-width: 1024px) 528px, (min-width: 768px) 390px, 100vw'
         />
       </motion.div>
     </Link>

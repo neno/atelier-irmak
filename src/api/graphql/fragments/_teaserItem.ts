@@ -18,7 +18,7 @@ export const teaserItem = `
       externalUrl
     }
     image {
-      ${imageFragment(1200)}
+      ${imageFragment(1880)}
     }
   }
 `;
