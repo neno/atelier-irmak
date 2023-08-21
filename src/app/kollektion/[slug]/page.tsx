@@ -29,16 +29,11 @@ async function RugPage({ params }: { params: { slug: string } }) {
     excerpt,
     description,
     name,
-    type,
     origin,
-    country,
     length,
     width,
-    age,
     dating,
     featuredImage,
-    palette,
-    colors,
     galleryCollection: { items: galleryItems },
   } = rug;
   const size = `${length} x ${width} cm`;
