@@ -44,7 +44,7 @@ async function RugPage({ params }: { params: { slug: string } }) {
   const size = `${length} x ${width} cm`;
 
   return (
-    <ContainerVertical className=''>
+    <ContainerVertical className='pb-16'>
       <DetailHeader title={title} subtitle={subtitle} image={featuredImage} />
       <Container className='lg:my-16'>
         <LeadText leadText={excerpt} />
@@ -82,24 +82,6 @@ async function RugPage({ params }: { params: { slug: string } }) {
       <Container>
         <SliderWithModal galleryItems={galleryItems} />
       </Container>
-      <div className='w-full bg-gray'>
-        <Container className='py-8 sm:py-16'>
-          <ContainerVertical tag='aside' className='gap-4 md:gap-8'>
-            <h3>Kategorien</h3>
-            <div className='flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-16'>
-              <Colors colors={colors} />
-              <Palette palette={palette} />
-              <RugCategorizations
-                categorizations={{
-                  type,
-                  age: age.name,
-                  country: country.name,
-                }}
-              />
-            </div>
-          </ContainerVertical>
-        </Container>
-      </div>
     </ContainerVertical>
   );
 }
