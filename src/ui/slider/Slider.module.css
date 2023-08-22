@@ -17,13 +17,13 @@
 }
 
 .slider :global(.splide__arrow) {
-  @apply bg-transparent border-current text-white border-solid hidden md:flex;
+  @apply bg-transparent border-current text-primary border-solid hidden md:flex;
   border-width: 1px;
-  @apply before:content-[""] before:bg-primary before:absolute before:w-16 before:h-16 before:z-[-1];
+  @apply before:content-[""] before:bg-white before:absolute before:w-16 before:h-16 before:z-[-1];
 }
 
 .slider :global(.splide__arrow:not([disabled])) {
-  @apply transition-colors hover:bg-primary hover:text-gray;
+  @apply transition-colors hover:bg-primary hover:opacity-100 hover:text-primary-dark;
 }
 
 .slider :global(.splide__arrow) svg {
@@ -39,10 +39,7 @@
 }
 
 .slider :global(.splide__pagination__page) {
-  @apply bg-primary;
-  width: 10px;
-  height: 10px;
-  margin: 5px;
+  @apply bg-primary flex w-2.5 h-2.5 m-[5px];
 }
 
 .slider :global(.splide__pagination__page.is-active) {
