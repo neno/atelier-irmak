@@ -1,6 +1,6 @@
 import i18n from '@/data/i18n.json';
 import {Metadata} from "next";
-import {IMetadata} from "@/schema/types";
+import {IMetadata, ISitemapEntry} from "@/schema/types";
 
 export const imageWidth = (
   sliderHeight: number,
@@ -38,4 +38,14 @@ export function createMetadata ({ title, description, slug, metadataBase, ogImag
     },
     metadataBase: metadataBase,
   }
+}
+
+export function createSitemapEntry(url: string, lastModified: string | Date, priority = 0.5, changefreq: 'daily' | 'weekly' | 'monthly' = 'daily') : ISitemapEntry {
+
+  return {
+    url,
+    lastModified,
+    changefreq,
+    priority,
+  };
 }

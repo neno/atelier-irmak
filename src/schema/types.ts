@@ -19,6 +19,15 @@ interface ICollectionPaths {
   items: { slug: string; }[];
 }
 
+interface ICollectionSitemapData {
+  items: {
+    slug: string;
+    sys: {
+      publishedAt: Date;
+    }
+  }[];
+}
+
 export interface IMetadata extends Metadata {
   slug?: string;
   ogImage?: IAsset;
@@ -30,6 +39,10 @@ export interface IPageMetadata {
 
 export interface IPageCollectionPaths {
   pageCollection: ICollectionPaths;
+}
+
+export interface IPageCollectionSitemapData {
+  pageCollection: ICollectionSitemapData;
 }
 
 export interface IPageContent {
@@ -105,6 +118,10 @@ export interface IRugCollection {
 
 export interface IRugCollectionPaths {
   rugCollection: ICollectionPaths;
+}
+
+export interface IRugCollectionSitemapData {
+  rugCollection: ICollectionSitemapData;
 }
 
 export type TGeolocation = {
@@ -224,3 +241,9 @@ export interface IFlyingCarpet {
   };
 }
 
+export interface ISitemapEntry {
+  url: string;
+  lastModified: string | Date
+  changefreq: 'daily' | 'weekly' | 'monthly';
+  priority: number;
+}
