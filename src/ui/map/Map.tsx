@@ -1,8 +1,17 @@
 'use client'
 
-import { useEffect, useRef } from "react";
+import {FC, useEffect, useRef} from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 
+interface MapProps {
+  address: string;
+}
+
+interface GeocoderResult {
+  geometry: {
+    location: google.maps.LatLng;
+  };
+}
 
 const styles = [
   {
@@ -37,7 +46,7 @@ const styles = [
     "elementType": "labels.icon",
     "stylers": [
       {
-        "color": "#7b7a93"
+        "visibility": "off"
       }
     ]
   },
@@ -46,35 +55,47 @@ const styles = [
     "elementType": "labels.icon",
     "stylers": [
       {
-        "color": "#7b7a93"
+        "visibility": "off"
       }
     ]
   }
 ]
 
-export const Map = ({ address }) => {
-  const mapRef = useRef(null);
+export const Map: FC<MapProps> = ({ address }) => {
+  const mapRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const loader = new Loader({
-      apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+      apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
       version: "weekly",
     });
 
     loader.load().then((google) => {
       const geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ address: address }, (results, status) => {
-        if (status === "OK") {
-          const map = new google.maps.Map(mapRef.current, {
-            center: results[0].geometry.location,
-            zoom: 17,
-            styles,
-          });
+      geocoder.geocode({ address: address }, (results: GeocoderResult[] | null, status: google.maps.GeocoderStatus) => {
+        if (status === google.maps.GeocoderStatus.OK) {
+          if (results) {
+            const map = new google.maps.Map(mapRef.current as HTMLDivElement, {
+              center: results[0].geometry.location,
+              zoom: 17,
+              styles,
+            });
 
-          const marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location,
-          });
+            const svgMarker = {
+              path: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z",
+              fillColor: '#12184d',
+              fillOpacity: 1,
+              anchor: new google.maps.Point(0, 20),
+              strokeWeight: 0,
+              scale: 2,
+            };
+
+            new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location,
+              icon: svgMarker,
+            });
+          }
         } else {
           console.error(`Geocode was not successful for the following reason: ${status}`);
         }
