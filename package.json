@@ -12,6 +12,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.17.0",
     "@contentful/rich-text-types": "^16.2.0",
+    "@googlemaps/js-api-loader": "^1.16.2",
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
     "@next/bundle-analyzer": "^13.4.8",
@@ -33,6 +34,7 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@types/google.maps": "^3.53.5",
     "@types/react-slick": "^0.23.10",
     "autoprefixer": "^10.4.14",
     "clsx": "^1.2.1",

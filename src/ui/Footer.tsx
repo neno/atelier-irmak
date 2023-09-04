@@ -1,17 +1,11 @@
 import { NextImage } from './NextImage';
+import {Map} from "@/ui/map/Map";
 
 export const Footer = () => {
   return (
     <div className='w-full relative bg-primary-dark text-white min-h-[300px]'>
       <div className='lg:absolute lg:top-0 lg:right-0 lg:w-[50%] lg:h-[100%]'>
-        <NextImage
-          src='/images/map-irmak-blue.jpg'
-          alt='Karte'
-          width={2598}
-          height={1748}
-          className='w-full h-full object-cover object-center'
-          sizes='50vw'
-        />
+        <Map address="Atelier Irmak, Kramgasse 10, Bern, Switzerland" />
       </div>
       <div className='mx-auto container lg:grid lg:grid-cols-2'>
         <div
