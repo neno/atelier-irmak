@@ -79,6 +79,7 @@ export const Map: FC<MapProps> = ({ address }) => {
               center: results[0].geometry.location,
               zoom: 17,
               styles,
+              disableDefaultUI: true,
             });
 
             const svgMarker = {
