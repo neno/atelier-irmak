@@ -8,7 +8,7 @@ import { DefList } from '@/ui/DefList';
 import { SliderWithModal } from '@/ui/SliderWithModal';
 import clsxm from '@/lib/clsxm';
 import { Metadata } from 'next';
-import {createMetadata} from "@/lib/helpers";
+import { createMetadata } from '@/lib/helpers';
 
 async function RugPage({ params }: { params: { slug: string } }) {
   if (!params.slug) {
@@ -52,7 +52,7 @@ async function RugPage({ params }: { params: { slug: string } }) {
             <div className='lg:col-start-1 lg:col-end-8'>
               <ContainerVertical>
                 <ContainerVertical>
-                  <h2>Über diesen Teppichs</h2>
+                  <h2>Über diesen Teppich</h2>
                   <RichText content={description} />
                 </ContainerVertical>
               </ContainerVertical>
@@ -78,7 +78,11 @@ async function RugPage({ params }: { params: { slug: string } }) {
   );
 }
 
-export async function generateMetadata({ params }: {params: {slug: string}}): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const rug = await getRugBySlug(params.slug);
 
   return createMetadata({
