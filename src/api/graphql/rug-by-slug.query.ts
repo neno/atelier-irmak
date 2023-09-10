@@ -20,12 +20,6 @@ export const getRugBySlugQuery = (slug: string) => `
         length
         width
         dating
-        age {
-          ... on Age {
-            name
-            description
-          }
-        }
         palette
         colors
         location

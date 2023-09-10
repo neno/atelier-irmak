@@ -49,3 +49,9 @@ export function createSitemapEntry(url: string, lastModified: string | Date, pri
     priority,
   };
 }
+
+export function exhibitLocation(location: string, room: string, placing: string | null) : string {
+  return [location, room, placing]
+  .filter((item) => !!item)
+  .join(', ');
+}

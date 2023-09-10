@@ -8,7 +8,7 @@ import { DefList } from '@/ui/DefList';
 import { SliderWithModal } from '@/ui/SliderWithModal';
 import clsxm from '@/lib/clsxm';
 import { Metadata } from 'next';
-import { createMetadata } from '@/lib/helpers';
+import { createMetadata, exhibitLocation } from '@/lib/helpers';
 
 async function RugPage({ params }: { params: { slug: string } }) {
   if (!params.slug) {
@@ -25,19 +25,29 @@ async function RugPage({ params }: { params: { slug: string } }) {
     subtitle,
     excerpt,
     description,
+    type,
     name,
     origin,
     length,
     width,
     dating,
+    location,
+    room,
+    placing,
     featuredImage,
     galleryCollection: { items: galleryItems },
   } = rug;
   const size = `${length} x ${width} cm`;
+  const exhibitedIn = exhibitLocation(location, room, placing);
 
   return (
     <ContainerVertical className='pb-16'>
-      <DetailHeader title={title} subtitle={subtitle} image={featuredImage} />
+      <DetailHeader
+        title={title}
+        subtitle={subtitle}
+        image={featuredImage}
+        exhibitedIn={exhibitedIn}
+      />
       <Container className='lg:my-16'>
         <LeadText leadText={excerpt} />
       </Container>
@@ -52,7 +62,7 @@ async function RugPage({ params }: { params: { slug: string } }) {
             <div className='lg:col-start-1 lg:col-end-8'>
               <ContainerVertical>
                 <ContainerVertical>
-                  <h2>Über diesen Teppich</h2>
+                  <h2>Über diesen {type}</h2>
                   <RichText content={description} />
                 </ContainerVertical>
               </ContainerVertical>
@@ -62,8 +72,14 @@ async function RugPage({ params }: { params: { slug: string } }) {
                 <aside className='bg-primary text-white px-8 py-8'>
                   <h3 className='sr-only'>Zusammenfassung</h3>
                   <DefList
-                    items={{ name, origin, size, dating }}
-                    sorting={['name', 'origin', 'size', 'dating']}
+                    items={{
+                      name,
+                      origin,
+                      size,
+                      dating,
+                      location: exhibitedIn,
+                    }}
+                    sorting={['name', 'origin', 'size', 'dating', 'location']}
                   />
                 </aside>
               </ContainerVertical>
