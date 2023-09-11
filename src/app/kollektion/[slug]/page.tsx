@@ -11,7 +11,7 @@ import { Colors } from '@/ui/colors/Colors';
 import { RugCategorizations } from '@/ui/rug-categorizations/RugCategorizations';
 import clsxm from '@/lib/clsxm';
 import { Metadata } from 'next';
-import {createMetadata} from "@/lib/helpers";
+import {createMetadata, generateProductStructuredData} from "@/lib/helpers";
 
 async function RugPage({ params }: { params: { slug: string } }) {
   if (!params.slug) {
@@ -43,64 +43,79 @@ async function RugPage({ params }: { params: { slug: string } }) {
   } = rug;
   const size = `${length} x ${width} cm`;
 
+  const jsonLd = generateProductStructuredData(
+    title,
+    featuredImage.url,
+    name,
+    origin,
+    size,
+    dating
+  )
+
   return (
-    <ContainerVertical className=''>
-      <DetailHeader title={title} subtitle={subtitle} image={featuredImage} />
-      <Container className='lg:my-16'>
-        <LeadText leadText={excerpt} />
-      </Container>
-      <div className='w-full bg-white'>
-        <Container className=''>
-          <div
-            className={clsxm(
-              'flex flex-col gap-12 md:gap-16 lg:grid lg:grid-cols-12',
-              'lg:grid lg:grid-cols-12 lg:gap-0'
-            )}
-          >
-            <div className='lg:col-start-1 lg:col-end-8'>
-              <ContainerVertical>
+    <>
+      <ContainerVertical className=''>
+        <DetailHeader title={title} subtitle={subtitle} image={featuredImage} />
+        <Container className='lg:my-16'>
+          <LeadText leadText={excerpt} />
+        </Container>
+        <div className='w-full bg-white'>
+          <Container className=''>
+            <div
+              className={clsxm(
+                'flex flex-col gap-12 md:gap-16 lg:grid lg:grid-cols-12',
+                'lg:grid lg:grid-cols-12 lg:gap-0'
+              )}
+            >
+              <div className='lg:col-start-1 lg:col-end-8'>
                 <ContainerVertical>
-                  <h2>Über diesen Teppichs</h2>
-                  <RichText content={description} />
+                  <ContainerVertical>
+                    <h2>Über diesen Teppichs</h2>
+                    <RichText content={description} />
+                  </ContainerVertical>
                 </ContainerVertical>
-              </ContainerVertical>
+              </div>
+              <div className='lg:col-start-9 lg:col-end-13'>
+                <ContainerVertical>
+                  <aside className='bg-primary text-white px-8 py-8'>
+                    <h3 className='sr-only'>Zusammenfassung</h3>
+                    <DefList
+                      items={{ name, origin, size, dating }}
+                      sorting={['name', 'origin', 'size', 'dating']}
+                    />
+                  </aside>
+                </ContainerVertical>
+              </div>
             </div>
-            <div className='lg:col-start-9 lg:col-end-13'>
-              <ContainerVertical>
-                <aside className='bg-primary text-white px-8 py-8'>
-                  <h3 className='sr-only'>Zusammenfassung</h3>
-                  <DefList
-                    items={{ name, origin, size, dating }}
-                    sorting={['name', 'origin', 'size', 'dating']}
-                  />
-                </aside>
-              </ContainerVertical>
-            </div>
-          </div>
+          </Container>
+        </div>
+        <Container>
+          <SliderWithModal galleryItems={galleryItems} />
         </Container>
-      </div>
-      <Container>
-        <SliderWithModal galleryItems={galleryItems} />
-      </Container>
-      <div className='w-full bg-gray'>
-        <Container className='py-8 sm:py-16'>
-          <ContainerVertical tag='aside' className='gap-4 md:gap-8'>
-            <h3>Kategorien</h3>
-            <div className='flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-16'>
-              <Colors colors={colors} />
-              <Palette palette={palette} />
-              <RugCategorizations
-                categorizations={{
-                  type,
-                  age: age.name,
-                  country: country.name,
-                }}
-              />
-            </div>
-          </ContainerVertical>
-        </Container>
-      </div>
-    </ContainerVertical>
+        <div className='w-full bg-gray'>
+          <Container className='py-8 sm:py-16'>
+            <ContainerVertical tag='aside' className='gap-4 md:gap-8'>
+              <h3>Kategorien</h3>
+              <div className='flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-16'>
+                <Colors colors={colors} />
+                <Palette palette={palette} />
+                <RugCategorizations
+                  categorizations={{
+                    type,
+                    age: age.name,
+                    country: country.name,
+                  }}
+                />
+              </div>
+            </ContainerVertical>
+          </Container>
+        </div>
+      </ContainerVertical>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+    </>
   );
 }
 
