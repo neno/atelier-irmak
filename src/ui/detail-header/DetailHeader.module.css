@@ -46,3 +46,7 @@
 .subtitle {
   @apply text-lg;
 }
+
+.location {
+  @apply text-xs;
+}

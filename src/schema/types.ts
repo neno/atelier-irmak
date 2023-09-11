@@ -147,10 +147,6 @@ export interface IRug {
   length: number;
   width: number;
   dating: string; 
-  age: {
-    name: string;
-    description: string;
-  }
   location: string;
   room: string;
   placing: string | null;
@@ -168,6 +164,7 @@ export interface IRugDefinition {
   origin: string;
   size: string;
   dating: string;
+  location: string;
 }
 
 export interface INavigationItem {

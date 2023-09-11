@@ -2,18 +2,22 @@ import { IAsset } from '@/schema/types';
 import { FC } from 'react';
 import { Container } from '../Container';
 import { NextImage } from '../NextImage';
+import { rugTranslations } from 'public/locales/de/rug';
 
 import styles from './DetailHeader.module.css';
+import { exhibitLocation } from '@/lib/helpers';
 
 interface DetailHeaderProps {
   title: string;
   subtitle: string;
+  exhibitedIn: string;
   image: IAsset;
 }
 
 export const DetailHeader: FC<DetailHeaderProps> = ({
   title,
   subtitle,
+  exhibitedIn,
   image,
 }) => {
   const { url, description, height, width } = image;
@@ -33,6 +37,9 @@ export const DetailHeader: FC<DetailHeaderProps> = ({
           <h1 className={styles.title}>
             <span>{title}</span>
             <small className={styles.subtitle}>{subtitle}</small>
+            <small className={styles.location}>
+              {rugTranslations.location} {exhibitedIn}
+            </small>
           </h1>
         </div>
       </header>

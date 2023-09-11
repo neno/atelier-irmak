@@ -6,11 +6,9 @@ import { Container } from '@/ui/Container';
 import { ContainerVertical } from '@/ui/ContainerVertical';
 import { DefList } from '@/ui/DefList';
 import { SliderWithModal } from '@/ui/SliderWithModal';
-import { Palette } from '@/ui/palette/Palette';
-import { Colors } from '@/ui/colors/Colors';
-import { RugCategorizations } from '@/ui/rug-categorizations/RugCategorizations';
 import clsxm from '@/lib/clsxm';
 import { Metadata } from 'next';
+import { createMetadata, exhibitLocation } from '@/lib/helpers';
 import {createMetadata, generateProductStructuredData} from "@/lib/helpers";
 
 async function RugPage({ params }: { params: { slug: string } }) {
@@ -36,12 +34,16 @@ async function RugPage({ params }: { params: { slug: string } }) {
     width,
     age,
     dating,
+    location,
+    room,
+    placing,
     featuredImage,
     palette,
     colors,
     galleryCollection: { items: galleryItems },
   } = rug;
   const size = `${length} x ${width} cm`;
+  const exhibitedIn = exhibitLocation(location, room, placing);
 
   const jsonLd = generateProductStructuredData(
     title,
@@ -54,8 +56,13 @@ async function RugPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <ContainerVertical className=''>
-        <DetailHeader title={title} subtitle={subtitle} image={featuredImage} />
+      <ContainerVertical className='pb-16'>
+        <DetailHeader
+          title={title}
+          subtitle={subtitle}
+          image={featuredImage}
+          exhibitedIn={exhibitedIn}
+        />
         <Container className='lg:my-16'>
           <LeadText leadText={excerpt} />
         </Container>
@@ -70,7 +77,7 @@ async function RugPage({ params }: { params: { slug: string } }) {
               <div className='lg:col-start-1 lg:col-end-8'>
                 <ContainerVertical>
                   <ContainerVertical>
-                    <h2>Über diesen Teppichs</h2>
+                    <h2>Über diesen {type}</h2>
                     <RichText content={description} />
                   </ContainerVertical>
                 </ContainerVertical>
@@ -80,8 +87,14 @@ async function RugPage({ params }: { params: { slug: string } }) {
                   <aside className='bg-primary text-white px-8 py-8'>
                     <h3 className='sr-only'>Zusammenfassung</h3>
                     <DefList
-                      items={{ name, origin, size, dating }}
-                      sorting={['name', 'origin', 'size', 'dating']}
+                      items={{
+                        name,
+                        origin,
+                        size,
+                        dating,
+                        location: exhibitedIn,
+                      }}
+                      sorting={['name', 'origin', 'size', 'dating', 'location']}
                     />
                   </aside>
                 </ContainerVertical>
@@ -92,24 +105,6 @@ async function RugPage({ params }: { params: { slug: string } }) {
         <Container>
           <SliderWithModal galleryItems={galleryItems} />
         </Container>
-        <div className='w-full bg-gray'>
-          <Container className='py-8 sm:py-16'>
-            <ContainerVertical tag='aside' className='gap-4 md:gap-8'>
-              <h3>Kategorien</h3>
-              <div className='flex flex-col gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-16'>
-                <Colors colors={colors} />
-                <Palette palette={palette} />
-                <RugCategorizations
-                  categorizations={{
-                    type,
-                    age: age.name,
-                    country: country.name,
-                  }}
-                />
-              </div>
-            </ContainerVertical>
-          </Container>
-        </div>
       </ContainerVertical>
       <script
         type="application/ld+json"
@@ -119,7 +114,11 @@ async function RugPage({ params }: { params: { slug: string } }) {
   );
 }
 
-export async function generateMetadata({ params }: {params: {slug: string}}): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const rug = await getRugBySlug(params.slug);
 
   return createMetadata({
