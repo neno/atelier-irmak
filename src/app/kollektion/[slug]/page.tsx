@@ -31,7 +31,6 @@ async function RugPage({ params }: { params: { slug: string } }) {
     country,
     length,
     width,
-    age,
     dating,
     location,
     room,
