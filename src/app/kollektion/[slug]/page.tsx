@@ -8,8 +8,7 @@ import { DefList } from '@/ui/DefList';
 import { SliderWithModal } from '@/ui/SliderWithModal';
 import clsxm from '@/lib/clsxm';
 import { Metadata } from 'next';
-import { createMetadata, exhibitLocation } from '@/lib/helpers';
-import {createMetadata, generateProductStructuredData} from "@/lib/helpers";
+import { createMetadata, exhibitLocation, generateProductStructuredData } from '@/lib/helpers';
 
 async function RugPage({ params }: { params: { slug: string } }) {
   if (!params.slug) {
