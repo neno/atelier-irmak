@@ -35,7 +35,7 @@ export const Slider: FC<SliderProps> = ({ items, className, onSlideClick }) => {
             width={width}
             height={height}
             className='w-full h-full object-cover object-bottom'
-            sizes='(min-width: 640px) 30vw, (min-width: 1280px) 500px, 100vw'
+            sizes='(min-width: 1536px) 1510px, 100vw'
           />
         </SplideSlide>
       ))}
