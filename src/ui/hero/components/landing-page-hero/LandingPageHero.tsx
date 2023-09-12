@@ -17,6 +17,7 @@ export const LandingPageHero: FC<Pick<IHero, 'title' | 'image'>> = ({
       )}
     >
       <div className={clsxm(styles.imageWrapper)}>
+        {/* Replace with Slider */}
         <NextImage
           src={image.url}
           width={image.width}
