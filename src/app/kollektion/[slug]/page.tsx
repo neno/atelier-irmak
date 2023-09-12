@@ -8,7 +8,7 @@ import { DefList } from '@/ui/DefList';
 import { SliderWithModal } from '@/ui/SliderWithModal';
 import clsxm from '@/lib/clsxm';
 import { Metadata } from 'next';
-import { createMetadata, exhibitLocation } from '@/lib/helpers';
+import { createMetadata, exhibitLocation, generateProductStructuredData } from '@/lib/helpers';
 
 async function RugPage({ params }: { params: { slug: string } }) {
   if (!params.slug) {
@@ -25,9 +25,10 @@ async function RugPage({ params }: { params: { slug: string } }) {
     subtitle,
     excerpt,
     description,
-    type,
     name,
+    type,
     origin,
+    country,
     length,
     width,
     dating,
@@ -35,62 +36,79 @@ async function RugPage({ params }: { params: { slug: string } }) {
     room,
     placing,
     featuredImage,
+    palette,
+    colors,
     galleryCollection: { items: galleryItems },
   } = rug;
   const size = `${length} x ${width} cm`;
   const exhibitedIn = exhibitLocation(location, room, placing);
 
+  const jsonLd = generateProductStructuredData(
+    title,
+    featuredImage.url,
+    name,
+    origin,
+    size,
+    dating
+  )
+
   return (
-    <ContainerVertical className='pb-16'>
-      <DetailHeader
-        title={title}
-        subtitle={subtitle}
-        image={featuredImage}
-        exhibitedIn={exhibitedIn}
-      />
-      <Container className='lg:my-16'>
-        <LeadText leadText={excerpt} />
-      </Container>
-      <div className='w-full bg-white'>
-        <Container className=''>
-          <div
-            className={clsxm(
-              'flex flex-col gap-12 md:gap-16 lg:grid lg:grid-cols-12',
-              'lg:grid lg:grid-cols-12 lg:gap-0'
-            )}
-          >
-            <div className='lg:col-start-1 lg:col-end-8'>
-              <ContainerVertical>
-                <ContainerVertical>
-                  <h2>Über diesen {type}</h2>
-                  <RichText content={description} />
-                </ContainerVertical>
-              </ContainerVertical>
-            </div>
-            <div className='lg:col-start-9 lg:col-end-13'>
-              <ContainerVertical>
-                <aside className='bg-primary text-white px-8 py-8'>
-                  <h3 className='sr-only'>Zusammenfassung</h3>
-                  <DefList
-                    items={{
-                      name,
-                      origin,
-                      size,
-                      dating,
-                      location: exhibitedIn,
-                    }}
-                    sorting={['name', 'origin', 'size', 'dating', 'location']}
-                  />
-                </aside>
-              </ContainerVertical>
-            </div>
-          </div>
+    <>
+      <ContainerVertical className='pb-16'>
+        <DetailHeader
+          title={title}
+          subtitle={subtitle}
+          image={featuredImage}
+          exhibitedIn={exhibitedIn}
+        />
+        <Container className='lg:my-16'>
+          <LeadText leadText={excerpt} />
         </Container>
-      </div>
-      <Container>
-        <SliderWithModal galleryItems={galleryItems} />
-      </Container>
-    </ContainerVertical>
+        <div className='w-full bg-white'>
+          <Container className=''>
+            <div
+              className={clsxm(
+                'flex flex-col gap-12 md:gap-16 lg:grid lg:grid-cols-12',
+                'lg:grid lg:grid-cols-12 lg:gap-0'
+              )}
+            >
+              <div className='lg:col-start-1 lg:col-end-8'>
+                <ContainerVertical>
+                  <ContainerVertical>
+                    <h2>Über diesen {type}</h2>
+                    <RichText content={description} />
+                  </ContainerVertical>
+                </ContainerVertical>
+              </div>
+              <div className='lg:col-start-9 lg:col-end-13'>
+                <ContainerVertical>
+                  <aside className='bg-primary text-white px-8 py-8'>
+                    <h3 className='sr-only'>Zusammenfassung</h3>
+                    <DefList
+                      items={{
+                        name,
+                        origin,
+                        size,
+                        dating,
+                        location: exhibitedIn,
+                      }}
+                      sorting={['name', 'origin', 'size', 'dating', 'location']}
+                    />
+                  </aside>
+                </ContainerVertical>
+              </div>
+            </div>
+          </Container>
+        </div>
+        <Container>
+          <SliderWithModal galleryItems={galleryItems} />
+        </Container>
+      </ContainerVertical>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+    </>
   );
 }
 

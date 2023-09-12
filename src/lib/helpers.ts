@@ -1,6 +1,8 @@
 import i18n from '@/data/i18n.json';
 import {Metadata} from "next";
 import {IMetadata, ISitemapEntry} from "@/schema/types";
+import { Product, WithContext, PropertyValue } from 'schema-dts';
+
 
 export const imageWidth = (
   sliderHeight: number,
@@ -54,4 +56,38 @@ export function exhibitLocation(location: string, room: string, placing: string 
   return [location, room, placing]
   .filter((item) => !!item)
   .join(', ');
+}
+
+export function generateProductStructuredData(
+  title: string,
+  image: string,
+  name: string,
+  origin: string,
+  size: string,
+  dating: string
+): WithContext<Product> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: title,
+    image: image,
+    description: name,
+    additionalProperty: [
+      {
+        '@type': 'PropertyValue',
+        name: 'Origin',
+        value: origin
+      } as PropertyValue,
+      {
+        '@type': 'PropertyValue',
+        name: 'Size',
+        value: size
+      } as PropertyValue,
+      {
+        '@type': 'PropertyValue',
+        name: 'Dating',
+        value: dating
+      } as PropertyValue
+    ]
+  };
 }
