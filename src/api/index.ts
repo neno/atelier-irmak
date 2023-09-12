@@ -28,9 +28,6 @@ async function fetchData<T>(query: string) {
       method: 'POST',
       headers,
       body: JSON.stringify({ query }),
-      next: {
-        revalidate: 1,
-      }
     });
 
     if (!result.ok) {
