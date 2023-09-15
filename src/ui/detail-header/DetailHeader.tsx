@@ -5,7 +5,6 @@ import { NextImage } from '../NextImage';
 import { rugTranslations } from 'public/locales/de/rug';
 
 import styles from './DetailHeader.module.css';
-import { exhibitLocation } from '@/lib/helpers';
 
 interface DetailHeaderProps {
   title: string;
