@@ -4,13 +4,12 @@ import clsxm from '@/lib/clsxm';
 import styles from './LandingPageHero.module.css';
 import { Container } from '@/ui/Container';
 import { NextImage } from '@/ui/NextImage';
-import {Slider} from "@/ui/hero/components/landing-page-hero/Slider/Slider";
+import { HeroSlider } from '@/ui/hero/components/hero-slider/Slider';
 
-export const LandingPageHero: FC<Pick<IHero, 'title' | 'image' | 'sliderCollection'>> = ({
-  image,
-  title,
-  sliderCollection: { items: sliderItems },
-}) => {
+export const LandingPageHero: FC<
+  Pick<IHero, 'title' | 'image' | 'sliderCollection'>
+> = ({ image, title, sliderCollection: { items: sliderItems } }) => {
+  const showSlider = sliderItems && sliderItems.length > 0;
   return (
     <Container
       className={clsxm(
@@ -18,20 +17,22 @@ export const LandingPageHero: FC<Pick<IHero, 'title' | 'image' | 'sliderCollecti
         'md:aspect-[2/1]'
       )}
     >
-      {/*<div className={clsxm(styles.imageWrapper)}>*/}
-      {/*  <NextImage*/}
-      {/*    src={image.url}*/}
-      {/*    width={image.width}*/}
-      {/*    height={image.height}*/}
-      {/*    alt={image.description}*/}
-      {/*    priority={true}*/}
-      {/*    className={clsxm(*/}
-      {/*      'aspect-square md:aspect-[2/1] object-cover object-center'*/}
-      {/*    )}*/}
-      {/*    sizes='(min-width: 90em) 90rem, 100vw'*/}
-      {/*  />*/}
-      {/*</div>*/}
-      {sliderItems && <Slider items={sliderItems} />}
+      {showSlider && <HeroSlider items={sliderItems} />}
+      {!showSlider && image && (
+        <div className={clsxm(styles.imageWrapper)}>
+          <NextImage
+            src={image.url}
+            width={image.width}
+            height={image.height}
+            alt={image.description}
+            priority={true}
+            className={clsxm(
+              'aspect-square md:aspect-[2/1] object-cover object-center'
+            )}
+            sizes='(min-width: 90em) 90rem, 100vw'
+          />
+        </div>
+      )}
       <div className={clsxm(styles.textWrapper)}>
         <h1
           className={clsxm(
@@ -42,7 +43,6 @@ export const LandingPageHero: FC<Pick<IHero, 'title' | 'image' | 'sliderCollecti
           {title}
         </h1>
       </div>
-
     </Container>
   );
 };
