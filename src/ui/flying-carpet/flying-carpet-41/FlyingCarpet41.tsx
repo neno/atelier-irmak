@@ -27,6 +27,7 @@ export const FlyingCarpet41: FC<Omit<IFlyingCarpet, '__typename'>> = ({
             alt={item.description}
             width={item.width}
             height={item.height}
+            priority={true}
             className='w-full h-full object-cover object-center'
           />
         </div>

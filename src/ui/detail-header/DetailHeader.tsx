@@ -5,7 +5,6 @@ import { NextImage } from '../NextImage';
 import { rugTranslations } from 'public/locales/de/rug';
 
 import styles from './DetailHeader.module.css';
-import { exhibitLocation } from '@/lib/helpers';
 
 interface DetailHeaderProps {
   title: string;
@@ -30,6 +29,7 @@ export const DetailHeader: FC<DetailHeaderProps> = ({
             alt={description}
             width={width}
             height={height}
+            priority={true}
             className='w-full h-full object-cover object-center'
           />
         </div>
