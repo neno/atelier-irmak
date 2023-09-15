@@ -3,16 +3,14 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import { FC } from 'react';
-import clsxm from '@/lib/clsxm';
 import { IAsset } from '@/schema/types';
 import {NextImage} from "@/ui/NextImage";
 
 interface HeroSliderProps {
   items: IAsset[];
-  className?: string;
 }
 
-export const Slider: FC<HeroSliderProps> = ({ items, className, }) => {
+export const Slider: FC<HeroSliderProps> = ({ items }) => {
   return (
     <Splide
       className="shadow-xl lg:shadow-slate-500 col-span-12 pb-0"
