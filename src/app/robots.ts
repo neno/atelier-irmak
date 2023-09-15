@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next'
+import * as process from "process";
 
 export default function robots(): MetadataRoute.Robots {
-  const isProduction = process.env.NEXT_PUBLIC_VERCEL_URL && !process.env.NEXT_PUBLIC_VERCEL_URL.includes('vercel.app');
+  const isProduction = process.env.NEXT_PUBLIC_VERCEL_ENV === 'production';
   return {
     rules: {
       userAgent: '*',
