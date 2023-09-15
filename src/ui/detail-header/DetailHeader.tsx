@@ -30,6 +30,7 @@ export const DetailHeader: FC<DetailHeaderProps> = ({
             alt={description}
             width={width}
             height={height}
+            priority={true}
             className='w-full h-full object-cover object-center'
           />
         </div>
