@@ -20,7 +20,7 @@ export default async function RootLayout({
       <head />
       <body className={raleway.className}>
         <div className="hidden">
-          {process.env.NEXT_PUBLIC_VERCEL_URL}
+          {process.env.NEXT_PUBLIC_VERCEL_ENV}
         </div>
         <Nav />
         <main className='relative z-10'>{children}</main>
