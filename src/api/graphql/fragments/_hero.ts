@@ -8,5 +8,10 @@ export const heroFragment = `
     image {
       ${imageFragment(2000)}
     }
+    sliderCollection {
+      items {
+        ${imageFragment(2000)}
+      }
+    }
   }
 `;

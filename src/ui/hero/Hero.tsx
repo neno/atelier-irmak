@@ -3,9 +3,9 @@ import { IHero } from '@/schema/types';
 import { LandingPageHero } from './components/landing-page-hero/LandingPageHero';
 import { TopicPageHero } from './components/topic-page-hero/TopicPageHero';
 
-export const Hero: FC<IHero> = ({ type, image, title }) => {
+export const Hero: FC<IHero> = ({ type, image, title, sliderCollection }) => {
   if (type === 'Landing') {
-    return <LandingPageHero title={title} image={image} />;
+    return <LandingPageHero title={title} image={image} sliderCollection={sliderCollection}  />;
   }
 
   if (type === 'Topic') {

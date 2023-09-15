@@ -56,6 +56,9 @@ export interface IHero extends IPageContent {
   sys: SysIdType;
   image: IAsset;
   title: string;
+  sliderCollection: {
+    items: IAsset[];
+  };
 }
 
 export interface IAsset {

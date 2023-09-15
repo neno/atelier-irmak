@@ -4,10 +4,12 @@ import clsxm from '@/lib/clsxm';
 import styles from './LandingPageHero.module.css';
 import { Container } from '@/ui/Container';
 import { NextImage } from '@/ui/NextImage';
+import {Slider} from "@/ui/hero/components/landing-page-hero/Slider/Slider";
 
-export const LandingPageHero: FC<Pick<IHero, 'title' | 'image'>> = ({
+export const LandingPageHero: FC<Pick<IHero, 'title' | 'image' | 'sliderCollection'>> = ({
   image,
   title,
+  sliderCollection: { items: sliderItems },
 }) => {
   return (
     <Container
@@ -16,19 +18,20 @@ export const LandingPageHero: FC<Pick<IHero, 'title' | 'image'>> = ({
         'md:aspect-[2/1]'
       )}
     >
-      <div className={clsxm(styles.imageWrapper)}>
-        <NextImage
-          src={image.url}
-          width={image.width}
-          height={image.height}
-          alt={image.description}
-          priority={true}
-          className={clsxm(
-            'aspect-square md:aspect-[2/1] object-cover object-center'
-          )}
-          sizes='(min-width: 90em) 90rem, 100vw'
-        />
-      </div>
+      {/*<div className={clsxm(styles.imageWrapper)}>*/}
+      {/*  <NextImage*/}
+      {/*    src={image.url}*/}
+      {/*    width={image.width}*/}
+      {/*    height={image.height}*/}
+      {/*    alt={image.description}*/}
+      {/*    priority={true}*/}
+      {/*    className={clsxm(*/}
+      {/*      'aspect-square md:aspect-[2/1] object-cover object-center'*/}
+      {/*    )}*/}
+      {/*    sizes='(min-width: 90em) 90rem, 100vw'*/}
+      {/*  />*/}
+      {/*</div>*/}
+      {sliderItems && <Slider items={sliderItems} />}
       <div className={clsxm(styles.textWrapper)}>
         <h1
           className={clsxm(
@@ -39,6 +42,7 @@ export const LandingPageHero: FC<Pick<IHero, 'title' | 'image'>> = ({
           {title}
         </h1>
       </div>
+
     </Container>
   );
 };
