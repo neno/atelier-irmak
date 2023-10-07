@@ -1,8 +1,8 @@
 import { imageFragment } from './fragments/_image';
 
-export const getRugBySlugQuery = (slug: string) => `
+export const getRugBySlugQuery = (slug: string, preview: boolean) => `
   query {
-    rugCollection(where: {slug: "${slug}"}) {
+    rugCollection(where: {slug: "${slug}"}, preview: ${preview}) {
       items {
         slug
         title

@@ -9,13 +9,14 @@ import { SliderWithModal } from '@/ui/SliderWithModal';
 import clsxm from '@/lib/clsxm';
 import { Metadata } from 'next';
 import { createMetadata, exhibitLocation, generateProductStructuredData } from '@/lib/helpers';
+import {draftMode} from "next/headers";
 
 async function RugPage({ params }: { params: { slug: string } }) {
   if (!params.slug) {
     return null;
   }
 
-  const rug = await getRugBySlug(params.slug);
+  const rug = await getRugBySlug(params.slug, preview: draftMode().isEnabled);
   if (!rug) {
     return null;
   }
