@@ -53,16 +53,16 @@ export async function getRugBySlug(
   return items[0];
 }
 
-export async function fetchPageCollectionPaths(): Promise<IPageCollectionPaths> {
-  return await fetchData(pageCollectionPathsQuery);
-}
-
 export async function fetchPageCollectionSitemapData(): Promise<IPageCollectionSitemapData> {
   return await fetchData(pageCollectionSitemapDataQuery);
 }
 
 export async function fetchRugCollectionPaths(): Promise<IRugCollectionPaths> {
   return await fetchData(rugCollectionPathsQuery);
+}
+
+export async function fetchPageCollectionPaths(): Promise<IPageCollectionPaths> {
+  return await fetchData(pageCollectionPathsQuery);
 }
 
 export async function fetchRugCollectionSitemapData(): Promise<IRugCollectionSitemapData> {
