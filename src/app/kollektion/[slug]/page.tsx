@@ -118,7 +118,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const rug = await getRugBySlug(params.slug, true);
+  const rug = await getRugBySlug(params.slug, draftMode().isEnabled);
 
   return createMetadata({
     ...rug,
