@@ -8,6 +8,7 @@ interface IButtonProps {
   type?: 'primary' | 'secondary' | 'tertiary';
   path?: string;
   onClick?: () => void;
+  className?: string;
 }
 
 export const Button: FC<IButtonProps> = ({
@@ -15,10 +16,11 @@ export const Button: FC<IButtonProps> = ({
   path,
   onClick,
   type = 'primary',
+  className
 }) => {
   const styles = clsxm('inline-block relative px-4 py-2 font-medium', {
     'bg-primary text-white': type === 'primary',
-  });
+  }, className);
 
   if (path) {
     return (

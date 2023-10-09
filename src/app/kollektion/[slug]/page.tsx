@@ -10,6 +10,7 @@ import clsxm from '@/lib/clsxm';
 import { Metadata } from 'next';
 import { createMetadata, exhibitLocation, generateProductStructuredData } from '@/lib/helpers';
 import {draftMode} from "next/headers";
+import {notFound} from "next/navigation";
 
 async function RugPage({ params }: { params: { slug: string } }) {
   if (!params.slug) {
@@ -18,7 +19,7 @@ async function RugPage({ params }: { params: { slug: string } }) {
 
   const rug = await getRugBySlug(params.slug, draftMode().isEnabled);
   if (!rug) {
-    return null;
+    notFound();
   }
 
   const {
