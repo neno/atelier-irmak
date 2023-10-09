@@ -48,7 +48,6 @@ export async function getRugBySlug(
   preview: boolean,
 ): Promise<IRug | undefined> {
   const query = getRugBySlugQuery(slug, preview);
-  console.log(query)
   const {
     rugCollection: { items },
   } = await fetchData(query, preview);
