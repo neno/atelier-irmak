@@ -75,9 +75,8 @@ export async function fetchPageContentItemsBySlug(slug: string): Promise<PageCon
   try {
     const query = pageQuery(slug);
     const data = await fetchData(query);
-    
-    const { items } = data.pageCollection?.items?.[0]?.contentContainerCollection ?? [];
-    return items;
+
+    return data.pageCollection?.items?.[0]?.contentContainerCollection.items ?? undefined;
   } catch (error) {
     console.error(error);
   }
@@ -87,9 +86,12 @@ export async function fetchPageMetadataBySlug(slug: string): Promise<IPageMetada
   try {
     const query = pageQuery(slug);
     const data = await fetchData(query);
-    const { metadata, title } = data.pageCollection?.items?.[0];
 
+    if (!data.pageCollection?.items?.[0]) return undefined;
+
+    const { metadata, title } = data.pageCollection?.items?.[0];
     return {title, ...metadata};
+
   } catch (error) {
     console.error(error);
   }

@@ -3,16 +3,6 @@ import { PageContent } from '@/ui/PageContent';
 import {createMetadata} from "@/lib/helpers";
 import {IMetadata} from "@/schema/types";
 
-export async function generateMetadata({ params }: {params: {slug: string}}): Promise<IMetadata> {
-  const metadata = await fetchPageMetadataBySlug(
-    params.slug ?? '/'
-  );
-
-  return createMetadata(
-    {...metadata, slug : params.slug}
-  );
-}
-
 async function Page({ params }: { params: { slug: string } }) {
   const pageContentItems = await fetchPageContentItemsBySlug(
     params.slug ?? '/'
@@ -29,6 +19,20 @@ async function Page({ params }: { params: { slug: string } }) {
   }
 
   return null;
+}
+
+export async function generateMetadata({ params }: {params: {slug: string}}): Promise<IMetadata | undefined> {
+  const metadata = await fetchPageMetadataBySlug(
+    params.slug ?? '/'
+  );
+
+  if (metadata) {
+    return createMetadata(
+      {...metadata, slug : params.slug}
+    );
+  }
+
+  return undefined;
 }
 
 export default Page;
