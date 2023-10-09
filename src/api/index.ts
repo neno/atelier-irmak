@@ -9,24 +9,25 @@ import {
   IRug,
   PageContentType,
   IPageMetadata,
-  IPageCollectionSitemapData, IRugCollectionSitemapData
+  IPageCollectionSitemapData, IRugCollectionSitemapData, IEntry
 } from '@/schema/types';
 import { rugCollectionPathsQuery } from './graphql/rug-collection-paths.query';
 import {pageCollectionSitemapDataQuery} from "@/api/graphql/page-collection-sitemap-data.query";
 import {rugCollectionSitemapDataQuery} from "@/api/graphql/rug-collection-sitemap-data.query";
+import {entryByIdQuery} from "@/api/graphql/entry.query";
 
-const headers = {
-  Authorization: `Bearer ${process.env.CONTENTFUL_API_KEY}`,
+const headers = (preview: boolean) => ({
+  Authorization: `Bearer ${preview ? process.env.CONTENTFUL_PREVIEW_API_KEY : process.env.CONTENTFUL_API_KEY}`,
   'Content-Type': 'application/json',
-};
+});
 
-async function fetchData<T>(query: string) {
+async function fetchData<T>(query: string, preview = false) {
   try {
     const url =
       'https://graphql.contentful.com/content/v1/spaces/52k427pz1yee/environments/master';
     const result = await fetch(url, {
       method: 'POST',
-      headers,
+      headers: headers(preview),
       body: JSON.stringify({ query }),
     });
 
@@ -44,12 +45,13 @@ async function fetchData<T>(query: string) {
 
 export async function getRugBySlug(
   slug: string,
-  preview: boolean
+  preview: boolean,
 ): Promise<IRug | undefined> {
   const query = getRugBySlugQuery(slug, preview);
+  console.log(query)
   const {
     rugCollection: { items },
-  } = await fetchData(query);
+  } = await fetchData(query, preview);
 
   return items[0];
 }
@@ -101,5 +103,16 @@ export async function fetchNavigationItems(): Promise<INavigationItem[] | undefi
     return items;
   } catch (error) {
     console.error(error);
+  }
+}
+
+export async function fetchEntryById(id: string, preview: boolean) : Promise<IEntry | undefined> {
+  try {
+    const query = entryByIdQuery(id, preview)
+    const data = await fetchData(query, preview);
+    const { items } = data.entryCollection;
+    return items[0];
+  } catch (error) {
+    console.error(error)
   }
 }

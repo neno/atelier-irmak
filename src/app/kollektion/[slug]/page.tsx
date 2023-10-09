@@ -1,4 +1,4 @@
-import { fetchRugCollectionPaths, getRugBySlug } from '@/api';
+import { fetchRugCollectionPaths, getRugBySlug } from 'src/api';
 import { DetailHeader } from '@/ui/detail-header/DetailHeader';
 import { LeadText } from '@/ui/LeadText';
 import { RichText } from '@/ui/rich-text/RichText';
@@ -16,7 +16,7 @@ async function RugPage({ params }: { params: { slug: string } }) {
     return null;
   }
 
-  const rug = await getRugBySlug(params.slug, preview: draftMode().isEnabled);
+  const rug = await getRugBySlug(params.slug, draftMode().isEnabled);
   if (!rug) {
     return null;
   }
@@ -118,7 +118,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const rug = await getRugBySlug(params.slug);
+  const rug = await getRugBySlug(params.slug, true);
 
   return createMetadata({
     ...rug,

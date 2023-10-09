@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import {
   fetchPageCollectionSitemapData,
   fetchRugCollectionSitemapData
-} from "@/api";
+} from "src/api";
 import {createSitemapEntry} from "@/lib/helpers";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
