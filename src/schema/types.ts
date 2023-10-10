@@ -7,6 +7,12 @@ export type PageContentGuardType = {
   __typename: 'Features' | 'FlyingCarpet' | 'Gallery' | 'Grid' | 'Hero' | 'Rug'  | 'Teaser' | 'Text';
 };
 
+export interface IEntry {
+  sys: SysIdType;
+  __typename: 'Rug';
+  slug: string;
+}
+
 export interface IPage {
   title: string;
   slug: string;

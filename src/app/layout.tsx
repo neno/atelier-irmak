@@ -2,6 +2,7 @@ import './globals.css';
 import { Raleway } from 'next/font/google';
 import { Footer } from '@/ui/Footer';
 import { Nav } from '@/ui/nav/Nav';
+import clsxm from "@/lib/clsxm";
 
 const raleway = Raleway({ subsets: ['latin'] });
 
@@ -18,9 +19,9 @@ export default async function RootLayout({
   return (
     <html lang='de'>
       <head />
-      <body className={raleway.className}>
+      <body className={clsxm(raleway.className, "flex flex-col min-h-screen")}>
         <Nav />
-        <main className='relative z-10'>{children}</main>
+        <main className='relative z-10 flex-auto'>{children}</main>
         <Footer />
         <div id='overlay'></div>
       </body>

@@ -9,24 +9,25 @@ import {
   IRug,
   PageContentType,
   IPageMetadata,
-  IPageCollectionSitemapData, IRugCollectionSitemapData
+  IPageCollectionSitemapData, IRugCollectionSitemapData, IEntry
 } from '@/schema/types';
 import { rugCollectionPathsQuery } from './graphql/rug-collection-paths.query';
 import {pageCollectionSitemapDataQuery} from "@/api/graphql/page-collection-sitemap-data.query";
 import {rugCollectionSitemapDataQuery} from "@/api/graphql/rug-collection-sitemap-data.query";
+import {entryByIdQuery} from "@/api/graphql/entry.query";
 
-const headers = {
-  Authorization: `Bearer ${process.env.CONTENTFUL_API_KEY}`,
+const headers = (preview: boolean) => ({
+  Authorization: `Bearer ${preview ? process.env.CONTENTFUL_PREVIEW_API_KEY : process.env.CONTENTFUL_API_KEY}`,
   'Content-Type': 'application/json',
-};
+});
 
-async function fetchData<T>(query: string) {
+async function fetchData<T>(query: string, preview = false) {
   try {
     const url =
       'https://graphql.contentful.com/content/v1/spaces/52k427pz1yee/environments/master';
     const result = await fetch(url, {
       method: 'POST',
-      headers,
+      headers: headers(preview),
       body: JSON.stringify({ query }),
     });
 
@@ -43,12 +44,13 @@ async function fetchData<T>(query: string) {
 
 
 export async function getRugBySlug(
-  slug: string
+  slug: string,
+  preview: boolean,
 ): Promise<IRug | undefined> {
-  const query = getRugBySlugQuery(slug);
+  const query = getRugBySlugQuery(slug, preview);
   const {
     rugCollection: { items },
-  } = await fetchData(query);
+  } = await fetchData(query, preview);
 
   return items[0];
 }
@@ -73,9 +75,8 @@ export async function fetchPageContentItemsBySlug(slug: string): Promise<PageCon
   try {
     const query = pageQuery(slug);
     const data = await fetchData(query);
-    
-    const { items } = data.pageCollection?.items?.[0]?.contentContainerCollection ?? [];
-    return items;
+
+    return data.pageCollection?.items?.[0]?.contentContainerCollection.items ?? undefined;
   } catch (error) {
     console.error(error);
   }
@@ -85,9 +86,12 @@ export async function fetchPageMetadataBySlug(slug: string): Promise<IPageMetada
   try {
     const query = pageQuery(slug);
     const data = await fetchData(query);
-    const { metadata, title } = data.pageCollection?.items?.[0];
 
+    if (!data.pageCollection?.items?.[0]) return undefined;
+
+    const { metadata, title } = data.pageCollection?.items?.[0];
     return {title, ...metadata};
+
   } catch (error) {
     console.error(error);
   }
@@ -100,5 +104,16 @@ export async function fetchNavigationItems(): Promise<INavigationItem[] | undefi
     return items;
   } catch (error) {
     console.error(error);
+  }
+}
+
+export async function fetchEntryById(id: string, preview: boolean) : Promise<IEntry | undefined> {
+  try {
+    const query = entryByIdQuery(id, preview)
+    const data = await fetchData(query, preview);
+    const { items } = data.entryCollection;
+    return items[0];
+  } catch (error) {
+    console.error(error)
   }
 }

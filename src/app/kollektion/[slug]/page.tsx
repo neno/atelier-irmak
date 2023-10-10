@@ -1,4 +1,4 @@
-import { fetchRugCollectionPaths, getRugBySlug } from '@/api';
+import { fetchRugCollectionPaths, getRugBySlug } from 'src/api';
 import { DetailHeader } from '@/ui/detail-header/DetailHeader';
 import { LeadText } from '@/ui/LeadText';
 import { RichText } from '@/ui/rich-text/RichText';
@@ -9,15 +9,17 @@ import { SliderWithModal } from '@/ui/SliderWithModal';
 import clsxm from '@/lib/clsxm';
 import { Metadata } from 'next';
 import { createMetadata, exhibitLocation, generateProductStructuredData } from '@/lib/helpers';
+import {draftMode} from "next/headers";
+import {notFound} from "next/navigation";
 
 async function RugPage({ params }: { params: { slug: string } }) {
   if (!params.slug) {
     return null;
   }
 
-  const rug = await getRugBySlug(params.slug);
+  const rug = await getRugBySlug(params.slug, draftMode().isEnabled);
   if (!rug) {
-    return null;
+    notFound();
   }
 
   const {
@@ -117,7 +119,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const rug = await getRugBySlug(params.slug);
+  const rug = await getRugBySlug(params.slug, draftMode().isEnabled);
 
   return createMetadata({
     ...rug,
