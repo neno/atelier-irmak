@@ -1,4 +1,8 @@
-import { fetchPageContentItemsBySlug, fetchPageMetadataBySlug } from '@/api';
+import {
+  fetchPageCollectionPaths,
+  fetchPageContentItemsBySlug,
+  fetchPageMetadataBySlug,
+} from '@/api';
 import { PageContent } from '@/ui/PageContent';
 import {createMetadata} from "@/lib/helpers";
 import {IMetadata} from "@/schema/types";
@@ -37,3 +41,13 @@ export async function generateMetadata({ params }: {params: {slug: string}}): Pr
 }
 
 export default Page;
+
+export async function generateStaticParams() {
+  const { pageCollection } = await fetchPageCollectionPaths();
+
+  return pageCollection.items
+    .filter(({ slug }) => !!slug)
+    .map(({ slug }) => ({
+      slug,
+    }));
+}
