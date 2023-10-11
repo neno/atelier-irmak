@@ -1,7 +1,4 @@
-'use client';
-
 import { IAsset } from '@/schema/types';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FC } from 'react';
 import { NextImage } from './NextImage';
