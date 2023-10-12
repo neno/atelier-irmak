@@ -29,6 +29,7 @@ async function fetchData<T>(query: string, preview = false) {
       method: 'POST',
       headers: headers(preview),
       body: JSON.stringify({ query }),
+      cache: 'no-cache',
     });
 
     if (!result.ok) {
