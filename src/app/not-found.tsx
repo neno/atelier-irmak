@@ -15,7 +15,7 @@ export default function NotFound() {
           archiviert oder umbenannt haben.
         </p>
         <Button className='inline-block py-2 font-medium mt-12' path='/'>
-          Zur Startseite.
+          Zur Startseite
         </Button>
       </Container>
     </ContainerVertical>
