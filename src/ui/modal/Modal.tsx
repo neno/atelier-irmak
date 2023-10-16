@@ -19,7 +19,7 @@ export const Modal: FC<IModal> = ({children, isOpen, handleClose}) => {
 
   return (
     <ReactPortal wrapperId="react-portal-modal-container">
-      <div className="fixed inset-0 z-10">
+      <div className="fixed inset-0 z-50">
         <button
           type="button"
           className="absolute z-10 right-6 top-6 rounded-full bg-transparent text-primary border opacity-70 hover:opacity-90 p-2 md:p-4"
