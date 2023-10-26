@@ -7,7 +7,7 @@ export default function NotFound() {
     <ContainerVertical className='py-16'>
       <Container className='text-center max-w-3xl'>
         <h1>Seite nicht gefunden</h1>
-        <p className='mt-8'>Diese Seite konnte nicht gefunden werden.</p>
+        <p className='mt-8'>Wir konnten diese Seite leider nicht finden.</p>
         <p className='mt-4'>
           Gründe dafür könnten sein, dass Sie eine falsche oder veraltete URL
           aufgerufen haben. Wir bitten Sie, diese noch einmal zu überprüfen. Es
