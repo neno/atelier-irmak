@@ -11,8 +11,6 @@ const FlyingCarpetMap = new Map<
 FlyingCarpetMap.set('4-1', FlyingCarpet41);
 
 export const FlyingCarpet: FC<IFlyingCarpet> = ({ template, ...rest }) => {
-  console.log('FlyingCarpet', rest.backgroundColor);
-
   const FlyingCarpetComponent = FlyingCarpetMap.get(template);
 
   if (FlyingCarpetComponent) {

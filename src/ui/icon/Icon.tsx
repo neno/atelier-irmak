@@ -1,10 +1,12 @@
 import { FC } from "react";
 import { IIconProps, IconType } from "@/ui/icon/Icon.types";
-import {Phone, Email} from "@/ui/icon/icons";
+import {Phone, Email, At, Telephone} from "@/ui/icon/icons";
 
 const icons = {
   [IconType.Phone]: Phone,
   [IconType.Email]: Email,
+  [IconType.At]: At,
+  [IconType.Telephone]: Telephone,
 };
 
 export const Icon: FC<IIconProps> = ({

@@ -1,10 +1,10 @@
-import {ReactElement} from 'react';
-import {Metadata} from "next";
+import { ReactElement } from 'react';
+import { Metadata } from "next";
 
 export type SysIdType = { id: string; };
-export type PageContentType = IFeatures | IFlyingCarpet | IGallery  | IGrid | IHero | IRugItem | ITeaser | IText;
+export type PageContentType = IFeatures | IFlyingCarpet | IGallery | IGrid | IHero | IRugItem | ITeaser | IText;
 export type PageContentGuardType = {
-  __typename: 'Features' | 'FlyingCarpet' | 'Gallery' | 'Grid' | 'Hero' | 'Rug'  | 'Teaser' | 'Text';
+  __typename: 'Features' | 'FlyingCarpet' | 'Gallery' | 'Grid' | 'Hero' | 'Rug' | 'Teaser' | 'Text';
 };
 
 export interface IEntry {
@@ -138,7 +138,12 @@ export type TGeolocation = {
   lon: number;
 };
 
-export type TColorTypes = 'Red' | 'Orange' | 'Yellow' | 'Brown' | 'Green' |'Blue' |'Purple' | 'Pink' | 'Black' | 'Gray' | 'White';
+export type TColorTypes = 'Red' | 'Orange' | 'Yellow' | 'Brown' | 'Green' | 'Blue' | 'Purple' | 'Pink' | 'Black' | 'Gray' | 'White';
+
+export interface IOrgin {
+  name: string;
+  location: TGeolocation;
+}
 
 export interface IRug {
   title: string;
@@ -148,14 +153,14 @@ export interface IRug {
   description: any;
   name: string;
   type: string;
-  origin: string;
+  origin: IOrgin,
   country: {
     name: string;
     geolocation: TGeolocation;
   }
   length: number;
   width: number;
-  dating: string; 
+  dating: string;
   location: string;
   room: string;
   placing: string | null;
@@ -170,10 +175,10 @@ export interface IRug {
 
 export interface IRugDefinition {
   name: string;
-  origin: string;
   size: string;
   dating: string;
   location: string;
+  origin: string;
 }
 
 export interface INavigationItem {

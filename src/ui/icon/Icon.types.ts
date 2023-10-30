@@ -1,6 +1,8 @@
 export enum IconType {
   Phone = "Phone",
-  Email = "Email"
+  Email = "Email",
+  At = "At",
+  Telephone = "Telephone",
 }
 
 export interface IIconSvg {
