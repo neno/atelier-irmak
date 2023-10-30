@@ -8,9 +8,16 @@ import { DefList } from '@/ui/DefList';
 import { SliderWithModal } from '@/ui/SliderWithModal';
 import clsxm from '@/lib/clsxm';
 import { Metadata } from 'next';
-import { createMetadata, exhibitLocation, generateProductStructuredData } from '@/lib/helpers';
-import {draftMode} from "next/headers";
-import {notFound} from "next/navigation";
+import {
+  createMetadata,
+  exhibitLocation,
+  generateProductStructuredData,
+} from '@/lib/helpers';
+import { draftMode } from 'next/headers';
+import { notFound } from 'next/navigation';
+import { Button } from '@/ui/Button';
+import { Icon } from '@/ui/icon';
+import { IconType } from '@/ui/icon/Icon.types';
 
 async function RugPage({ params }: { params: { slug: string } }) {
   if (!params.slug) {
@@ -52,7 +59,7 @@ async function RugPage({ params }: { params: { slug: string } }) {
     origin,
     size,
     dating
-  )
+  );
 
   return (
     <>
@@ -89,13 +96,49 @@ async function RugPage({ params }: { params: { slug: string } }) {
                     <DefList
                       items={{
                         name,
-                        origin,
+                        origin: origin.name,
                         size,
                         dating,
                         location: exhibitedIn,
                       }}
                       sorting={['name', 'origin', 'size', 'dating', 'location']}
                     />
+                  </aside>
+                  <aside className='bg-gray p-8 text-primary'>
+                    <h3 className='sr-only'>Kontaktieren Sie uns</h3>
+                    <p>
+                      Möchten Sie erfahren, wie so ein {type} in Ihrem Zuhause
+                      wirkt?
+                    </p>
+                    <p>
+                      Dann zögern Sie nicht, uns zu kontaktieren. Wir stehen Ihnen gerne für eine Beratung zur Verfügung.
+                    </p>
+                    <p className='flex gap-4'>
+                      <Button
+                        path='mailto:atelier-irmak.ch'
+                        className='mt-8 flex items-center gap-2 hover:bg-primary-light'
+                      >
+                        <Icon
+                          iconName={IconType.At}
+                          width={36}
+                          height={36}
+                          className='md:h-12 md:w-12'
+                        />
+                        <span>Email</span>
+                      </Button>
+                      <Button
+                        path='tel:+41313120604'
+                        className='mt-8 flex items-center gap-2 hover:bg-primary-light'
+                      >
+                        <Icon
+                          iconName={IconType.Telephone}
+                          width={36}
+                          height={36}
+                          className='md:h-12 md:w-12'
+                        />
+                        <span>Telefon</span>
+                      </Button>
+                    </p>
                   </aside>
                 </ContainerVertical>
               </div>
@@ -107,7 +150,7 @@ async function RugPage({ params }: { params: { slug: string } }) {
         </Container>
       </ContainerVertical>
       <script
-        type="application/ld+json"
+        type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
     </>

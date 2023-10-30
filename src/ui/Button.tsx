@@ -1,6 +1,6 @@
 import clsxm from '@/lib/clsxm';
 import Link from 'next/link';
-import { FC, ReactNode } from 'react';
+import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 
 interface IButtonProps {
   children: ReactNode;
@@ -15,11 +15,15 @@ export const Button: FC<IButtonProps> = ({
   path,
   onClick,
   type = 'primary',
-  className
+  className,
 }) => {
-  const styles = clsxm('inline-block relative px-4 py-2 font-medium', {
-    'bg-primary text-white': type === 'primary',
-  }, className);
+  const styles = clsxm(
+    'inline-block relative px-4 py-2 font-medium',
+    {
+      'bg-primary text-white': type === 'primary',
+    },
+    className
+  );
 
   if (path) {
     return (
@@ -37,6 +41,5 @@ export const Button: FC<IButtonProps> = ({
     );
   }
 
-  return <pre>{JSON.stringify({ path, onClick })}</pre>;
-  // throw new Error('Button must have either a path or an onClick handler');
+  throw new Error('Button must have either a path or an onClick handler');
 };

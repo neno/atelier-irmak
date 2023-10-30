@@ -1,6 +1,6 @@
 import i18n from '@/data/i18n.json';
 import {Metadata} from "next";
-import {IMetadata, ISitemapEntry} from "@/schema/types";
+import {IMetadata, IOrgin, ISitemapEntry} from "@/schema/types";
 import { Product, WithContext, PropertyValue } from 'schema-dts';
 
 
@@ -62,7 +62,7 @@ export function generateProductStructuredData(
   title: string,
   image: string,
   name: string,
-  origin: string,
+  origin: IOrgin,
   size: string,
   dating: string
 ): WithContext<Product> {
@@ -76,7 +76,7 @@ export function generateProductStructuredData(
       {
         '@type': 'PropertyValue',
         name: 'Origin',
-        value: origin
+        value: origin.name
       } as PropertyValue,
       {
         '@type': 'PropertyValue',

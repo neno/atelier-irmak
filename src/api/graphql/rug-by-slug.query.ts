@@ -11,7 +11,11 @@ export const getRugBySlugQuery = (slug: string, preview: boolean) => `
         description {json}
         name
         type
-        origin
+        origin {
+          ... on Origin {
+            name
+          }
+        }
         country {
           ... on Country {
             name
