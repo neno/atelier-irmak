@@ -1,7 +1,7 @@
 'use client';
 
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+import '@splidejs/react-splide/css';
 import { FC } from 'react';
 import { IAsset } from '@/schema/types';
 import { NextImage } from '@/ui/NextImage';

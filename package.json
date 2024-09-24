@@ -15,7 +15,6 @@
     "@googlemaps/js-api-loader": "^1.16.2",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
-    "@latest": "link:next/@latest",
     "@next/bundle-analyzer": "^13.5.6",
     "@splidejs/react-splide": "^0.7.12",
     "@tailwindcss/typography": "^0.5.10",
