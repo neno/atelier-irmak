@@ -7,7 +7,7 @@ import { RichText } from '@/ui/rich-text/RichText';
 import { Button } from '@/ui/Button';
 import clsxm from '@/lib/clsxm';
 
-export const TeaserCollection: FC<ITeaser> = ({ title, image, text, link }) => {
+export const TeaserReference: FC<ITeaser> = ({ title, image, text, link }) => {
   return (
     <Container className={clsxm('py-8 sm:py-16')}>
       <div className={clsxm('md:grid md:grid-cols-8 overflow-hidden')}>

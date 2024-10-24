@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation'
 import {
   fetchPageCollectionPaths,
   fetchPageContentItemsBySlug,
@@ -9,6 +10,11 @@ import {IMetadata} from "@/schema/types";
 import {notFound} from "next/navigation";
 
 async function Page({ params }: { params: { slug: string } }) {
+  if (params.slug === 'kollektion') {
+    redirect('/referenzen'); // unfortunately Next.js 13 does not support permanent redirects
+  }
+
+
   const pageContentItems = await fetchPageContentItemsBySlug(
     params.slug ?? '/'
   );

@@ -79,7 +79,7 @@ export interface ITeasersCollection {
   items: ITeaser[];
 }
 
-export type TeaserType = 'Kompetenz' | 'Kollektion' | 'Der fliegende Teppich';
+export type TeaserType = 'Kompetenz' | 'Referenz' | 'Der fliegende Teppich';
 
 export interface ITeaser {
   sys: SysIdType;

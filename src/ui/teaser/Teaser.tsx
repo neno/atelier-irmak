@@ -3,13 +3,13 @@ import { TeaserComponentType, TeaserType } from './Teaser.types';
 import {
   TeaserCompetences,
   TeaserMonthly,
-  TeaserCollection,
+  TeaserReference,
 } from './components';
 import { ITeaser } from '@/schema/types';
 
 const TeaserMap = new Map<TeaserType, TeaserComponentType>();
 TeaserMap.set('Kompetenz', TeaserCompetences);
-TeaserMap.set('Kollektion', TeaserCollection);
+TeaserMap.set('Referenz', TeaserReference);
 TeaserMap.set('Der fliegende Teppich', TeaserMonthly);
 
 export const Teaser: FC<ITeaser> = ({ type, ...rest }) => {
