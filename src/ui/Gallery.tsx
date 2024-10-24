@@ -21,7 +21,7 @@ export const Gallery: FC<GalleryProps> = ({ items, background = 'none' }) => (
         {items.map((item) => (
           <li className='relative' key={item.sys.id}>
             <Card
-              path={`/kollektion/${item.slug}`}
+              path={`/referenzen/${item.slug}`}
               image={item.featuredImage}
               text={item.name}
             />

@@ -35,7 +35,7 @@ export async function GET(request: Request) {
   // Redirect to the path from the fetched post
   // We don't redirect to searchParams.slug as that might lead to open redirect vulnerabilities
   if (entry.__typename === "Rug") {
-    redirect('/kollektion/' + entry.slug)
+    redirect('/referenzen/' + entry.slug)
   }
 
   redirect(entry.slug)

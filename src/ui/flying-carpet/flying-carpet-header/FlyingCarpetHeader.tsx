@@ -9,7 +9,7 @@ import styles from './FlyingCarpetHeader.module.css';
 export const FlyingCarpetHeader: FC<
   Pick<IFlyingCarpet, 'template' | 'text' | 'link' | 'backgroundColor'>
 > = ({ template, link, text, backgroundColor }) => {
-  const path = `/kollektion/${link.slug}`; // TODO: Make this dynamic
+  const path = `/referenzen/${link.slug}`; // TODO: Make this dynamic
   return (
     <header className={clsxm(styles[`txt--${template}`])}>
       <Link

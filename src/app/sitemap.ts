@@ -17,7 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ));
 
   const rugs = rugCollection.items.map(({ slug, sys }) => createSitemapEntry(
-    `${process.env.SITE_URL}/kollektion/${slug}`,
+    `${process.env.SITE_URL}/referenzen/${slug}`,
     sys.publishedAt,
   ));
 
