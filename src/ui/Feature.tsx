@@ -34,7 +34,7 @@ export const Feature: FC<FeatureProps> = ({
     <p className='flex-1 font-title font-light  text-primary'>
       {text}
     </p>
-    { page && (
+    { page && page.slug && (
       <p>
         <Button path={`/${page.slug}`} type='primary'>Mehr</Button>
       </p>
