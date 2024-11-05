@@ -1,3 +1,4 @@
+import { FeatureItem } from './_featureItem';
 import { textFragment } from './_textFragment';
 
 export const featuresFragment = `
@@ -7,6 +8,7 @@ export const featuresFragment = `
       items {
         __typename
         ${textFragment}
+        ${FeatureItem}
       }
     }
   }

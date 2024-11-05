@@ -7,6 +7,12 @@ export type PageContentGuardType = {
   __typename: 'Features' | 'FlyingCarpet' | 'Gallery' | 'Grid' | 'Hero' | 'Rug' | 'Teaser' | 'Text';
 };
 
+
+export type NestedContentType = IFeature | IText;
+export type NestedContentGuardType = {
+  __typename: 'Feature' | 'Text';
+};
+
 export interface IEntry {
   sys: SysIdType;
   __typename: 'Rug';
@@ -205,8 +211,19 @@ export interface IFeatures {
   __typename: 'Features';
   background: BackgroundTypes;
   sectionsCollection: {
-    items: IText[];
+    items: IText[] | IFeature[];
   }
+}
+
+export interface IFeature {
+  sys: SysIdType;
+  __typename: 'Feature';
+  media: IAsset;
+  title: string;
+  text: string;
+  page?: {
+    slug: string;
+  };
 }
 
 export interface IGrid {
@@ -258,3 +275,5 @@ export interface ISitemapEntry {
   changefreq: 'daily' | 'weekly' | 'monthly';
   priority: number;
 }
+
+
