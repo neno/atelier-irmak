@@ -11,5 +11,8 @@ export const FeatureItem = `
     }
     title
     text
+    page {
+      slug
+    }
   }
 `;

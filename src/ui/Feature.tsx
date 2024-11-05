@@ -2,6 +2,8 @@ import { IAsset, IFeature } from '@/schema/types';
 import Link from 'next/link';
 import { FC } from 'react';
 import { NextImage } from './NextImage';
+import { Button } from './Button';
+import clsxm from '@/lib/clsxm';
 
 type FeatureProps = Omit<IFeature, '__typename' | 'sys'>
 
@@ -32,6 +34,10 @@ export const Feature: FC<FeatureProps> = ({
     <p className='flex-1 font-title font-light  text-primary'>
       {text}
     </p>
-    { page && <Link href={page.slug}>Mehr</Link>}
+    { page && (
+      <p>
+        <Button path={`/${page.slug}`} type='primary'>Mehr</Button>
+      </p>
+    )}
   </section>
 );
