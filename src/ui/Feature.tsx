@@ -36,7 +36,7 @@ export const Feature: FC<FeatureProps> = ({
     </p>
     { page && page.slug && (
       <p>
-        <Button path={`/${page.slug}`} type='primary'>Mehr</Button>
+        <Button path={`/${page.slug}`} type='primary' className='hover:bg-light'>Mehr</Button>
       </p>
     )}
   </section>
