@@ -28,7 +28,7 @@ export const Slider: FC<SliderProps> = ({ items, className, onSlideClick }) => {
       className={clsxm(className, styles.slider)}
     >
       {items.map(({ url, description, width, height }, index) => (
-        <SplideSlide key={url} onClick={() => onSlideClick(index)}>
+        <SplideSlide key={url} onClick={() => onSlideClick(index)} className='border border-slate-300 overflow-hidden rounded'>
           <NextImage
             src={url}
             alt={description}
