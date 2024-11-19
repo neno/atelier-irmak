@@ -18,7 +18,7 @@ export const TeaserReference: FC<ITeaser> = ({ title, image, text, link }) => {
         </header>
         <div
           className={clsxm(
-            'relative md:col-span-4 lg:col-span-5 relative aspect-[4/3] md:aspect-square lg:aspect-[4/3] shadow-xl shadow-slate-300'
+            'relative md:col-span-4 lg:col-span-5 relative aspect-[4/3] md:aspect-square lg:aspect-[4/3] shadow-xl shadow-slate-300 rounded overflow-hidden'
           )}
         >
           <TeaserImage image={image} />

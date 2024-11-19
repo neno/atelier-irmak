@@ -14,7 +14,7 @@ export const Feature: FC<FeatureProps> = ({
   page
 }) => (
   <section className='relative flex flex-col h-full gap-4'>
-    <div className='relative aspect-[2/1] flex-0 overflow-hidden'>
+    <div className='relative aspect-[2/1] flex-0 overflow-hidden rounded shadow-lg lg:shadow-slate-500'>
       <div
         className='w-full h-full hover:scale-110 transition-transform duration-300 ease-in-out'
       >
@@ -29,15 +29,17 @@ export const Feature: FC<FeatureProps> = ({
       </div>
     </div>
     <header>
-    <h3>{title}</h3>
+    <h3 className='mt-2'>{title}</h3>
     </header>
-    <p className='flex-1 font-title font-light  text-primary'>
+    <p className='flex-1 font-normal'>
       {text}
-    </p>
+    
     { page && page.slug && (
-      <p>
-        <Button path={`/${page.slug}`} type='primary' className='hover:bg-light'>Mehr</Button>
-      </p>
+        <>
+        <br />
+        <Button path={`/${page.slug}`} type='ghost'>Mehr</Button>
+        </>
     )}
+      </p>
   </section>
 );

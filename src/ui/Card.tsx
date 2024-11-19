@@ -17,7 +17,7 @@ export const Card: FC<CardProps> = ({
   <figure className='relative flex flex-col h-full'>
     <Link href={path} className='relative aspect-[4/3] flex-0 overflow-hidden'>
       <div
-        className='w-full h-full hover:scale-110 transition-transform duration-300 ease-in-out'
+        className='w-full h-full hover:scale-110 transition-transform duration-300 ease-in-out rounded overflow-hidden'
       >
         <NextImage
           src={url}

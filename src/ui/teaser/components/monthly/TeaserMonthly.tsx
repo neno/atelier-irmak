@@ -19,7 +19,7 @@ export const TeaserMonthly: FC<ITeaser> = ({ title, image, text, link }) => {
         <div className={clsxm('md:grid grid-cols-2')}>
           <div
             className={clsxm(
-              'relative border-[1rem] border-white aspect-[4/3] shadow-xl shadow-slate-300'
+              'relative border-[1rem] border-white aspect-[4/3] shadow-xl shadow-slate-300 rounded'
             )}
           >
             <TeaserImage image={image} />

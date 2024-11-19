@@ -1,6 +1,6 @@
 .container {
   @apply grid grid-cols-1 grid-rows-1 w-full aspect-[1/1];
-  @apply lg:grid-cols-2 lg:aspect-auto lg:shadow-xl lg:shadow-slate-300 lg:mt-16 relative;
+  @apply lg:grid-cols-2 lg:aspect-auto lg:shadow-xl lg:shadow-slate-300 lg:mt-16 lg:rounded-r relative;
 
   /* @apply grid sm:grid-cols-2 sm:shadow-xl sm:shadow-slate-300 relative; */
   @apply lg:before:bg-gray lg:before:z-0 lg:before:block lg:content-["*"];
@@ -9,7 +9,7 @@
 }
 
 .image {
-  @apply relative col-start-1 col-end-2 row-start-1 row-end-2 z-10;
+  @apply relative col-start-1 col-end-2 row-start-1 row-end-2 z-10 sm:rounded-b lg:rounded-b-none lg:overflow-hidden lg:rounded-l;
   @apply lg:aspect-[1/1] bg-primary;
   @apply xl:aspect-[4/3];
 

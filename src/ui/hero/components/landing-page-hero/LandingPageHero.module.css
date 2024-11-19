@@ -1,9 +1,9 @@
 .imageWrapper {
-  @apply lg:relative h-full lg:col-start-1 lg:col-end-13 lg:col-start-1 lg:col-end-13 shadow-xl lg:shadow-slate-500;
+  @apply overflow-hidden rounded lg:relative h-full lg:col-start-1 lg:col-end-13 lg:col-start-1 lg:col-end-13 shadow-xl lg:shadow-slate-500;
 }
 
 .textWrapper {
-  @apply bg-primary shadow-xl shadow-slate-500 opacity-90 -mt-12 mx-8 mb-16;
+  @apply rounded bg-primary shadow-xl shadow-slate-500 opacity-90 -mt-12 mx-8 mb-16;
   @apply lg:absolute lg:left-0 lg:left-auto lg:right-[-2rem] lg:bottom-0 lg:pr-2 lg:m-0 lg:w-[24rem] lg:w-[50rem];
 }
 

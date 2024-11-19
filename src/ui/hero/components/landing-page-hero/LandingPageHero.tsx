@@ -13,7 +13,7 @@ export const LandingPageHero: FC<
   return (
     <Container
       className={clsxm(
-        'relative lg:grid lg:grid-cols-12 px-0 lg:pb-16 lg:mb-16',
+        'relative rounded lg:grid lg:grid-cols-12 px-0 lg:pb-16 lg:mb-16',
         'md:aspect-[2/1]'
       )}
     >
@@ -37,7 +37,7 @@ export const LandingPageHero: FC<
         <h1
           className={clsxm(
             styles.title,
-            'text-white text-center text-xl lg:text-left lg:text-3xl font-title leading-relaxed lg:leading-tight'
+            'overflow-hidden text-white text-center text-xl lg:text-left lg:text-3xl font-title leading-relaxed lg:leading-tight'
           )}
         >
           {title}

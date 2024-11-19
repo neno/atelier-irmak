@@ -30,7 +30,7 @@ export const TeaserCompetences: FC<ITeaser> = ({
           <div className={clsxm('relative z-2', styles.teaser)}>
             <div
               className={clsxm(
-                'relative relative aspect-[4/3] md:aspect-square lg:aspect-[4/3] overflow-hidden shadow-xl shadow-slate-300',
+                'relative relative aspect-[4/3] md:aspect-square lg:aspect-[4/3] overflow-hidden shadow-xl shadow-slate-300 rounded',
                 styles.teaserImg
               )}
             >

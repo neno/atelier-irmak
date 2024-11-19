@@ -91,7 +91,7 @@ async function RugPage({ params }: { params: { slug: string } }) {
               </div>
               <div className='lg:col-start-9 lg:col-end-13'>
                 <ContainerVertical>
-                  <aside className='bg-primary text-white px-8 py-8'>
+                  <aside className='bg-primary text-white px-8 py-8 lg:rounded'>
                     <h3 className='sr-only'>Zusammenfassung</h3>
                     <DefList
                       items={{
@@ -104,7 +104,7 @@ async function RugPage({ params }: { params: { slug: string } }) {
                       sorting={['name', 'origin', 'size', 'dating', 'location']}
                     />
                   </aside>
-                  <aside className='bg-gray p-8 text-primary'>
+                  <aside className='bg-gray p-8 text-primary lg:rounded'>
                     <h3 className='sr-only'>Kontaktieren Sie uns</h3>
                     <p>
                       Möchten Sie erfahren, wie so ein {type} in Ihrem Zuhause
@@ -113,10 +113,10 @@ async function RugPage({ params }: { params: { slug: string } }) {
                     <p>
                       Dann zögern Sie nicht, uns zu kontaktieren. Wir stehen Ihnen gerne für eine Beratung zur Verfügung.
                     </p>
-                    <p className='flex gap-4'>
+                    <p className='sm:flex gap-4'>
                       <Button
                         path='mailto:atelier-irmak.ch'
-                        className='mt-8 flex items-center gap-2 hover:bg-primary-light'
+                        className='mt-8 flex flex-1 justify-center items-center gap-2 hover:bg-primary-light'
                       >
                         <Icon
                           iconName={IconType.At}
@@ -128,7 +128,7 @@ async function RugPage({ params }: { params: { slug: string } }) {
                       </Button>
                       <Button
                         path='tel:+41313120604'
-                        className='mt-8 flex items-center gap-2 hover:bg-primary-light'
+                        className='mt-8 flex flex-1 justify-center items-center gap-2 hover:bg-primary-light'
                       >
                         <Icon
                           iconName={IconType.Telephone}
