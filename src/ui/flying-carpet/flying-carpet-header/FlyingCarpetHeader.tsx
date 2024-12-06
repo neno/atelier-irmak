@@ -22,9 +22,6 @@ export const FlyingCarpetHeader: FC<
             content={text}
             className='flex flex-col flex-1 justify-between w-full h-full '
           />
-          <div className='flex justify-end'>
-            <ArrowRightCircleIcon className='block h-8 w-8 text-white' />
-          </div>
         </div>
       </header>
     );
