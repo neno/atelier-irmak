@@ -3,6 +3,7 @@ import { flyingCarpetFragment } from './fragments/_flyingCarpetFragment';
 import { galleryFragment } from './fragments/_galleryFragment';
 import { gridFragment } from './fragments/_gridFragment';
 import { heroFragment } from './fragments/_hero';
+import { sliderFragment } from './fragments/_sliderFragment';
 import { teaserItem } from './fragments/_teaserItem';
 import { textFragment } from './fragments/_textFragment';
 import {imageFragment} from "@/api/graphql/fragments/_image";
@@ -34,6 +35,7 @@ export const pageQuery = (slug: string) => `
               ${galleryFragment}
               ${featuresFragment}
               ${gridFragment}
+              ${sliderFragment}
             }
           }
         }

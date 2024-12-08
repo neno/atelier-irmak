@@ -1,4 +1,4 @@
-import { IFeature, IFeatures, IFlyingCarpet, IGallery, IGrid, IHero, IRugItem, ITeaser, IText, NestedContentGuardType, PageContentGuardType } from './types';
+import { IFeature, IFeatures, IFlyingCarpet, IGallery, IGrid, IHero, IRugItem, ISlider, ITeaser, IText, NestedContentGuardType, PageContentGuardType } from './types';
 
 export const isHero = (x: PageContentGuardType): x is IHero =>
   x.__typename === 'Hero';
@@ -25,3 +25,6 @@ export const isRugItem = (x: PageContentGuardType): x is IRugItem =>
   x.__typename === 'Rug';
 
 export const isFeature = (x: NestedContentGuardType): x is IFeature => x.__typename === 'Feature'
+
+export const isSlider = (x: PageContentGuardType): x is ISlider =>
+  x.__typename === 'Slider';

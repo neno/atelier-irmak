@@ -5,6 +5,7 @@ import {
   isGallery,
   isGrid,
   isHero,
+  isSlider,
   isTeaser,
   isText,
 } from '@/schema/guards';
@@ -16,6 +17,8 @@ import { Gallery } from './Gallery';
 import { Features } from './Features';
 import { Grid } from './grid/Grid';
 import { FlyingCarpet } from './flying-carpet/FlyingCarpet';
+import { Container } from './Container';
+import { SliderWithModal } from './SliderWithModal';
 
 interface PageContentProps {
   pageContent: PageContentType;
@@ -52,6 +55,14 @@ export const PageContent: FC<PageContentProps> = ({ pageContent }) => {
   }
   if (isText(pageContent)) {
     return <Text {...pageContent} />;
+  }
+
+  if (isSlider(pageContent)) {
+    return (
+      <Container className='my-8 xl:my-16'>
+        <SliderWithModal galleryItems={pageContent.galleryCollection.items} />
+      </Container>
+    )
   }
 
   throw new Error(`Teaser type ${pageContent.__typename} not found`);

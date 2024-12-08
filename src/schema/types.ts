@@ -2,9 +2,9 @@ import { ReactElement } from 'react';
 import { Metadata } from "next";
 
 export type SysIdType = { id: string; };
-export type PageContentType = IFeatures | IFlyingCarpet | IGallery | IGrid | IHero | IRugItem | ITeaser | IText;
+export type PageContentType = IFeatures | IFlyingCarpet | IGallery | IGrid | IHero | IRugItem | ITeaser | IText | ISlider;
 export type PageContentGuardType = {
-  __typename: 'Features' | 'FlyingCarpet' | 'Gallery' | 'Grid' | 'Hero' | 'Rug' | 'Teaser' | 'Text';
+  __typename: 'Features' | 'FlyingCarpet' | 'Gallery' | 'Grid' | 'Hero' | 'Rug' | 'Slider' | 'Teaser' | 'Text';
 };
 
 
@@ -277,3 +277,11 @@ export interface ISitemapEntry {
 }
 
 
+
+export interface ISlider extends IPageContent {
+  __typename: 'Slider';
+  sys: SysIdType;
+  galleryCollection: {
+    items: IAsset[];
+  }
+}
