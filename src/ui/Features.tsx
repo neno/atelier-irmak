@@ -14,7 +14,7 @@ interface FeaturesProps {
 export const Features: FC<FeaturesProps> = ({
   items,
   background = "none",
-  columns = 3,
+  columns,
 }) => (
   <div
     className={clsxm("features", {
@@ -27,7 +27,7 @@ export const Features: FC<FeaturesProps> = ({
       <div
         className={clsxm(
           "grid mx-auto md:max-w-4xl lg:max-w-full gap-4 lg:gap-8 xl:gap-12 2xl:gap-16",
-          `xl:grid-cols-${columns}`
+          `xl:grid-cols-${columns ?? 3}`
         )}
       >
         {items.map((item) => (
