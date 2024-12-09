@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC } from "react";
 import {
   isFeatures,
   isFlyingCarpet,
@@ -8,17 +8,17 @@ import {
   isSlider,
   isTeaser,
   isText,
-} from '@/schema/guards';
-import { PageContentType } from '@/schema/types';
-import { Hero } from './hero/Hero';
-import { Teaser } from './teaser/Teaser';
-import { Text } from './Text';
-import { Gallery } from './Gallery';
-import { Features } from './Features';
-import { Grid } from './grid/Grid';
-import { FlyingCarpet } from './flying-carpet/FlyingCarpet';
-import { Container } from './Container';
-import { SliderWithModal } from './SliderWithModal';
+} from "@/schema/guards";
+import { PageContentType } from "@/schema/types";
+import { Hero } from "./hero/Hero";
+import { Teaser } from "./teaser/Teaser";
+import { Text } from "./Text";
+import { Gallery } from "./Gallery";
+import { Features } from "./Features";
+import { Grid } from "./grid/Grid";
+import { FlyingCarpet } from "./flying-carpet/FlyingCarpet";
+import { Container } from "./Container";
+import { SliderWithModal } from "./SliderWithModal";
 
 interface PageContentProps {
   pageContent: PageContentType;
@@ -30,6 +30,7 @@ export const PageContent: FC<PageContentProps> = ({ pageContent }) => {
       <Features
         items={pageContent.sectionsCollection.items}
         background={pageContent.background}
+        columns={pageContent.columns}
       />
     );
   }
@@ -59,10 +60,10 @@ export const PageContent: FC<PageContentProps> = ({ pageContent }) => {
 
   if (isSlider(pageContent)) {
     return (
-      <Container className='my-8 xl:my-16'>
+      <Container className="my-8 xl:my-16">
         <SliderWithModal galleryItems={pageContent.galleryCollection.items} />
       </Container>
-    )
+    );
   }
 
   throw new Error(`Teaser type ${pageContent.__typename} not found`);

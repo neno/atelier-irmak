@@ -1,21 +1,38 @@
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 import { Metadata } from "next";
 
-export type SysIdType = { id: string; };
-export type PageContentType = IFeatures | IFlyingCarpet | IGallery | IGrid | IHero | IRugItem | ITeaser | IText | ISlider;
+export type SysIdType = { id: string };
+export type PageContentType =
+  | IFeatures
+  | IFlyingCarpet
+  | IGallery
+  | IGrid
+  | IHero
+  | IRugItem
+  | ITeaser
+  | IText
+  | ISlider;
 export type PageContentGuardType = {
-  __typename: 'Features' | 'FlyingCarpet' | 'Gallery' | 'Grid' | 'Hero' | 'Rug' | 'Slider' | 'Teaser' | 'Text';
+  __typename:
+    | "Features"
+    | "FlyingCarpet"
+    | "Gallery"
+    | "Grid"
+    | "Hero"
+    | "Rug"
+    | "Slider"
+    | "Teaser"
+    | "Text";
 };
-
 
 export type NestedContentType = IFeature | IText;
 export type NestedContentGuardType = {
-  __typename: 'Feature' | 'Text';
+  __typename: "Feature" | "Text";
 };
 
 export interface IEntry {
   sys: SysIdType;
-  __typename: 'Rug';
+  __typename: "Rug";
   slug: string;
 }
 
@@ -28,7 +45,7 @@ export interface IPage {
 }
 
 interface ICollectionPaths {
-  items: { slug: string; }[];
+  items: { slug: string }[];
 }
 
 interface ICollectionSitemapData {
@@ -36,7 +53,7 @@ interface ICollectionSitemapData {
     slug: string;
     sys: {
       publishedAt: Date;
-    }
+    };
   }[];
 }
 
@@ -61,9 +78,9 @@ export interface IPageContent {
   sys: SysIdType;
 }
 
-type HeroType = 'Landing' | 'Topic';
+type HeroType = "Landing" | "Topic";
 export interface IHero extends IPageContent {
-  __typename: 'Hero';
+  __typename: "Hero";
   type: HeroType;
   sys: SysIdType;
   image: IAsset;
@@ -85,24 +102,24 @@ export interface ITeasersCollection {
   items: ITeaser[];
 }
 
-export type TeaserType = 'Kompetenz' | 'Referenz' | 'Der fliegende Teppich';
+export type TeaserType = "Kompetenz" | "Referenz" | "Der fliegende Teppich";
 
 export interface ITeaser {
   sys: SysIdType;
-  __typename: 'Teaser';
+  __typename: "Teaser";
   slug: string;
   type: TeaserType;
   title: string;
   subtitle: string;
   excerpt: string;
-  text: Pick<IText, 'richText'> | null;
+  text: Pick<IText, "richText"> | null;
   link: ILink | null;
   image: IAsset;
 }
 
 export interface IText {
   sys: SysIdType;
-  __typename: 'Text';
+  __typename: "Text";
   name: string;
   excerpt: string;
   leadText: string;
@@ -121,7 +138,7 @@ export interface ILink {
 
 export interface IRugItem {
   sys: SysIdType;
-  __typename: 'Rug';
+  __typename: "Rug";
   slug: string;
   name: string;
   featuredImage: IAsset;
@@ -144,7 +161,18 @@ export type TGeolocation = {
   lon: number;
 };
 
-export type TColorTypes = 'Red' | 'Orange' | 'Yellow' | 'Brown' | 'Green' | 'Blue' | 'Purple' | 'Pink' | 'Black' | 'Gray' | 'White';
+export type TColorTypes =
+  | "Red"
+  | "Orange"
+  | "Yellow"
+  | "Brown"
+  | "Green"
+  | "Blue"
+  | "Purple"
+  | "Pink"
+  | "Black"
+  | "Gray"
+  | "White";
 
 export interface IOrgin {
   name: string;
@@ -159,11 +187,11 @@ export interface IRug {
   description: any;
   name: string;
   type: string;
-  origin: IOrgin,
+  origin: IOrgin;
   country: {
     name: string;
     geolocation: TGeolocation;
-  }
+  };
   length: number;
   width: number;
   dating: string;
@@ -174,7 +202,7 @@ export interface IRug {
   ogImage: IAsset;
   galleryCollection: {
     items: IAsset[];
-  }
+  };
   colors: TColorTypes[];
   palette: Record<string, string>;
 }
@@ -195,11 +223,11 @@ export interface INavigationItem {
   externalUrl: string;
 }
 
-export type BackgroundTypes = 'none' | 'light' | 'dark';
+export type BackgroundTypes = "none" | "light" | "dark";
 
 export interface IGallery {
   sys: SysIdType;
-  __typename: 'Gallery';
+  __typename: "Gallery";
   background: BackgroundTypes;
   itemsCollection: {
     items: IRugItem[];
@@ -208,16 +236,17 @@ export interface IGallery {
 
 export interface IFeatures {
   sys: SysIdType;
-  __typename: 'Features';
+  __typename: "Features";
   background: BackgroundTypes;
+  columns?: 2 | 3;
   sectionsCollection: {
     items: IText[] | IFeature[];
-  }
+  };
 }
 
 export interface IFeature {
   sys: SysIdType;
-  __typename: 'Feature';
+  __typename: "Feature";
   media: IAsset;
   title: string;
   text: string;
@@ -227,18 +256,18 @@ export interface IFeature {
 }
 
 export interface IGrid {
-  __typename: 'Grid'
+  __typename: "Grid";
   sys: SysIdType;
   background: BackgroundTypes;
   layout: string;
   columnsCollection: {
     items: IGridCol[];
-  }
+  };
 }
 
 export interface IGridCol {
   sys: SysIdType;
-  __typename: 'Refernce' | 'Text';
+  __typename: "Refernce" | "Text";
   reference: IText;
   media: IAsset;
 }
@@ -249,16 +278,16 @@ export interface IModal {
   isOpen: boolean;
 }
 
-export type TFlyingCarpetTemplates = '4-1';
-export type TFlyingCarpetBgColors = 'blue' | 'red';
+export type TFlyingCarpetTemplates = "4-1";
+export type TFlyingCarpetBgColors = "blue" | "red";
 
 export interface IFlyingCarpet {
   sys: SysIdType;
-  __typename: 'FlyingCarpet'
+  __typename: "FlyingCarpet";
   link: {
-    __TypeName: 'Rug';
+    __TypeName: "Rug";
     slug: string;
-  },
+  };
   template: TFlyingCarpetTemplates;
   backgroundColor: TFlyingCarpetBgColors;
   text: {
@@ -271,17 +300,15 @@ export interface IFlyingCarpet {
 
 export interface ISitemapEntry {
   url: string;
-  lastModified: string | Date
-  changefreq: 'daily' | 'weekly' | 'monthly';
+  lastModified: string | Date;
+  changefreq: "daily" | "weekly" | "monthly";
   priority: number;
 }
 
-
-
 export interface ISlider extends IPageContent {
-  __typename: 'Slider';
+  __typename: "Slider";
   sys: SysIdType;
   galleryCollection: {
     items: IAsset[];
-  }
+  };
 }
