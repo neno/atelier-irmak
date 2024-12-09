@@ -26,7 +26,7 @@ export const Features: FC<FeaturesProps> = ({
     <Container className={clsxm("py-8 sm:py-16")}>
       <div
         className={clsxm(
-          "grid mx-auto md:max-w-4xl lg:max-w-full gap-4 lg:gap-8 xl:gap-12 2xl:gap-16",
+          "grid mx-auto md:max-w-4xl lg:max-w-full gap-4 lg:gap-8 xl:gap-12 2xl:gap-16 xl:grid-cols-3",
           `xl:grid-cols-${columns ?? 3}`
         )}
       >
