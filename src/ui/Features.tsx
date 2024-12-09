@@ -16,8 +16,6 @@ export const Features: FC<FeaturesProps> = ({
   background = "none",
   columns,
 }) => {
-  console.log("columns", columns);
-
   const gridCols = columns === 2 ? "xl:grid-cols-2" : "xl:grid-cols-3";
   return (
     <div
