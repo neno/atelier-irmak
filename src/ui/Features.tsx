@@ -11,12 +11,13 @@ interface FeaturesProps {
   background?: BackgroundTypes;
   columns?: number;
 }
+
 export const Features: FC<FeaturesProps> = ({
   items,
   background = "none",
   columns,
 }) => {
-  const gridCols = `xl:grid-cols-${columns ?? 3}`;
+  const gridCols = 'xl:grind-cols-3';
   return (
     <div
       className={clsxm("features", {
@@ -29,7 +30,9 @@ export const Features: FC<FeaturesProps> = ({
         <div
           className={clsxm(
             "grid mx-auto md:max-w-4xl lg:max-w-full gap-4 lg:gap-8 xl:gap-12 2xl:gap-16",
-            gridCols
+            {'xl:grid-cols-3': columns === 3 || columns === undefined },
+            {'xl:grid-cols-2': columns === 2 },
+            {'xl:grid-cols-4': columns === 4 },
           )}
         >
           {items.map((item) => (
