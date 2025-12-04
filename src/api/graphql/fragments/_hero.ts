@@ -8,6 +8,8 @@ export const heroFragment = `
     image {
       ${imageFragment(2000)}
     }
+    cloudinaryImage
+    focalPoint
     sliderCollection {
       items {
         ${imageFragment(2000)}
