@@ -1,4 +1,4 @@
-@import url('https://use.typekit.net/cnq3ltd.css');
+@import url("https://use.typekit.net/cnq3ltd.css");
 
 @tailwind base;
 @tailwind components;
@@ -37,27 +37,36 @@ h3 {
   @apply text-xl;
 }
 
-/* figcaption {
-  @apply text-lg font-title font-extralight;
-} */
-
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply font-title font-extralight;
+.richText > * + * {
+  @apply mt-8;
 }
 
-h2 {
-  @apply text-4xl lg:text-5xl mb-8 leading-tight;
+.richText h1 {
+  @apply mb-8;
 }
 
-h3 {
-  @apply text-3xl lg:text-4xl mb-4 leading-tight;
-}
-
-p {
+.richText h2,
+.richText h3 {
   @apply mb-4;
-} */
+}
+
+.richText ul {
+  @apply list-square;
+  @apply list-inside;
+}
+
+.richText ul li + li {
+  @apply mt-2;
+}
+
+.richText ul li::marker {
+  @apply text-primary;
+}
+
+.richText ul p {
+  display: inline;
+}
+
+.richText p:empty {
+  display: none;
+}
