@@ -103,21 +103,21 @@ export function generateProductStructuredData(
   };
 }
 
-export function getGridColClasses(layout: string): string[] {
-  const cols = layout.split("-").map(Number);
+// export function getGridColClasses(layout: string): string[] {
+//   const cols = layout.split("-").map(Number);
 
-  let currentStart = 1;
-  const result = cols.map((colWidth) => {
-    const start = currentStart;
-    const end = currentStart + colWidth;
-    currentStart = end; // Next column starts where this one ends
-    return { start, end };
-  });
+//   let currentStart = 1;
+//   const result = cols.map((colWidth) => {
+//     const start = currentStart;
+//     const end = currentStart + colWidth;
+//     currentStart = end; // Next column starts where this one ends
+//     return { start, end };
+//   });
 
-  // Generate the CSS class strings
-  const colClasses = result.map(
-    ({ start, end }) => `col-start-${start} col-end-${end}`
-  );
+//   // Generate the CSS class strings
+//   const colClasses = result.map(
+//     ({ start, end }) => `col-start-${start} col-end-${end}`
+//   );
 
-  return colClasses;
-}
+//   return colClasses;
+// }
