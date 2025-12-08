@@ -78,17 +78,57 @@ export interface IPageContent {
   sys: SysIdType;
 }
 
-type HeroType = "Landing" | "Topic";
+export type HeroType = "Landing" | "Topic";
 export interface IHero extends IPageContent {
   __typename: "Hero";
   type: HeroType;
   sys: SysIdType;
   image: IAsset;
+  cloudinaryImage?: CloudinaryImage[];
+  focalPoint?: {
+    x: number;
+    y: number;
+  };
   title: string;
   sliderCollection: {
     items: IAsset[];
   };
 }
+  
+export type CloudinaryImage = {
+  url: string;
+  tags: string[];
+  type: string;
+  bytes: number;
+  width: number;
+  format: string;
+  height: number;
+  version: number;
+  duration: number | null;
+  metadata: Record<string, any>;
+  public_id: string;
+  created_at: string;
+  secure_url: string;
+  original_url: string;
+  resource_type: string;
+  raw_transformation: string;
+  original_secure_url: string;
+  original_transformed_url: string;
+};
+
+export type HeroProps = {
+  title: string;
+  link?: ILink;
+  image: IAsset;
+  cloudinaryImage?: CloudinaryImage[];
+  focalPoint?: {
+    x: number;
+    y: number;
+  };
+  sliderCollection?: {
+    items: IAsset[];
+  };
+};
 
 export interface IAsset {
   url: string;

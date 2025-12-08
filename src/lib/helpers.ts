@@ -1,8 +1,7 @@
-import i18n from '@/data/i18n.json';
-import {Metadata} from "next";
-import {IMetadata, IOrgin, ISitemapEntry} from "@/schema/types";
-import { Product, WithContext, PropertyValue } from 'schema-dts';
-
+import i18n from "@/data/i18n.json";
+import { Metadata } from "next";
+import { IMetadata, IOrgin, ISitemapEntry } from "@/schema/types";
+import { Product, WithContext, PropertyValue } from "schema-dts";
 
 export const imageWidth = (
   sliderHeight: number,
@@ -14,7 +13,7 @@ export const imageWidth = (
 
 export function t(key: string): string {
   const translation = (i18n as Record<string, string>)[key];
-  return translation ?? '';
+  return translation ?? "";
 }
 
 export function truncate(str: string, length = 110) {
@@ -22,7 +21,13 @@ export function truncate(str: string, length = 110) {
   return `${truncated}...`;
 }
 
-export function createMetadata ({ title, description, slug, metadataBase, ogImage} : IMetadata) : Metadata {
+export function createMetadata({
+  title,
+  description,
+  slug,
+  metadataBase,
+  ogImage,
+}: IMetadata): Metadata {
   return {
     title: `${title} | ${process.env.SITE_NAME}`,
     description: description,
@@ -39,11 +44,15 @@ export function createMetadata ({ title, description, slug, metadataBase, ogImag
       ],
     },
     metadataBase: metadataBase,
-  }
+  };
 }
 
-export function createSitemapEntry(url: string, lastModified: string | Date, priority = 0.5, changefreq: 'daily' | 'weekly' | 'monthly' = 'daily') : ISitemapEntry {
-
+export function createSitemapEntry(
+  url: string,
+  lastModified: string | Date,
+  priority = 0.5,
+  changefreq: "daily" | "weekly" | "monthly" = "daily"
+): ISitemapEntry {
   return {
     url,
     lastModified,
@@ -52,10 +61,12 @@ export function createSitemapEntry(url: string, lastModified: string | Date, pri
   };
 }
 
-export function exhibitLocation(location: string, room: string, placing: string | null) : string {
-  return [location, room, placing]
-  .filter((item) => !!item)
-  .join(', ');
+export function exhibitLocation(
+  location: string,
+  room: string,
+  placing: string | null
+): string {
+  return [location, room, placing].filter((item) => !!item).join(", ");
 }
 
 export function generateProductStructuredData(
@@ -67,27 +78,46 @@ export function generateProductStructuredData(
   dating: string
 ): WithContext<Product> {
   return {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
+    "@context": "https://schema.org",
+    "@type": "Product",
     name: title,
     image: image,
     description: name,
     additionalProperty: [
       {
-        '@type': 'PropertyValue',
-        name: 'Origin',
-        value: origin.name
+        "@type": "PropertyValue",
+        name: "Origin",
+        value: origin.name,
       } as PropertyValue,
       {
-        '@type': 'PropertyValue',
-        name: 'Size',
-        value: size
+        "@type": "PropertyValue",
+        name: "Size",
+        value: size,
       } as PropertyValue,
       {
-        '@type': 'PropertyValue',
-        name: 'Dating',
-        value: dating
-      } as PropertyValue
-    ]
+        "@type": "PropertyValue",
+        name: "Dating",
+        value: dating,
+      } as PropertyValue,
+    ],
   };
+}
+
+export function getGridColClasses(layout: string): string[] {
+  const cols = layout.split("-").map(Number);
+
+  let currentStart = 1;
+  const result = cols.map((colWidth) => {
+    const start = currentStart;
+    const end = currentStart + colWidth;
+    currentStart = end; // Next column starts where this one ends
+    return { start, end };
+  });
+
+  // Generate the CSS class strings
+  const colClasses = result.map(
+    ({ start, end }) => `col-start-${start} col-end-${end}`
+  );
+
+  return colClasses;
 }

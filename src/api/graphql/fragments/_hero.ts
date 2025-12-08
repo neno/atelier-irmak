@@ -1,4 +1,4 @@
-import { imageFragment } from './_image';
+import { imageFragment } from "./_image";
 
 export const heroFragment = `
   ... on Hero {
@@ -9,7 +9,7 @@ export const heroFragment = `
       ${imageFragment(2000)}
     }
     cloudinaryImage
-    focalPoint
+    gravity
     sliderCollection {
       items {
         ${imageFragment(2000)}

@@ -1,16 +1,14 @@
-import { FC } from 'react';
-import { IHero } from '@/schema/types';
-import { LandingPageHero } from './components/landing-page-hero/LandingPageHero';
-import { TopicPageHero } from './components/topic-page-hero/TopicPageHero';
+import { FC } from "react";
+import { HeroProps, HeroType } from "@/schema/types";
+import { LandingPageHero } from "./components/landing-page-hero/LandingPageHero";
+import { TopicPageHero } from "./components/topic-page-hero/TopicPageHero";
 
-export const Hero: FC<IHero> = ({ type, image, title, sliderCollection }) => {
-  if (type === 'Landing') {
-    return <LandingPageHero title={title} image={image} sliderCollection={sliderCollection}  />;
+export const Hero: FC<{ type: HeroType } & HeroProps> = (props) => {
+  if (props.type === "Landing") {
+    return <LandingPageHero {...props} />;
   }
 
-  if (type === 'Topic') {
-    return <TopicPageHero title={title} image={image} />;
+  if (props.type === "Topic") {
+    return <TopicPageHero {...props} />;
   }
-
-  throw new Error(`Hero type ${type} not found`);
 };
