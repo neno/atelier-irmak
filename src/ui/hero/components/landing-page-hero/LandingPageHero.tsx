@@ -8,28 +8,23 @@ import {
 } from "@/ui/CloudinaryImage";
 import { Container } from "@/ui/Container";
 import { HeroSlider } from "../hero-slider/Slider";
+import Link from "next/link";
 
 const isImageHero = (props: HeroProps) => {
-  console.log("isImageHero", !!props.image && !props.cloudinaryImage);
   return !!props.image && !props.cloudinaryImage;
 };
 
 const isSliderHero = (props: HeroProps) => {
-  console.log(
-    "isSliderHero",
-    !!props.sliderCollection && !!props.sliderCollection?.items.length
-  );
   return !!props.sliderCollection && !!props.sliderCollection?.items.length;
 };
 
 const isCloudinaryImageHero = (props: HeroProps) => {
-  console.log("isCloudinaryImageHero", props);
   return props.cloudinaryImage !== undefined;
 };
 
 const LandingPageHeroContainer: FC<
-  PropsWithChildren<Pick<HeroProps, "title">>
-> = ({ children, title }) => {
+  PropsWithChildren<Pick<HeroProps, "title" | "linkToPage">>
+> = ({ children, title, linkToPage }) => {
   return (
     <Container
       className={clsxm(
@@ -47,7 +42,16 @@ const LandingPageHeroContainer: FC<
             "overflow-hidden text-white text-center text-xl lg:text-left lg:text-3xl font-title leading-relaxed lg:leading-tight"
           )}
         >
-          {title}
+          {linkToPage ? (
+            <Link
+              href={linkToPage.slug}
+              className="text-white underline hover:text-slate-300 decoration-2 underline-offset-4"
+            >
+              {title}
+            </Link>
+          ) : (
+            <span>{title}</span>
+          )}
         </h1>
       </div>
     </Container>
@@ -74,14 +78,14 @@ export const LandingPageHero: FC<HeroProps> = (props) => {
   const { title, cloudinaryImage, sliderCollection } = props;
   if (isImageHero(props)) {
     return (
-      <LandingPageHeroContainer title={title}>
+      <LandingPageHeroContainer title={title} linkToPage={props.linkToPage}>
         <ImageHero {...props} />
       </LandingPageHeroContainer>
     );
   }
   if (isSliderHero(props)) {
     return (
-      <LandingPageHeroContainer title={title}>
+      <LandingPageHeroContainer title={title} linkToPage={props.linkToPage}>
         {sliderCollection && <HeroSlider items={sliderCollection.items} />}
       </LandingPageHeroContainer>
     );
@@ -92,7 +96,7 @@ export const LandingPageHero: FC<HeroProps> = (props) => {
       return null;
     }
     return (
-      <LandingPageHeroContainer title={title}>
+      <LandingPageHeroContainer title={title} linkToPage={props.linkToPage}>
         <CloudinaryImage
           url={cldImage.url}
           publicId={cldImage.public_id}

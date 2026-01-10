@@ -94,7 +94,7 @@ export interface IHero extends IPageContent {
     items: IAsset[];
   };
 }
-  
+
 export type CloudinaryImage = {
   url: string;
   tags: string[];
@@ -119,6 +119,10 @@ export type CloudinaryImage = {
 export type HeroProps = {
   title: string;
   link?: ILink;
+  linkToPage?: {
+    title: string;
+    slug: string;
+  };
   image: IAsset;
   cloudinaryImage?: CloudinaryImage[];
   focalPoint?: {

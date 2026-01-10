@@ -15,5 +15,9 @@ export const heroFragment = `
         ${imageFragment(2000)}
       }
     }
+    linkToPage {
+      title
+      slug
+    }
   }
 `;

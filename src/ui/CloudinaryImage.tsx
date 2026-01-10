@@ -35,7 +35,6 @@ export const CloudinaryImage: FC<CloudinaryImageProps> = ({
     "crop:fill",
     "focalpoint:x:0.5,y:0.5",
   ];
-  console.log("size of image", publicId, width, height);
 
   return (
     <CldImage
